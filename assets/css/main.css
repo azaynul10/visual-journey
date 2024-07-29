@@ -2597,6 +2597,20 @@ input, select, textarea {
 				width: 2em;
 				font-size: 1.25em;
 			}
+		.container {
+			    display: flex;
+			    align-items: center;
+			}
+			
+			.image-container img {
+			    height: 200px; /* Adjust the height as needed */
+			    margin-right: 20px; /* Space between image and text */
+			}
+
+.text-container {
+    flex: 1; /* Allow the text to take up the remaining space */
+}
+
 
 		/* Main */
 
