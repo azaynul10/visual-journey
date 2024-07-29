@@ -2101,8 +2101,8 @@ input, select, textarea {
 			position: relative;
 			color: #fff;
 			font-weight: 600;
-			font-size: 1em;
-			line-height: 1em;
+			font-size: 0.25em;
+			line-height: 0.5em;
 		}
 
 		#logo p {
@@ -2453,7 +2453,7 @@ input, select, textarea {
 				}
 
 			#logo {
-				margin: 1em 0.5em 0.5em 0.5em;
+				margin: 1.75em 1.5em 1.5em 1.5em;
 			}
 
 			#nav ul li a {
