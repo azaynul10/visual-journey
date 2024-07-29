@@ -2573,67 +2573,63 @@ input, select, textarea {
 
 /* Mobile */
 
+/* Mobile */
+
 	@media screen and (max-width: 736px) {
 
-		/* Basic */
+	/* Basic */
 
-			body, input, textarea, select {
-				font-size: 14pt;
+		body, input, textarea, select {
+			font-size: 12pt;
+		}
+
+		h2 {
+			font-size: 1.25em;
+			letter-spacing: 0;
+			font-weight: 300;
+		}
+
+		.container {
+			padding: 0 15px;
+		}
+
+	/* List */
+
+		ul.icons a {
+			width: 2em;
+			font-size: 1em;
+		}
+
+	/* Main */
+
+		#main > section {
+			padding: 2em 0;
+		}
+
+		#main section.cover {
+			padding: 4em 0em;
+		}
+
+			#main section.cover header {
+				padding: 0 1em;
 			}
 
-			h2 {
-				font-size: 1.5em;
-				letter-spacing: 0;
-				font-weight: 300;
+	/* Footer */
+
+		#footer .copyright li {
+			display: block;
+			line-height: 1.25em;
+			border: 0;
+			padding: 0;
+			margin: 1em 0 0 0;
+		}
+
+			#footer .copyright li:first-child {
+				margin-top: 0;
 			}
+		p {
+				word-wrap: break-word;
+				white-space: normal;
+			}	
 
-			.container {
-				padding: 0 15px 0 15px;
-				display: flex;
-				align-items: center;
-				}
-			.image-container img {
-				height: 200px; /* Adjust the height as needed */
-				margin-right: 20px; /* Space between image and text */
-				}	
-			.text-container {
-				flex: 1; /* Allow the text to take up the remaining space */
-				}	
-			
-
-		/* List */
-
-			ul.icons a {
-				width: 2em;
-				font-size: 1.25em;
-			}
-
-		/* Main */
-
-			#main > section {
-				padding: 2em 0;
-			}
-
-			#main section.cover {
-				padding: 4em 0em;
-			}
-
-				#main section.cover header {
-					padding: 0 1em;
-				}
-
-		/* Footer */
-
-			#footer .copyright li {
-				display: block;
-				line-height: 1.25em;
-				border: 0;
-				padding: 0;
-				margin: 1em 0 0 0;
-			}
-
-				#footer .copyright li:first-child {
-					margin-top: 0;
-				}
-
-	}
+}
