@@ -28,7 +28,25 @@ footer, header, hgroup, menu, nav, section {
 #main > section.three {
     background-color: #f5fafa;
 }
+#main > section.one {
+    position: relative;
+}
 
+#main > section.one:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#main > section.one .container {
+    position: relative;
+    z-index: 2;
+}
 .project-links {
     margin-top: 1em;
     display: flex;
@@ -40,7 +58,15 @@ footer, header, hgroup, menu, nav, section {
     padding: 0.5em 1em;
     font-size: 0.8em;
 }
+.button.scrolly {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
 
+.button.scrolly:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 .item header p {
     color: #888;
     margin: 0.5em 0;
