@@ -7,105 +7,17 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
-  <!-- Animated Background Container -->
-  <div id="animated-bg"></div>
-
-  <!-- Header -->
-  <div id="header">
-    <!-- ... your header content ... -->
-  </div>
-
-  <!-- Main Content -->
-  <div id="main">
-    <!-- ... your main sections ... -->
-  </div>
-
-  <!-- Footer -->
-  <div id="footer">
-    <!-- ... your footer content ... -->
-  </div>
-
-  <!-- Include particles.js from a CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-  <!-- Initialize particles.js -->
-  <script>
-    particlesJS("animated-bg", {
-      "particles": {
-        "number": {
-          "value": 80,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff"
-        },
-        "shape": {
-          "type": "circle",
-          "stroke": {
-            "width": 0,
-            "color": "#000000"
-          }
-        },
-        "opacity": {
-          "value": 0.5,
-          "random": false
-        },
-        "size": {
-          "value": 3,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "repulse"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-</body>
+    <!-- Animated Background Container -->
+    <div id="animated-bg"></div>
 
     <!-- Header -->
     <div id="header">
       <div class="top">
         <!-- Logo -->
         <div id="logo">
-          <span class="image avatar48"><img src="images/Zayn.png" alt="" /></span>
+          <span class="image avatar48">
+            <img src="images/Zayn.png" alt="" />
+          </span>
           <h1 id="title"><font size="-0.5">Zaynul Abedin Miah</font></h1>
           <p>CS Student</p>
         </div>
@@ -113,11 +25,31 @@
         <!-- Nav -->
         <nav id="nav">
           <ul>
-            <li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-            <li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Highlights</span></a></li>
-            <li><a href="#projects" id="projects-link"><span class="icon solid fa-code">Projects</span></a></li>
-            <li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-            <li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+            <li>
+              <a href="#top" id="top-link">
+                <span class="icon solid fa-home">Intro</span>
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio" id="portfolio-link">
+                <span class="icon solid fa-th">Highlights</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" id="projects-link">
+                <span class="icon solid fa-code">Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="#about" id="about-link">
+                <span class="icon solid fa-user">About Me</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" id="contact-link">
+                <span class="icon solid fa-envelope">Contact</span>
+              </a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -187,11 +119,13 @@
           <div class="row">
             <div class="col-6 col-12-mobile">
               <article class="item">
-                <a href="#" class="image fit"><img src="images/project1.jpg" alt="" /></a>
+                <a href="#" class="image fit">
+                  <img src="images/project1.jpg" alt="" />
+                </a>
                 <header>
                   <h3>AI Learning Buddy</h3>
                   <p>
-                    Discover how to learn anything faster with this AI-powered learning assistant built using Google's Gemini 2.0 Flash. Perfect for students, self-learners, and tech enthusiasts!
+                    Discover how to learn anything faster with this AI-powered learning assistant built using Google's Gemini 2.0 Flash.
                   </p>
                   <div class="project-links">
                     <a href="https://github.com/azaynul10/AI-Learning-Buddy" class="button small">GitHub</a>
@@ -202,11 +136,13 @@
             </div>
             <div class="col-6 col-12-mobile">
               <article class="item">
-                <a href="#" class="image fit"><img src="images/project2.jpg" alt="" /></a>
+                <a href="#" class="image fit">
+                  <img src="images/project2.jpg" alt="" />
+                </a>
                 <header>
                   <h3>Sign Language Detection Using YOLO V11</h3>
                   <p>
-                    Real-time sign language detection system using YOLOv11, trained on custom gesture dataset. Detects and classifies hand gestures for improved communication accessibility.
+                    Real-time sign language detection system using YOLOv11 on a custom gesture dataset.
                   </p>
                   <div class="project-links">
                     <a href="https://github.com/azaynul10/sign-language-detection-yolov11" class="button small">GitHub</a>
@@ -226,59 +162,71 @@
             <h2>Highlights</h2>
           </header>
           <p>
-            My journey from an active participant to a community leader is a testament to my passion and commitment to fostering a vibrant tech community through organizing and speaking at events for Microsoft, Amazon Web Service, Google, and KCDs by CNCF. Stay tuned for more transformative events and join the journey!
+            My journey from an active participant to a community leader is a testament to my passion and commitment to fostering a vibrant tech community.
           </p>
           <div class="row">
             <div class="col-4 col-12-mobile">
               <article class="item">
-                <a href="https://www.youtube.com/watch?v=IhBTttHrY5E&t=2587s" class="image fit"><img src="images/AWS Event.png" alt="" /></a>
+                <a href="https://www.youtube.com/watch?v=IhBTttHrY5E&t=2587s" class="image fit">
+                  <img src="images/AWS Event.png" alt="" />
+                </a>
                 <header>
                   <h3>
-                    My first event as AWS Cloud Club Captain featured Stephen Howell, providing hands-on demonstrations of Amazon Rekognition and Amazon Bedrock. The event's success was evident with 1.3K views on Facebook Live and a growing meetup group of 600+ members.
+                    AWS Cloud Club Captain event featuring live demos of Amazon Rekognition and Amazon Bedrock.
                   </h3>
                 </header>
               </article>
               <article class="item">
-                <a href="https://medium.com/google-developer-experts/nov-ml-community-highlights-and-achievements-03a78e9e1449?fbclid=IwY2xjawHNNvJleHRuA2FlbQIxMAABHWLUUxm_MAp5oALzJm-MGC_Qsf7HitsFoFRtrn3aQux81n2CY6x-1XcseQ_aem_wzuF1xdN1Eit-k4WJibm0w" class="image fit"><img src="images/Beige Black Modern Aesthetic Bestselling Product Highlight Instagram Post.png" alt="Featured for the 3rd time on Google Community Highlights" /></a>
+                <a href="https://medium.com/google-developer-experts/nov-ml-community-highlights-and-achievements-03a78e9e1449" class="image fit">
+                  <img src="images/Beige Black Modern Aesthetic Bestselling Product Highlight Instagram Post.png" alt="Google Community Highlights" />
+                </a>
                 <header>
                   <h3>
-                    From April to November 2024, my journey as Co-Organizer of Machine Learning, AI, Deep Learning & NLP Community - Bangladesh (formerly known as TensorFlow User Group Bangladesh) has been marked by three significant recognitions from Google's ML Community Highlights.
-                  </h3>
-                </header>
-              </article>
-            </div>
-            <div class="col-4 col-12-mobile">
-              <article class="item">
-                <a href="https://devpost.com/software/modelhub" class="image fit"><img src="images/AWS Hackathon.jpg" alt="" /></a>
-                <header>
-                  <h3>
-                    I led a team to victory in the AWS PartyRock Hackathon by creating ModelHub – a platform for sharing pre-trained models in autonomous racing. Our project secured a bonus prize among 8,000 participants.
-                  </h3>
-                </header>
-              </article>
-              <article class="item">
-                <a href="https://youtu.be/GuhnRYZdbXw?si=NZXj_FvEUb65TnsC" class="image fit"><img src="images/Purple White Modern Podcast Instagram Post (1).jpg" alt="" /></a>
-                <header>
-                  <h3>
-                    I led and hosted an exclusive Azure AI workshop featuring Microsoft Technical Trainers Vincent Kok and Kristen Chan. The session attracted over 150 registrations with 39 active participants, showcasing live demos of Azure AI Services and offering certification guidance.
+                    Recognitions as Co-Organizer of Machine Learning, AI, Deep Learning & NLP Community - Bangladesh.
                   </h3>
                 </header>
               </article>
             </div>
             <div class="col-4 col-12-mobile">
               <article class="item">
-                <a href="https://www.youtube.com/watch?v=dmQrfx7wSGk&t=1129s" class="image fit"><img src="images/Google ML Paper Reading Club.png" alt="" /></a>
+                <a href="https://devpost.com/software/modelhub" class="image fit">
+                  <img src="images/AWS Hackathon.jpg" alt="" />
+                </a>
                 <header>
                   <h3>
-                    Another highlight was the ML Paper Reading Club session led by Dr. Aniqua Zereen, focusing on video analytics for elderly fall detection. The session attracted 2.7K views on Facebook in just two days.
+                    Victory at AWS PartyRock Hackathon with ModelHub – sharing pre-trained models in autonomous racing.
                   </h3>
                 </header>
               </article>
               <article class="item">
-                <a href="https://www.youtube.com/watch?v=-6qKYspGdFw&t=6s" class="image fit"><img src="images/Microsoft Certification.png" alt="" /></a>
+                <a href="https://youtu.be/GuhnRYZdbXw?si=NZXj_FvEUb65TnsC" class="image fit">
+                  <img src="images/Purple White Modern Podcast Instagram Post (1).jpg" alt="" />
+                </a>
                 <header>
                   <h3>
-                    I hosted a Microsoft certifications session drawing 546 registrations and 87 live attendees, covering exam preparation strategies and the benefits of the Microsoft Learn Student Ambassador Program.
+                    Exclusive Azure AI workshop hosted with Microsoft Technical Trainers.
+                  </h3>
+                </header>
+              </article>
+            </div>
+            <div class="col-4 col-12-mobile">
+              <article class="item">
+                <a href="https://www.youtube.com/watch?v=dmQrfx7wSGk&t=1129s" class="image fit">
+                  <img src="images/Google ML Paper Reading Club.png" alt="" />
+                </a>
+                <header>
+                  <h3>
+                    ML Paper Reading Club session on elderly fall detection with 2.7K Facebook views.
+                  </h3>
+                </header>
+              </article>
+              <article class="item">
+                <a href="https://www.youtube.com/watch?v=-6qKYspGdFw&t=6s" class="image fit">
+                  <img src="images/Microsoft Certification.png" alt="" />
+                </a>
+                <header>
+                  <h3>
+                    Microsoft certifications session with 546 registrations and 87 live attendees.
                   </h3>
                 </header>
               </article>
@@ -297,7 +245,7 @@
             <img src="images/Zaynul.jpg" alt="" style="height: 500px; margin-right: 20px;" />
             <div class="text-container">
               <p>
-                I have over two years of experience in student organizations. My journey in technology has been both challenging and rewarding, shaping me into a proficient Python programmer and a certified Microsoft Azure AI Fundamentals professional. Additionally, I am the organizer of KCD Chattogram and co-organizer of Machine Learning and the AI, ML Community (sponsored by Microsoft).
+                I have over two years of experience in student organizations. My journey in technology has been both challenging and rewarding, shaping me into a proficient Python programmer and a certified Microsoft Azure AI Fundamentals professional.
               </p>
             </div>
           </div>
@@ -311,7 +259,7 @@
             <h2>Contact</h2>
           </header>
           <p>
-            I regularly write blogs on Dev.to and the AWS community, and I am a moderator and trusted user on Dev.to. My goal is to become an AI engineer, leveraging my skills and experiences to drive innovation and make a positive impact. If you're looking for collaboration or insights into AI, ML, or cloud technologies, feel free to reach out!
+            I regularly write blogs on Dev.to and the AWS community. My goal is to become an AI engineer, leveraging my skills and experiences to drive innovation. If you're looking for collaboration or insights into AI, ML, or cloud technologies, feel free to reach out!
             "Alone we can do so little; together we can do so much." - Helen Keller.
           </p>
           <form method="post" action="https://formspree.io/f/xblrgzvv">
@@ -336,7 +284,6 @@
 
     <!-- Footer -->
     <div id="footer">
-      <!-- Copyright -->
       <ul class="copyright">
         <li>&copy; Zaynul Abedin Miah. All rights reserved.</li>
         <li>Design:</li>
@@ -351,5 +298,76 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+      particlesJS("animated-bg", {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false
+          },
+          "size": {
+            "value": 3,
+            "random": true
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out"
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    </script>
   </body>
 </html>
