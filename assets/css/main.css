@@ -25,6 +25,55 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+#main > section.three {
+    background-color: #f5fafa;
+}
+
+.project-links {
+    margin-top: 1em;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.button.small {
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+}
+
+.item header p {
+    color: #888;
+    margin: 0.5em 0;
+}
+
+.item {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item .image.fit {
+    margin-bottom: 0;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 736px) {
+    .project-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .item header h3 {
+        font-size: 1.2em;
+    }
+}
 body {
 	line-height: 1;
 }
