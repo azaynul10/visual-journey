@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
-    <title>Zaynul Abedin Miah</title>
+    <title>Zaynul Abedin Miah - CS Student & Tech Community Leader</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description" content="Zaynul Abedin Miah - Computer Science student at BRAC University, specializing in AI, ML and DevOps. Microsoft Learn Student Ambassador and AWS Cloud Club Captain." />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
     <!-- Animated Background Container -->
-    <div id="animated-bg"></div>
+    <div id="animated-bg" aria-hidden="true"></div>
 
     <!-- Header -->
     <div id="header">
@@ -16,14 +17,14 @@
         <!-- Logo -->
         <div id="logo">
           <span class="image avatar48">
-            <img src="images/Zayn.png" alt="" />
+            <img src="images/Zayn.png" alt="Zaynul Abedin Miah profile picture" />
           </span>
-          <h1 id="title"><font size="-0.5">Zaynul Abedin Miah</font></h1>
+          <h1 id="title" class="text-md"><font size="-0.5">Zaynul Abedin Miah</font></h1>
           <p>CS Student</p>
         </div>
 
         <!-- Nav -->
-        <nav id="nav">
+        <nav id="nav" aria-label="Main navigation">
           <ul>
             <li>
               <a href="#top" id="top-link">
@@ -58,7 +59,7 @@
         <!-- Social Icons -->
         <ul class="icons">
           <li>
-            <a href="https://twitter.com/azaynul123" class="icon brands fa-twitter">
+            <a href="https://twitter.com/azaynul123" class="icon brands fa-twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">
               <span class="label">Twitter</span>
             </a>
           </li>
@@ -89,7 +90,7 @@
     <!-- Main -->
     <div id="main">
       <!-- Intro -->
-      <section id="top" class="one dark cover">
+      <section id="top" class="one dark cover" aria-labelledby="intro-title">
         <div class="container">
           <header>
             <h2 class="alt">
@@ -265,13 +266,13 @@
           <form method="post" action="https://formspree.io/f/xblrgzvv">
             <div class="row">
               <div class="col-6 col-12-mobile">
-                <input type="text" name="name" placeholder="Name" />
+                <input type="text" name="name" placeholder="Name" required aria-label="Your Name" />
               </div>
               <div class="col-6 col-12-mobile">
-                <input type="text" name="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" required aria-label="Your Email" />
               </div>
               <div class="col-12">
-                <textarea name="message" placeholder="Message"></textarea>
+                <textarea name="message" placeholder="Message" required aria-label="Your Message"></textarea>
               </div>
               <div class="col-12">
                 <input type="submit" value="Send Message" />
