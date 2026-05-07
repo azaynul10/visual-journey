@@ -5,20 +5,20 @@ export default function ProjectsGrid() {
     {
       title: "Transnational AQMS via IoT",
       tech: "Google ADK, PyTorch, C++",
-      link: "https://github.com/azaynul10",
+      link: "https://github.com/azaynul10/adk-breathe-together",
       demo: "https://youtu.be/P8x1D-2WdYw",
       desc: "Designed an IoT-driven Air Quality Monitoring System capable of cross-border data aggregation. Implemented Random Forest predicting AQI levels with 89% accuracy."
     },
     {
       title: "Multimodal Fall Detection",
       tech: "PyTorch, Computer Vision",
-      link: "https://github.com/azaynul10",
+      link: "https://github.com/azaynul10/Privacy-Fall-Detector",
       desc: "Developed a Fall Detection mechanism integrating Vision-Language Models for elderly care, achieving a 99% accuracy on Fall-dataset utilizing Multi-Modal learning architectures."
     },
     {
       title: "IAN: Intelligent Accessibility Navigator",
       tech: "Gemini 2.5 Vision, Cloud Run, TTS",
-      link: "https://github.com/azaynul10",
+      link: "https://github.com/azaynul10/ian-accessibility-agent",
       desc: "Architected a real-time visual-assistance system for the visually impaired utilizing Gemini Vision capabilities, deployed on Google Cloud Run."
     }
   ];

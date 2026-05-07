@@ -12,7 +12,7 @@ export default function OtherRoles() {
     },
     {
       name: "PyTorch",
-      role: "Global Student Ambassador",
+      role: "Ambassador",
       icon: <i className="fab fa-gripfire text-3xl" />,
       color: "text-red-500",
       bg: "bg-red-500/10",
