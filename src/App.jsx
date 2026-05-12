@@ -3,6 +3,7 @@ import BentoGrid from './components/BentoGrid'
 import CommunityNetwork from './components/CommunityNetwork'
 import TestimonialsSection from './components/TestimonialsSection'
 import ProjectsGrid from './components/ProjectsGrid'
+import PartnerDiscounts from './components/PartnerDiscounts'
 import ContactSection from './components/ContactSection'
 import ParticleBackground from './components/ParticleBackground'
 
@@ -67,6 +68,10 @@ function App() {
         
         {/* Additional Sections */}
         <ProjectsGrid />
+        
+        {/* Exclusive Partner Discounts */}
+        <PartnerDiscounts />
+
         <ContactSection />
       </main>
     </div>
