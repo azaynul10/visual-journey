@@ -5,7 +5,7 @@ export default function ContactSection() {
   const [state, handleSubmit] = useForm("xblrgzvv");
 
   return (
-    <section className="mt-16 text-center max-w-2xl mx-auto pb-16">
+    <section id="contact" className="mt-16 text-center max-w-2xl mx-auto pb-16 scroll-mt-24">
       <div className="glass-card p-8 md:p-12 relative overflow-hidden group">
         <h2 className="text-3xl font-bold mb-4 relative z-10">Let's Build the Future</h2>
         <p className="text-gray-400 mb-8 relative z-10">

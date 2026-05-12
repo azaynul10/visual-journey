@@ -35,6 +35,29 @@ To run this project locally on your machine:
     npm run dev
     ```
 
+## 🏆 Industry Recognition & Testimonials
+
+> "Thanks for your visionary leadership, Zaynul Abedin Miah! We are looking forward to following your progress!"
+> <br/> — **Lisa Bagley** | Sr. Program Manager, AWS Developer Experience
+
+> "We are looking forward to finding more leaders like you! Congratulations on your many achievements!"
+> <br/> — **Nayoung Miller Won** | Global PM & Community Educator, AWS
+
+> "Our team felt it was important to recognize your dedicated efforts. I'm pleased to share that your Gemini project was featured in our latest community newsletter... We appreciate your active participation in the AI Community Network."
+> <br/> — **Nari Yoon** | AI Developer Programs, Google
+
+> "It is great to see what look like successful gatherings... Thank you for helping make cloud native ubiquitous."
+> <br/> — **Audra Montenegro** | Community & Outreach Manager, CNCF (Linux Foundation)
+
+> "So great to see the Bangladesh community grow! Their Cloud Native Community Day seemed to be a huge success. Congratulations to Zaynul Abedin Miah and team!"
+> <br/> — **CNCF Community-Led Events**
+
+> "The Gold milestone is earned by a select few students in the program... I truly believe Zaynul has obtained the skills needed to thrive in their next venture and I am eager to see what their future endeavors hold."
+> <br/> — **Pablo Veramendi** | Global Director, Audience Evangelism, Microsoft
+
+> "I had the privilege to be sharing at a session regarding Azure AI services... hosted by Zaynul Abedin Miah, Gold Student Ambassador. I want to have you on my YouTube to inspire others with your story as an MLSA."
+> <br/> — **Vincent Kok (VK)** | Microsoft Technical Trainer in AI
+
 ## 🤝 Contact
 
 Feel free to reach out for collaborations:
