@@ -40,20 +40,25 @@ function App() {
             <span className="text-gray-300">OpenAI Cookbook Contributor</span> <span className="hidden md:inline text-[#446CE3]">|</span> 
             <span className="text-gray-300">CNCF & PyTorch Ambassador.</span>
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 sticky top-20 z-40">
-            <a href="#contact" className="w-full sm:w-auto bg-[#00e5ff] text-black px-6 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(0,229,255,0.4)] text-center min-h-[48px] flex items-center justify-center">
-              Get in Touch
-            </a>
-            <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#006097] transition-colors shadow-[0_0_20px_rgba(0,119,181,0.3)] text-center min-h-[48px] flex items-center justify-center">
-              <i className="fab fa-linkedin mr-2"></i> LinkedIn
-            </a>
-            <a href="https://drive.google.com/file/d/1fm6D7-z8-_LjtDtkGlzkTsMflrjSRVwH/view?usp=sharing" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md text-center min-h-[48px] flex items-center justify-center">
-              <i className="fas fa-file-pdf mr-2"></i> Resume
-            </a>
-            <a href="https://training.linuxfoundation.org/mega-may-2026/" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-purple-500 hover:to-indigo-500 transition-all shadow-[0_0_25px_rgba(147,51,234,0.5)] border border-purple-400/30 text-center min-h-[48px] flex items-center justify-center relative overflow-hidden group">
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <i className="fas fa-certificate mr-2"></i> Linux Foundation 30% Off
-            </a>
+          <div className="flex flex-col gap-2 mt-8 sticky top-20 z-40">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+              <a href="#contact" className="w-full sm:w-auto bg-[#00e5ff] text-black px-6 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(0,229,255,0.4)] text-center min-h-[48px] flex items-center justify-center">
+                Get in Touch
+              </a>
+              <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#006097] transition-colors shadow-[0_0_20px_rgba(0,119,181,0.3)] text-center min-h-[48px] flex items-center justify-center">
+                <i className="fab fa-linkedin mr-2"></i> LinkedIn
+              </a>
+              <a href="https://drive.google.com/file/d/1fm6D7-z8-_LjtDtkGlzkTsMflrjSRVwH/view?usp=sharing" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md text-center min-h-[48px] flex items-center justify-center">
+                <i className="fas fa-file-pdf mr-2"></i> Resume
+              </a>
+              <a href="https://tidd.ly/4sCNu9U" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:from-purple-500 hover:to-indigo-500 transition-all shadow-[0_0_25px_rgba(147,51,234,0.5)] border border-purple-400/30 text-center min-h-[48px] flex items-center justify-center relative overflow-hidden group">
+                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <i className="fas fa-certificate mr-2"></i> Linux Foundation 30% Off
+              </a>
+            </div>
+            <p className="text-sm text-gray-400 mt-2 italic pl-1 drop-shadow-md">
+              *Apply code <strong className="text-purple-400 font-bold">ZAYNUL</strong> when checking out to claim your discount.
+            </p>
           </div>
         </header>
 
