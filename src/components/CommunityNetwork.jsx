@@ -391,7 +391,7 @@ function LeaderCard({ stat }) {
   };
 
   const badges = [
-    { label: 'AWS Diamond Captain', icon: 'fab fa-aws', color: '#FF9900' },
+    { label: 'AWS Community Builder', icon: 'fab fa-aws', color: '#FF9900' },
     { label: 'CNCF Ambassador', icon: 'fas fa-dharmachakra', color: '#446CE3' },
     { label: 'Azure Tech Lead', icon: 'fab fa-microsoft', color: '#00a4ef' },
   ];

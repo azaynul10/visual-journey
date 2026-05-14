@@ -1,66 +1,66 @@
-# Zaynul Abedin Miah | Personal Portfolio
+# Zaynul Abedin Miah — Agentic AI & Cloud Native Portfolio
 
 ![Cosmic Bento Portfolio Demo](assets/portfolio_demo.webp)
 
-A high-performance, responsive, and cinematic personal portfolio built to showcase cloud-native engineering and AI development projects.
+## Purpose
 
-## 🚀 Architecture & Tech Stack
+A high-performance, SEO-optimized personal portfolio showcasing cloud-native engineering, agentic AI projects, and developer community leadership across Bangladesh. Built with a "Cosmic Bento" aesthetic featuring deep space-black glassmorphic cards, multi-layer parallax starfields, and holographic micro-animations.
 
-This portfolio is built for speed and aesthetics, utilizing a modern web stack:
+## Tech Stack
 
-*   **Framework:** React 19 + Vite
-*   **Styling:** Tailwind CSS v4
-*   **Icons:** FontAwesome 6 & Lucide-React
-*   **Hosting:** Vercel (CI/CD Pipeline)
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | React 19 + Vite 8 |
+| **Styling** | Tailwind CSS v4 |
+| **Routing** | React Router DOM v7 |
+| **Icons** | FontAwesome 6 & Lucide-React |
+| **Forms** | Formspree |
+| **Hosting** | Vercel (CI/CD Pipeline) |
 
-## 🌌 "Cosmic Bento" Aesthetic Features
+## SEO Features
 
-*   **Vibe Coding Aesthetics:** Deep `#050510` space-black backgrounds with glassmorphic cards (frosted glass, semi-transparent backgrounds).
-*   **Multi-Layer Parallax Starfield:** Hardware-accelerated `<canvas>` background featuring 3 layers of drifting, twinkling stars.
-*   **Nebula Shift Gradients:** Slow-breathing, deep-color background nebulas synced to the site's rhythm.
-*   **Pulsing Sync:** Interactive card borders and a "System Status" indicator pulse in harmony with the background shifts.
-*   **Cinematic Digital Noise:** A low-opacity fractal noise SVG overlay mimics a high-end engineering terminal.
+- **Structured Data**: JSON-LD `ProfilePage` + `Person` schema for Google rich results
+- **Meta Tags**: Open Graph (Facebook/LinkedIn), Twitter/X card metadata
+- **Sitemap**: Static `sitemap.xml` with all 7 pages
+- **Robots**: `robots.txt` with sitemap reference
+- **Canonical URLs**: Per-page canonical tags via `SEOHead` component
+- **Multi-Page Architecture**: Dedicated SEO-optimized pages for each project, community chapter, and workshop
 
-## 🛠️ Local Development
+## Featured Projects
 
-To run this project locally on your machine:
+| Project | Tech | Page |
+|---------|------|------|
+| **Kube-AutoFix** | OpenAI, Kubernetes, MLflow, Databricks | [/projects/kube-autofix](/projects/kube-autofix-autonomous-kubernetes-sre-agent) |
+| **Transnational AQMS** | Google ADK, PyTorch, IoT | [/projects/air-quality](/projects/transnational-air-quality-ai-agent) |
+| **IAN Accessibility** | Gemini Vision, Cloud Run, TTS | [/projects/ian](/projects/intelligent-accessibility-navigator) |
+| **MLflow Observability** | MLflow, Databricks, Python | [/projects/mlflow](/projects/mlflow-agent-observability-databricks) |
 
-1.  **Clone the repository**
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-3.  **Start the development server:**
-    ```bash
-    npm run dev
-    ```
+## Local Development
 
-## 🏆 Industry Recognition & Testimonials
+```bash
+# Clone
+git clone https://github.com/azaynul10/visual-journey.git
+cd visual-journey
 
-> "Thanks for your visionary leadership, Zaynul Abedin Miah! We are looking forward to following your progress!"
-> <br/> — **Lisa Bagley** | Sr. Program Manager, AWS Developer Experience
+# Install
+npm install
 
-> "We are looking forward to finding more leaders like you! Congratulations on your many achievements!"
-> <br/> — **Nayoung Miller Won** | Global PM & Community Educator, AWS
+# Dev server
+npm run dev
 
-> "Our team felt it was important to recognize your dedicated efforts. I'm pleased to share that your Gemini project was featured in our latest community newsletter... We appreciate your active participation in the AI Community Network."
-> <br/> — **Nari Yoon** | AI Developer Programs, Google
+# Production build
+npm run build
+```
 
-> "It is great to see what look like successful gatherings... Thank you for helping make cloud native ubiquitous."
-> <br/> — **Audra Montenegro** | Community & Outreach Manager, CNCF (Linux Foundation)
+## Deployment
 
-> "So great to see the Bangladesh community grow! Their Cloud Native Community Day seemed to be a huge success. Congratulations to Zaynul Abedin Miah and team!"
-> <br/> — **CNCF Community-Led Events**
+This site deploys automatically to **Vercel** on push to `main`. The `vercel.json` includes SPA rewrite rules for client-side routing.
 
-> "The Gold milestone is earned by a select few students in the program... I truly believe Zaynul has obtained the skills needed to thrive in their next venture and I am eager to see what their future endeavors hold."
-> <br/> — **Pablo Veramendi** | Global Director, Audience Evangelism, Microsoft
-
-> "I had the privilege to be sharing at a session regarding Azure AI services... hosted by Zaynul Abedin Miah, Gold Student Ambassador. I want to have you on my YouTube to inspire others with your story as an MLSA."
-> <br/> — **Vincent Kok (VK)** | Microsoft Technical Trainer in AI
+**Recommended GitHub Topics:**
+`portfolio` `developer-portfolio` `react` `vite` `tailwindcss` `cloud-native` `agentic-ai` `personal-branding`
 
 ## 🤝 Contact
 
-Feel free to reach out for collaborations:
 - Email: [zaynulabedinmiah10@gmail.com](mailto:zaynulabedinmiah10@gmail.com)
 - LinkedIn: [zaynul-abedin-miah](https://www.linkedin.com/in/zaynul-abedin-miah/)
 - GitHub: [@azaynul10](https://github.com/azaynul10)

@@ -55,7 +55,7 @@ export default function PartnerDiscounts() {
             </h3>
           </div>
           <p className="text-gray-300 text-lg leading-relaxed">
-            The opportunity to level up has never been more accessible. For a highly limited time, automatically score up to <strong className="text-white text-xl">65% off</strong> world-class Linux Foundation certifications and bundles. No code is needed during these exact dates—just instant, massive savings to kickstart your career.
+            The opportunity to level up has never been more accessible. For a highly limited time, automatically score up to <strong className="text-white text-xl">65% off</strong> industry-recognized Linux Foundation certifications and bundles. No code is needed during these exact dates—just instant, massive savings to kickstart your career.
           </p>
         </div>
 

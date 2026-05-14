@@ -4,7 +4,7 @@ export default function CardLeadership() {
   const roles = [
     {
       title: "CNCF Ambassador",
-      subtitle: "Thought Leader & Mentor",
+      subtitle: "Community Organizer",
       color: "text-blue-400",
       bg: "bg-blue-400/10",
       border: "border-blue-400/20",
@@ -12,7 +12,7 @@ export default function CardLeadership() {
     },
     {
       title: "PyTorch Ambassador",
-      subtitle: "Certified Expert & Mentor",
+      subtitle: "AI/ML Community Contributor",
       color: "text-red-500",
       bg: "bg-red-500/10",
       border: "border-red-500/20",
@@ -20,7 +20,7 @@ export default function CardLeadership() {
     },
     {
       title: "AWS Community Builder",
-      subtitle: "Diamond Tier Captain",
+      subtitle: "Student Community Lead",
       color: "text-orange-400",
       bg: "bg-orange-400/10",
       border: "border-orange-400/20",
@@ -33,7 +33,7 @@ export default function CardLeadership() {
       className="glass-card glow-blue p-6 lg:p-8 cursor-pointer"
       onClick={() => window.open('https://www.linkedin.com/in/zaynul-abedin-miah/', '_blank')}
     >
-      <h2 className="text-xl md:text-2xl font-bold mb-8">Global Ecosystem Leadership</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-8">Community & Open Source Involvement</h2>
       <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
         {roles.map((role, i) => (
           <div key={i} className="flex flex-col items-center text-center group">
