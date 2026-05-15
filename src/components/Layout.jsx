@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ParticleBackground from './ParticleBackground';
+import Icon from './Icon';
 
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/projects/kube-autofix-autonomous-kubernetes-sre-agent', label: 'Kube-AutoFix' },
   { to: '/community/bangladesh-ai-cloud-native-developer-community', label: 'Community' },
-  { to: '/speaking/ai-cloud-native-workshops', label: 'Workshops' },
+  { to: '/speaking/ai-cloud-native-workshops', label: 'Sessions' },
 ];
 
 export default function Layout({ children }) {
@@ -24,7 +25,7 @@ export default function Layout({ children }) {
       {/* Top Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#050510]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link to="/" className="text-sm font-bold text-white tracking-tight hover:text-[#00e5ff] transition-colors">
+          <Link to="/" className="text-sm font-bold text-white tracking-tight hover:text-[#00e5ff] transition-colors" aria-label="Home">
             ZAM<span className="text-[#446CE3]">.</span>
           </Link>
 
@@ -34,7 +35,7 @@ export default function Layout({ children }) {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all min-h-[44px] flex items-center ${
                   location.pathname === link.to
                     ? 'bg-white/10 text-white'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -48,10 +49,10 @@ export default function Layout({ children }) {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-gray-400 hover:text-white p-2"
-            aria-label="Toggle navigation"
+            className="md:hidden text-gray-400 hover:text-white p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
           >
-            <i className={`fas ${mobileOpen ? 'fa-times' : 'fa-bars'}`}></i>
+            <Icon name={mobileOpen ? 'times' : 'bars'} className="text-lg" />
           </button>
         </div>
 
@@ -63,7 +64,7 @@ export default function Layout({ children }) {
                 key={link.to}
                 to={link.to}
                 onClick={() => setMobileOpen(false)}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all min-h-[44px] flex items-center ${
                   location.pathname === link.to
                     ? 'bg-white/10 text-white'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -81,15 +82,15 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      {/* Footer with Linux Foundation discount */}
+      {/* Footer */}
       <footer className="relative z-10 border-t border-white/5 bg-[#050510]/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Branding */}
             <div>
               <h3 className="font-bold text-white mb-2">Zaynul Abedin Miah</h3>
-              <p className="text-xs text-gray-500">Agentic AI & Cloud Native Platform Engineer</p>
-              <p className="text-xs text-gray-500 mt-1">BRAC University '27</p>
+              <p className="text-xs text-gray-400">CS Student Building AI & Cloud-Native Tools</p>
+              <p className="text-xs text-gray-400 mt-1">BRAC University '27</p>
             </div>
 
             {/* Quick Links */}
@@ -97,7 +98,7 @@ export default function Layout({ children }) {
               <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-3">Pages</h4>
               <div className="flex flex-col gap-1.5">
                 {navLinks.map((link) => (
-                  <Link key={link.to} to={link.to} className="text-xs text-gray-500 hover:text-white transition-colors">
+                  <Link key={link.to} to={link.to} className="text-xs text-gray-400 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 ))}
@@ -107,7 +108,7 @@ export default function Layout({ children }) {
             {/* Linux Foundation Discount */}
             <div className="bg-gradient-to-br from-purple-900/30 to-indigo-900/20 border border-purple-500/20 rounded-xl p-5">
               <div className="flex items-center gap-2 mb-2">
-                <i className="fas fa-certificate text-purple-400 text-sm"></i>
+                <Icon name="certificate" className="text-sm text-purple-400" />
                 <h4 className="text-xs font-mono uppercase tracking-widest text-purple-400">Partner Discount</h4>
               </div>
               <p className="text-xs text-gray-400 leading-relaxed mb-3">
@@ -117,21 +118,25 @@ export default function Layout({ children }) {
                 href="https://tidd.ly/4sCNu9U"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-medium text-purple-300 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-medium text-purple-300 hover:text-white transition-colors min-h-[44px]"
+                aria-label="Browse Linux Foundation certifications with discount code ZAYNUL"
               >
-                Browse Certifications <i className="fas fa-arrow-right text-[10px]"></i>
+                Browse Certifications <Icon name="arrow-right" className="text-[10px]" />
               </a>
             </div>
           </div>
 
           <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[10px] text-gray-600">© {new Date().getFullYear()} Zaynul Abedin Miah. All rights reserved.</p>
+            <div>
+              <p className="text-[10px] text-gray-500">© {new Date().getFullYear()} Zaynul Abedin Miah. All rights reserved.</p>
+              <p className="text-[9px] text-gray-600 mt-1">Trademarks and logos belong to their respective owners and are used only to identify public community affiliations.</p>
+            </div>
             <div className="flex items-center gap-4">
-              <a href="https://github.com/azaynul10" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                <i className="fab fa-github"></i>
+              <a href="https://github.com/azaynul10" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="GitHub profile">
+                <Icon name="github" className="text-lg" />
               </a>
-              <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                <i className="fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="LinkedIn profile">
+                <Icon name="linkedin" className="text-lg" />
               </a>
             </div>
           </div>

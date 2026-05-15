@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
+import Icon from '../components/Icon';
+import BrandBadge from '../components/BrandBadge';
 
 const communityGroups = [
   { name: "The AI, ML & Agentic Community - Bangladesh", members: "21.4K", url: "https://www.facebook.com/groups/mlaidlnlpbd", platform: "facebook" },
@@ -18,12 +20,17 @@ const communityGroups = [
   { name: "Fabric User Community BD", members: "38", url: "https://www.facebook.com/groups/816320010678987", platform: "facebook" },
 ];
 
-const platformIcons = {
-  facebook: 'fab fa-facebook',
-  meetup: 'fab fa-meetup',
-  cncf: 'fas fa-dharmachakra',
-  linkedin: 'fab fa-linkedin',
-};
+const platformIconMap = { facebook: 'facebook', meetup: 'meetup', cncf: 'dharmachakra', linkedin: 'linkedin' };
+
+const roles = [
+  { label: 'CNCF',            subtitle: 'Ambassador',             accent: '#446CE3', ariaLabel: 'CNCF Ambassador affiliation' },
+  { label: 'PyTorch',         subtitle: 'Ambassador',             accent: '#EE4C2C', ariaLabel: 'PyTorch Ambassador affiliation' },
+  { label: 'AWS',             subtitle: 'Community Builder',      accent: '#FF9900', ariaLabel: 'AWS Community Builder affiliation' },
+  { label: 'AWS SBG',         subtitle: 'Student Community Lead', accent: '#FF9900', ariaLabel: 'AWS Student Builder Group Lead affiliation' },
+  { label: 'Google AI',       subtitle: 'Community Co-Organizer', accent: '#34A853', ariaLabel: 'Google AI Community Co-Organizer affiliation' },
+  { label: 'Azure Tech Group BD', subtitle: 'Co-Organizer',      accent: '#00a4ef', ariaLabel: 'Azure Tech Group Bangladesh Co-Organizer' },
+  { label: 'Microsoft Student Ambassadors', subtitle: 'Former Gold', accent: '#737373', ariaLabel: 'Former Microsoft Student Ambassadors Gold Milestone' },
+];
 
 export default function CommunityPage() {
   return (
@@ -34,9 +41,9 @@ export default function CommunityPage() {
         canonicalPath="/community/bangladesh-ai-cloud-native-developer-community"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono">
+        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <span>/</span>
+          <span aria-hidden="true">/</span>
           <span className="text-gray-300">Community</span>
         </nav>
 
@@ -50,7 +57,7 @@ export default function CommunityPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {[
-            { value: '87K+', label: 'Total Network Members' },
+            { value: '87K+', label: 'Aggregated Community Reach' },
             { value: '13+', label: 'Community Chapters' },
             { value: '3', label: 'Cloud Platforms (AWS, Azure, GCP)' },
             { value: 'CNCF', label: 'Ambassador Status' },
@@ -66,27 +73,17 @@ export default function CommunityPage() {
         <section className="mb-12">
           <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-[#446CE3] rounded-full"></span>
-            Leadership Roles
+            Community & Program Involvement
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { title: 'CNCF Ambassador', org: 'Cloud Native Computing Foundation', icon: 'fas fa-dharmachakra', color: '#446CE3' },
-              { title: 'PyTorch Ambassador', org: 'Meta / PyTorch Foundation', icon: 'fab fa-gripfire', color: '#EE4C2C' },
-              { title: 'AWS Community Builder', org: 'Amazon Web Services', icon: 'fab fa-aws', color: '#FF9900' },
-              { title: 'AWS Student Builder Group Leader', org: 'BRAC University', icon: 'fab fa-aws', color: '#FF9900' },
-              { title: 'Microsoft Learn Student Ambassador', org: 'Gold Milestone', icon: 'fab fa-microsoft', color: '#00a4ef' },
-              { title: 'Google AI Community Co-Organizer', org: 'Bangladesh Chapter', icon: 'fab fa-google', color: '#34A853' },
-            ].map((r, i) => (
-              <div key={i} className="glass-card p-4 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: `${r.color}15` }}>
-                  <i className={`${r.icon} text-lg`} style={{ color: r.color }}></i>
-                </div>
-                <div>
-                  <h3 className="font-bold text-sm text-white">{r.title}</h3>
-                  <p className="text-xs text-gray-400">{r.org}</p>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {roles.map((r, i) => (
+              <BrandBadge
+                key={i}
+                label={r.label}
+                subtitle={r.subtitle}
+                accentColor={r.accent}
+                ariaLabel={r.ariaLabel}
+              />
             ))}
           </div>
         </section>
@@ -101,8 +98,9 @@ export default function CommunityPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {communityGroups.map((g, i) => (
                 <a key={i} href={g.url} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                  <i className={`${platformIcons[g.platform] || 'fas fa-users'} text-gray-500 group-hover:text-white transition-colors`}></i>
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group min-h-[44px]"
+                  aria-label={`${g.name} — ${g.members} members`}>
+                  <Icon name={platformIconMap[g.platform] || 'users'} className="text-gray-500 group-hover:text-white transition-colors" />
                   <div className="min-w-0 flex-1">
                     <p className="text-sm text-white truncate">{g.name}</p>
                     <p className="text-xs text-gray-500">{g.members} members</p>
@@ -114,8 +112,8 @@ export default function CommunityPage() {
         </section>
 
         <div className="pt-8 border-t border-white/5">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-            <i className="fas fa-arrow-left text-xs"></i> Back to Portfolio
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors min-h-[44px]">
+            <Icon name="arrow-left" className="text-xs" /> Back to Portfolio
           </Link>
         </div>
       </div>

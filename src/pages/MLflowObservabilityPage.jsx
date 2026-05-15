@@ -1,37 +1,36 @@
 import React from 'react';
 import ProjectPageTemplate from '../components/ProjectPageTemplate';
+import Icon from '../components/Icon';
 
 function MLflowDiagram() {
   const steps = [
-    { icon: 'fa-robot', label: 'Agent Action', desc: 'K8s fix attempt', color: '#446CE3' },
-    { icon: 'fa-arrow-right', label: '', desc: '', color: '' },
-    { icon: 'fa-database', label: 'MLflow Log', desc: 'Params, metrics, artifacts', color: '#FF9900' },
-    { icon: 'fa-arrow-right', label: '', desc: '', color: '' },
-    { icon: 'fa-chart-bar', label: 'Dashboard', desc: 'Compare runs & drift', color: '#a855f7' },
-    { icon: 'fa-arrow-right', label: '', desc: '', color: '' },
-    { icon: 'fa-magnifying-glass-chart', label: 'Analysis', desc: 'Success rate, latency', color: '#22c55e' },
+    { iconName: 'robot', label: 'Agent Action', desc: 'K8s fix attempt', color: '#446CE3' },
+    { iconName: 'database', label: 'MLflow Log', desc: 'Params, metrics, artifacts', color: '#FF9900' },
+    { iconName: 'chart-bar', label: 'Dashboard', desc: 'Compare runs & drift', color: '#a855f7' },
+    { iconName: 'search', label: 'Analysis', desc: 'Success rate, latency', color: '#22c55e' },
   ];
 
   return (
     <div>
       <p className="text-xs text-gray-500 mb-4 font-mono uppercase tracking-widest">Observability Pipeline</p>
       <div className="flex flex-wrap items-center justify-center gap-1">
-        {steps.map((step, i) =>
-          step.label === '' ? (
-            <i key={i} className="fas fa-chevron-right text-white/15 text-xs mx-1"></i>
-          ) : (
-            <div key={i} className="flex flex-col items-center text-center w-28">
+        {steps.map((step, i) => (
+          <React.Fragment key={i}>
+            <div className="flex flex-col items-center text-center w-28">
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 border"
                 style={{ backgroundColor: `${step.color}15`, borderColor: `${step.color}30` }}
               >
-                <i className={`fas ${step.icon} text-lg`} style={{ color: step.color }}></i>
+                <Icon name={step.iconName} className="text-lg" style={{ color: step.color }} />
               </div>
               <span className="text-xs font-bold text-white">{step.label}</span>
               <span className="text-[10px] text-gray-500 leading-tight mt-0.5">{step.desc}</span>
             </div>
-          )
-        )}
+            {i < steps.length - 1 && (
+              <Icon name="chevron-right" className="text-white/15 text-xs mx-1" />
+            )}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );
@@ -75,7 +74,7 @@ export default function MLflowObservabilityPage() {
           content: (
             <div className="text-center py-6">
               <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-chart-line text-2xl text-gray-500"></i>
+                <Icon name="chart-line" className="text-2xl text-gray-500" />
               </div>
               <p className="text-sm text-gray-400">MLflow dashboard screenshots and comparison charts coming soon.</p>
               <p className="text-xs text-gray-500 mt-2">Check the Kube-AutoFix repository for the latest observability code.</p>

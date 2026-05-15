@@ -1,12 +1,13 @@
 import React from 'react';
 import ProjectPageTemplate from '../components/ProjectPageTemplate';
+import Icon from '../components/Icon';
 
 function IANDiagram() {
   const nodes = [
-    { icon: 'fa-camera', label: 'Camera Input', desc: 'Real-time video', color: '#446CE3' },
-    { icon: 'fa-eye', label: 'Gemini Vision', desc: '2.5 Flash analysis', color: '#FF9900' },
-    { icon: 'fa-comment-dots', label: 'Scene Description', desc: 'Natural language', color: '#a855f7' },
-    { icon: 'fa-volume-up', label: 'TTS Output', desc: 'Spoken guidance', color: '#22c55e' },
+    { iconName: 'camera', label: 'Camera Input', desc: 'Real-time video', color: '#446CE3' },
+    { iconName: 'eye', label: 'Gemini Vision', desc: '2.5 Flash analysis', color: '#FF9900' },
+    { iconName: 'comment-dots', label: 'Scene Description', desc: 'Natural language', color: '#a855f7' },
+    { iconName: 'volume-up', label: 'TTS Output', desc: 'Spoken guidance', color: '#22c55e' },
   ];
   return (
     <div>
@@ -17,12 +18,12 @@ function IANDiagram() {
             <div className="flex flex-col items-center text-center w-28">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 border"
                 style={{ backgroundColor: `${n.color}15`, borderColor: `${n.color}30` }}>
-                <i className={`fas ${n.icon} text-lg`} style={{ color: n.color }}></i>
+                <Icon name={n.iconName} className="text-lg" style={{ color: n.color }} />
               </div>
               <span className="text-xs font-bold text-white">{n.label}</span>
               <span className="text-[10px] text-gray-500 mt-0.5">{n.desc}</span>
             </div>
-            {i < nodes.length - 1 && <i className="fas fa-chevron-right text-white/15 text-xs"></i>}
+            {i < nodes.length - 1 && <Icon name="chevron-right" className="text-white/15 text-xs" />}
           </div>
         ))}
       </div>
@@ -49,7 +50,7 @@ export default function IANPage() {
           content: (
             <div className="text-center py-6">
               <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4">
-                <i className="fas fa-universal-access text-2xl text-gray-500"></i>
+                <Icon name="accessibility" className="text-2xl text-gray-500" />
               </div>
               <p className="text-sm text-gray-400">Demo recording and accessibility testing screenshots coming soon.</p>
             </div>

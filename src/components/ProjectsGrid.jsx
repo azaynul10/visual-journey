@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Icon from './Icon';
 
 export default function ProjectsGrid() {
   const projects = [
@@ -34,23 +35,16 @@ export default function ProjectsGrid() {
   ];
 
   return (
-    <section id="projects" className="mt-16">
+    <section id="projects" className="mt-16" aria-labelledby="projects-heading">
       <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-2xl font-bold">Featured Engineering</h2>
+        <h2 id="projects-heading" className="text-2xl font-bold">Featured Engineering</h2>
         <div className="h-px bg-white/10 flex-1"></div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, i) => (
           <div 
             key={i} 
-            className="glass-card p-6 flex flex-col group cursor-pointer hover:border-brand-blue/50"
-            onClick={() => {
-              if (project.internalPath) {
-                window.location.href = project.internalPath;
-              } else {
-                window.open(project.link, '_blank');
-              }
-            }}
+            className="glass-card p-6 flex flex-col group"
           >
             <h3 className="text-xl font-bold mb-2 group-hover:text-brand-blue transition-colors">{project.title}</h3>
             <p className="text-brand-orange text-xs font-mono mb-4">{project.tech}</p>
@@ -61,8 +55,8 @@ export default function ProjectsGrid() {
               {project.internalPath && (
                 <Link
                   to={project.internalPath}
-                  onClick={(e) => e.stopPropagation()}
-                  className="text-sm font-medium text-white bg-[#446CE3]/20 border border-[#446CE3]/30 px-4 py-2 rounded-lg hover:bg-[#446CE3] hover:text-white transition-colors"
+                  className="text-sm font-medium text-white bg-[#446CE3]/20 border border-[#446CE3]/30 px-4 py-2 rounded-lg hover:bg-[#446CE3] hover:text-white transition-colors min-h-[44px] flex items-center"
+                  aria-label={`Read more about ${project.title}`}
                 >
                   Read More
                 </Link>
@@ -71,21 +65,21 @@ export default function ProjectsGrid() {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="text-sm font-medium text-white bg-white/5 px-4 py-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="text-sm font-medium text-white bg-white/5 px-4 py-2 rounded-lg hover:bg-white/10 transition-colors min-h-[44px] flex items-center"
+                aria-label={`View ${project.title} on GitHub`}
               >
                 GitHub
               </a>
               {project.demo && (
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(project.demo, '_blank');
-                  }}
-                  className="text-sm font-medium text-white bg-white/5 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-colors flex items-center gap-2"
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm font-medium text-white bg-white/5 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-colors flex items-center gap-2 min-h-[44px]"
+                  aria-label={`Watch demo video for ${project.title}`}
                 >
-                  <i className="fab fa-youtube"></i> Demo
-                </button>
+                  <Icon name="youtube" /> Demo
+                </a>
               )}
             </div>
           </div>

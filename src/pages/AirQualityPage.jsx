@@ -1,13 +1,14 @@
 import React from 'react';
 import ProjectPageTemplate from '../components/ProjectPageTemplate';
+import Icon from '../components/Icon';
 
 function AQMSDiagram() {
   const nodes = [
-    { icon: 'fa-microchip', label: 'IoT Sensors', desc: 'PM2.5, CO, O₃', color: '#22c55e' },
-    { icon: 'fa-wifi', label: 'Stream', desc: 'Cross-border', color: '#00e5ff' },
-    { icon: 'fa-brain', label: 'ML Pipeline', desc: 'Random Forest', color: '#FF9900' },
-    { icon: 'fa-chart-area', label: 'AQI Output', desc: '89% accuracy', color: '#a855f7' },
-    { icon: 'fa-robot', label: 'ADK Agent', desc: 'Google ADK', color: '#446CE3' },
+    { iconName: 'microchip', label: 'IoT Sensors', desc: 'PM2.5, CO, O₃', color: '#22c55e' },
+    { iconName: 'wifi', label: 'Stream', desc: 'Cross-border', color: '#00e5ff' },
+    { iconName: 'brain', label: 'ML Pipeline', desc: 'Random Forest', color: '#FF9900' },
+    { iconName: 'chart-bar', label: 'AQI Output', desc: '89% accuracy', color: '#a855f7' },
+    { iconName: 'robot', label: 'ADK Agent', desc: 'Google ADK', color: '#446CE3' },
   ];
   return (
     <div>
@@ -18,12 +19,12 @@ function AQMSDiagram() {
             <div className="flex flex-col items-center text-center w-24">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 border"
                 style={{ backgroundColor: `${n.color}15`, borderColor: `${n.color}30` }}>
-                <i className={`fas ${n.icon} text-lg`} style={{ color: n.color }}></i>
+                <Icon name={n.iconName} className="text-lg" style={{ color: n.color }} />
               </div>
               <span className="text-xs font-bold text-white">{n.label}</span>
               <span className="text-[10px] text-gray-500 mt-0.5">{n.desc}</span>
             </div>
-            {i < nodes.length - 1 && <i className="fas fa-chevron-right text-white/15 text-xs"></i>}
+            {i < nodes.length - 1 && <Icon name="chevron-right" className="text-white/15 text-xs" />}
           </div>
         ))}
       </div>

@@ -22,11 +22,19 @@ export default function BentoGrid() {
               onClick={() => window.open('https://www.linkedin.com/in/zaynul-abedin-miah/', '_blank')}
             >
               {/* Full-bleed Photo */}
-              <img 
-                src="/images/Zaynul.jpg" 
-                alt="Zaynul Abedin Miah" 
-                className="absolute inset-0 w-full h-full object-cover object-top brightness-75 group-hover:brightness-90 transition-all duration-700"
-              />
+              <picture>
+                <source srcSet="/images/zaynul-portrait.avif" type="image/avif" />
+                <source srcSet="/images/zaynul-portrait.webp" type="image/webp" />
+                <img 
+                  src="/images/Zaynul.jpg" 
+                  alt="Zaynul Abedin Miah — CS student and cloud-native community organizer" 
+                  width="560"
+                  height="747"
+                  decoding="async"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover object-top brightness-75 group-hover:brightness-90 transition-all duration-700"
+                />
+              </picture>
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#050510] via-[#050510]/30 to-transparent"></div>
               

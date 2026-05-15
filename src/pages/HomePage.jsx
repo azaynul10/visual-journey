@@ -7,6 +7,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ProjectsGrid from '../components/ProjectsGrid';
 import PartnerDiscounts from '../components/PartnerDiscounts';
 import ContactSection from '../components/ContactSection';
+import Icon from '../components/Icon';
 
 export default function HomePage() {
   return (
@@ -34,11 +35,11 @@ export default function HomePage() {
               <a href="#contact" className="w-full sm:w-auto bg-[#00e5ff] text-black px-6 py-3 rounded-xl font-bold hover:bg-cyan-400 transition-colors shadow-[0_0_20px_rgba(0,229,255,0.4)] text-center min-h-[48px] flex items-center justify-center">
                 Get in Touch
               </a>
-              <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#006097] transition-colors shadow-[0_0_20px_rgba(0,119,181,0.3)] text-center min-h-[48px] flex items-center justify-center">
-                <i className="fab fa-linkedin mr-2"></i> LinkedIn
+              <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-[#0077b5] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#006097] transition-colors shadow-[0_0_20px_rgba(0,119,181,0.3)] text-center min-h-[48px] flex items-center justify-center gap-2" aria-label="View LinkedIn profile">
+                <Icon name="linkedin" className="text-lg" /> LinkedIn
               </a>
-              <a href="https://drive.google.com/file/d/1fm6D7-z8-_LjtDtkGlzkTsMflrjSRVwH/view?usp=sharing" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md text-center min-h-[48px] flex items-center justify-center">
-                <i className="fas fa-file-pdf mr-2"></i> Resume
+              <a href="https://drive.google.com/file/d/1fm6D7-z8-_LjtDtkGlzkTsMflrjSRVwH/view?usp=sharing" target="_blank" rel="noreferrer" className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-6 py-3 rounded-xl font-bold hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md text-center min-h-[48px] flex items-center justify-center gap-2" aria-label="Download resume PDF">
+                <Icon name="file-pdf" className="text-lg" /> Resume
               </a>
             </div>
           </div>

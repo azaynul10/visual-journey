@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from './SEOHead';
+import Icon from './Icon';
 
 /**
  * ProjectPageTemplate — reusable page shell for all project/community/speaking pages.
@@ -27,9 +28,9 @@ export default function ProjectPageTemplate({
       <SEOHead {...seo} />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono">
+        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <span>/</span>
+          <span aria-hidden="true">/</span>
           <span className="text-gray-300 truncate">{title}</span>
         </nav>
 
@@ -45,7 +46,7 @@ export default function ProjectPageTemplate({
         {notice && (
           <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-8">
             <p className="text-sm text-blue-300 leading-relaxed">
-              <i className="fas fa-info-circle mr-2"></i>{notice}
+              <Icon name="info-circle" className="mr-2 inline-block align-text-bottom" />{notice}
             </p>
           </div>
         )}
@@ -67,18 +68,18 @@ export default function ProjectPageTemplate({
         {/* Action links */}
         <div className="flex flex-wrap gap-3 mb-12">
           {githubLink && (
-            <a href={githubLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all">
-              <i className="fab fa-github"></i> View Repository
+            <a href={githubLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px]" aria-label={`View ${title} repository on GitHub`}>
+              <Icon name="github" /> View Repository
             </a>
           )}
           {articleLink && (
-            <a href={articleLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all">
-              <i className="fas fa-external-link-alt"></i> View Article / PR
+            <a href={articleLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px]" aria-label={`View article or PR for ${title}`}>
+              <Icon name="external-link" /> View Article / PR
             </a>
           )}
           {demoLink && (
-            <a href={demoLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-5 py-2.5 rounded-xl text-sm font-medium text-red-300 hover:bg-red-500/20 transition-all">
-              <i className="fab fa-youtube"></i> Watch Demo
+            <a href={demoLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-5 py-2.5 rounded-xl text-sm font-medium text-red-300 hover:bg-red-500/20 transition-all min-h-[44px]" aria-label={`Watch demo video for ${title}`}>
+              <Icon name="youtube" /> Watch Demo
             </a>
           )}
         </div>
@@ -155,7 +156,7 @@ export default function ProjectPageTemplate({
               <ul className="space-y-3">
                 {whatILearned.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
-                    <i className="fas fa-chevron-right text-purple-400 text-[10px] mt-1.5 shrink-0"></i>
+                    <Icon name="chevron-right" className="text-purple-400 text-[10px] mt-1.5 shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -166,8 +167,8 @@ export default function ProjectPageTemplate({
 
         {/* Back link */}
         <div className="pt-8 border-t border-white/5">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-            <i className="fas fa-arrow-left text-xs"></i> Back to Portfolio
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors min-h-[44px]">
+            <Icon name="arrow-left" className="text-xs" /> Back to Portfolio
           </Link>
         </div>
       </div>
