@@ -10,6 +10,7 @@ const AirQualityPage = lazy(() => import('./pages/AirQualityPage'))
 const IANPage = lazy(() => import('./pages/IANPage'))
 const CommunityPage = lazy(() => import('./pages/CommunityPage'))
 const SpeakingPage = lazy(() => import('./pages/SpeakingPage'))
+const CredentialsPage = lazy(() => import('./pages/CredentialsPage'))
 
 function PageLoader() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/projects/intelligent-accessibility-navigator" element={<IANPage />} />
           <Route path="/community/bangladesh-ai-cloud-native-developer-community" element={<CommunityPage />} />
           <Route path="/speaking/ai-cloud-native-workshops" element={<SpeakingPage />} />
+          <Route path="/credentials" element={<CredentialsPage />} />
           {/* Fallback to home */}
           <Route path="*" element={<HomePage />} />
         </Routes>

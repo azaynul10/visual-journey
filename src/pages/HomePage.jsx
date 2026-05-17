@@ -7,6 +7,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ProjectsGrid from '../components/ProjectsGrid';
 import PartnerDiscounts from '../components/PartnerDiscounts';
 import ContactSection from '../components/ContactSection';
+import CredentialsSection from '../components/CredentialsSection';
 import Icon from '../components/Icon';
 
 export default function HomePage() {
@@ -56,6 +57,9 @@ export default function HomePage() {
         
         {/* Featured Projects with internal links */}
         <ProjectsGrid />
+        
+        {/* Selected Credentials */}
+        <CredentialsSection />
         
         {/* Exclusive Partner Discounts */}
         <PartnerDiscounts />
