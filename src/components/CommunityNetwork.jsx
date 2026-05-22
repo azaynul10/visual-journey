@@ -147,6 +147,7 @@ function LeaderCard({ stat }) {
   const badges = [
     { label: 'AWS', subtitle: 'Community Builder', color: '#FF9900' },
     { label: 'CNCF', subtitle: 'Ambassador', color: '#446CE3' },
+    { label: 'ElevenLabs', subtitle: 'Ambassador', color: '#E2E8F0' },
     { label: 'Azure', subtitle: 'Co-Organizer', color: '#00a4ef' },
   ];
 

@@ -5,6 +5,7 @@ export default function OtherRoles() {
   const organizations = [
     { label: 'CNCF',            subtitle: 'Ambassador',             accent: '#446CE3', link: 'https://www.cncf.io/people/ambassadors/?p=zaynul-abedin-miah&_sf_s=zaynul+abedin+miah', ariaLabel: 'View Zaynul Abedin Miah on CNCF Ambassadors directory' },
     { label: 'PyTorch',         subtitle: 'Ambassador',             accent: '#EE4C2C', link: 'https://pytorch.org/programs/ambassadors/', ariaLabel: 'View PyTorch Ambassador program page' },
+    { label: 'ElevenLabs',      subtitle: 'Ambassador',             accent: '#E2E8F0', link: 'https://try.elevenlabs.io/cfmtptx6mpbc', ariaLabel: 'View ElevenLabs Ambassador program' },
     { label: 'AWS',             subtitle: 'Community Builder',      accent: '#FF9900', link: 'https://builder.aws.com/community/community-builders', ariaLabel: 'View AWS Community Builders program page' },
     { label: 'AWS SBG',         subtitle: 'Outgoing Group Leader',  accent: '#FF9900', link: 'https://www.credly.com/badges/ec2c7d7c-394a-4122-881c-4a160d538b2e', ariaLabel: 'View AWS Cloud Club Captain credential' },
     { label: 'Google AI',       subtitle: 'Community Co-Organizer', accent: '#34A853', link: 'https://www.youtube.com/watch?v=7wNhy2i9X10&list=PLHGDyeOCXVQfDHoouVp7YF_LEbdjh8JGz&pp=sAgC', ariaLabel: 'View Google AI Community activity' },
