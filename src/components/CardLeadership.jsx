@@ -7,6 +7,7 @@ export default function CardLeadership() {
     { label: 'PyTorch',  subtitle: 'Ambassador',       accent: '#EE4C2C', link: 'https://pytorch.org/programs/ambassadors/', ariaLabel: 'View PyTorch Ambassador program page' },
     { label: 'ElevenLabs', subtitle: 'Ambassador',     accent: '#E2E8F0', link: 'https://try.elevenlabs.io/cfmtptx6mpbc', ariaLabel: 'View ElevenLabs Ambassador program' },
     { label: 'AWS',      subtitle: 'Community Builder', accent: '#FF9900', link: 'https://builder.aws.com/community/community-builders', ariaLabel: 'View AWS Community Builders program page' },
+    { label: 'Google AI', subtitle: 'Community Co-Organizer', accent: '#4285F4', accentGradient: 'linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853)', link: 'https://www.facebook.com/groups/178663161076600', ariaLabel: 'View ML, AI, Deep Learning & NLP Community - Bangladesh on Google AI Community' },
   ];
 
   return (
@@ -32,6 +33,7 @@ export default function CardLeadership() {
                 label={role.label}
                 subtitle={role.subtitle}
                 accentColor={role.accent}
+                accentGradient={role.accentGradient}
                 ariaLabel={role.ariaLabel}
                 className="w-full h-full"
               />

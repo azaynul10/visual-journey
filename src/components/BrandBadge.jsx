@@ -12,17 +12,19 @@ import React from 'react';
  *
  * No external CDN, no logo images, no icon library.
  *
- * @param {string} label       - Brand wordmark text (e.g. "CNCF", "AWS")
- * @param {string} subtitle    - Optional subtitle (e.g. "Ambassador")
- * @param {string} accentColor - CSS color string for brand accent
- * @param {boolean} compact    - If true, renders inline pill (no subtitle)
- * @param {string} ariaLabel   - Accessible label override
- * @param {string} className   - Additional classes
+ * @param {string} label          - Brand wordmark text (e.g. "CNCF", "AWS")
+ * @param {string} subtitle       - Optional subtitle (e.g. "Ambassador")
+ * @param {string} accentColor    - CSS color string for brand accent
+ * @param {string} accentGradient - Optional CSS gradient for multi-color brands (e.g. Google)
+ * @param {boolean} compact       - If true, renders inline pill (no subtitle)
+ * @param {string} ariaLabel      - Accessible label override
+ * @param {string} className      - Additional classes
  */
 export default function BrandBadge({
   label,
   subtitle,
   accentColor = '#9ca3af',
+  accentGradient,
   compact = false,
   ariaLabel,
   className = '',
@@ -76,7 +78,10 @@ export default function BrandBadge({
       {/* Accent glow strip at top */}
       <div
         className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover/badge:opacity-100 transition-opacity duration-300"
-        style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
+        style={{ background: accentGradient
+          ? `linear-gradient(90deg, transparent 0%, #4285F4 15%, #EA4335 35%, #FBBC05 60%, #34A853 85%, transparent 100%)`
+          : `linear-gradient(90deg, transparent, ${accentColor}, transparent)`
+        }}
         aria-hidden="true"
       />
 
@@ -90,7 +95,15 @@ export default function BrandBadge({
       {/* Brand wordmark */}
       <span
         className="relative z-10 text-sm font-extrabold tracking-tight leading-none"
-        style={{ color: accentColor }}
+        style={accentGradient
+          ? {
+              background: accentGradient,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }
+          : { color: accentColor }
+        }
       >
         {label}
       </span>

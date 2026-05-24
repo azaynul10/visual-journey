@@ -8,7 +8,7 @@ export default function OtherRoles() {
     { label: 'ElevenLabs',      subtitle: 'Ambassador',             accent: '#E2E8F0', link: 'https://try.elevenlabs.io/cfmtptx6mpbc', ariaLabel: 'View ElevenLabs Ambassador program' },
     { label: 'AWS',             subtitle: 'Community Builder',      accent: '#FF9900', link: 'https://builder.aws.com/community/community-builders', ariaLabel: 'View AWS Community Builders program page' },
     { label: 'AWS SBG',         subtitle: 'Outgoing Group Leader',  accent: '#FF9900', link: 'https://www.credly.com/badges/ec2c7d7c-394a-4122-881c-4a160d538b2e', ariaLabel: 'View AWS Cloud Club Captain credential' },
-    { label: 'Google AI',       subtitle: 'Community Co-Organizer', accent: '#34A853', link: 'https://www.youtube.com/watch?v=7wNhy2i9X10&list=PLHGDyeOCXVQfDHoouVp7YF_LEbdjh8JGz&pp=sAgC', ariaLabel: 'View Google AI Community activity' },
+    { label: 'Google AI',       subtitle: 'Community Co-Organizer', accent: '#4285F4', accentGradient: 'linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853)', link: 'https://www.youtube.com/watch?v=7wNhy2i9X10&list=PLHGDyeOCXVQfDHoouVp7YF_LEbdjh8JGz&pp=sAgC', ariaLabel: 'View Google AI Community activity' },
     { label: 'Azure Tech Group BD', subtitle: 'Co-Organizer',       accent: '#00a4ef', link: 'https://www.facebook.com/groups/1770787936632620', ariaLabel: 'View Azure Tech Group Bangladesh profile' },
     { label: 'Microsoft Student Ambassadors', subtitle: 'Former Gold Milestone', accent: '#737373', link: 'https://techcommunity.microsoft.com/blog/studentdeveloperblog/december%E2%80%93february-ambassadors-ai-projects-demo-day-showcasing-the-power-of-ai/4413462', ariaLabel: 'View Microsoft Student Ambassadors feature' },
   ];
@@ -33,6 +33,7 @@ export default function OtherRoles() {
               label={org.label}
               subtitle={org.subtitle}
               accentColor={org.accent}
+              accentGradient={org.accentGradient}
               ariaLabel={org.ariaLabel}
               className="w-full h-full"
             />
