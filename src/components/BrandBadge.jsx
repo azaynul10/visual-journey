@@ -79,7 +79,7 @@ export default function BrandBadge({
       <div
         className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover/badge:opacity-100 transition-opacity duration-300"
         style={{ background: accentGradient
-          ? `linear-gradient(90deg, transparent 0%, #4285F4 15%, #EA4335 35%, #FBBC05 60%, #34A853 85%, transparent 100%)`
+          ? accentGradient
           : `linear-gradient(90deg, transparent, ${accentColor}, transparent)`
         }}
         aria-hidden="true"
