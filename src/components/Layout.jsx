@@ -105,24 +105,42 @@ export default function Layout({ children }) {
               </div>
             </div>
 
-            {/* Linux Foundation Discount */}
-            <div className="bg-gradient-to-br from-purple-900/30 to-indigo-900/20 border border-purple-500/20 rounded-xl p-5">
-              <div className="flex items-center gap-2 mb-2">
-                <Icon name="certificate" className="text-sm text-purple-400" />
-                <h4 className="text-xs font-mono uppercase tracking-widest text-purple-400">Partner Discount</h4>
-              </div>
-              <p className="text-xs text-gray-400 leading-relaxed mb-3">
-                Get <strong className="text-white">30% off</strong> Linux Foundation certifications year-round with code <strong className="text-purple-400">ZAYNUL</strong>.
-              </p>
+            {/* Partner Resources */}
+            <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-5">
+              <h4 className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-4">Partner Resources</h4>
+
+              {/* ElevenLabs Dubbing v2 */}
+              <a
+                href="https://try.elevenlabs.io/zayn-dubbing-v2?sid1=dubbingv2&sid2=portfolio&sid3=footer&sharedid=dubbingv2_footer"
+                target="_blank"
+                rel="sponsored noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-medium text-cyan-400 hover:text-white transition-colors min-h-[36px] focus:outline-none focus:ring-2 focus:ring-cyan-400/30 rounded"
+                aria-label="Check ElevenLabs Dubbing v2 access"
+              >
+                <Icon name="video" className="text-[10px] shrink-0" />
+                Check Dubbing v2 Access <Icon name="arrow-right" className="text-[10px]" />
+              </a>
+
+              <div className="h-px bg-white/5 my-2" />
+
+              {/* Linux Foundation Certifications */}
               <a
                 href="https://tidd.ly/4sCNu9U"
                 target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-medium text-purple-300 hover:text-white transition-colors min-h-[44px]"
+                rel="sponsored noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-medium text-gray-400 hover:text-white transition-colors min-h-[36px] focus:outline-none focus:ring-2 focus:ring-white/20 rounded"
                 aria-label="Browse Linux Foundation certifications with discount code ZAYNUL"
               >
-                Browse Certifications <Icon name="arrow-right" className="text-[10px]" />
+                <Icon name="certificate" className="text-[10px] shrink-0" />
+                Browse Cloud-Native Certifications <Icon name="arrow-right" className="text-[10px]" />
               </a>
+              <p className="text-[10px] text-gray-600 mt-1 pl-4">
+                Code <strong className="text-gray-500">ZAYNUL</strong> for 30% off, if still valid.
+              </p>
+
+              <p className="text-[10px] text-gray-600 italic mt-3">
+                Affiliate links. I may earn a commission if you sign up.
+              </p>
             </div>
           </div>
 

@@ -5,7 +5,7 @@ import BentoGrid from '../components/BentoGrid';
 import CommunityNetwork from '../components/CommunityNetwork';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ProjectsGrid from '../components/ProjectsGrid';
-import PartnerDiscounts from '../components/PartnerDiscounts';
+import ElevenLabsDubbingSection from '../components/ElevenLabsDubbingSection';
 import ContactSection from '../components/ContactSection';
 import CredentialsSection from '../components/CredentialsSection';
 import Icon from '../components/Icon';
@@ -13,7 +13,10 @@ import Icon from '../components/Icon';
 export default function HomePage() {
   return (
     <>
-      <SEOHead />
+      <SEOHead
+        title="Zaynul Abedin Miah | AI Dubbing & Cloud-Native Developer"
+        description="Explore Zaynul Abedin Miah's AI and cloud-native work, including responsible multilingual video localization with ElevenLabs Dubbing v2."
+      />
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
         {/* Header Section */}
         <header className="mb-16 max-w-3xl">
@@ -61,8 +64,8 @@ export default function HomePage() {
         {/* Selected Credentials */}
         <CredentialsSection />
         
-        {/* Exclusive Partner Discounts */}
-        <PartnerDiscounts />
+        {/* ElevenLabs Dubbing v2 Campaign */}
+        <ElevenLabsDubbingSection />
 
         <ContactSection />
       </div>
