@@ -13,10 +13,30 @@ const navLinks = [
 export default function Layout({ children }) {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -164,6 +184,19 @@ export default function Layout({ children }) {
           </div>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white/5 border border-white/10 hover:border-[#00e5ff]/50 hover:bg-[#00e5ff]/10 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,229,255,0.4)] focus:outline-none focus:ring-2 focus:ring-[#00e5ff]/50 min-w-[44px] min-h-[44px] flex items-center justify-center ${
+          showScrollTop
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        aria-label="Scroll to top"
+      >
+        <Icon name="chevron-up" className="text-lg" />
+      </button>
     </div>
   );
 }
