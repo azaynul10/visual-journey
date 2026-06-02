@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ParticleBackground from './ParticleBackground';
 import Icon from './Icon';
+import SocialLinks from './SocialLinks';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -173,17 +174,13 @@ export default function Layout({ children }) {
               <p className="text-[10px] text-gray-500">© {new Date().getFullYear()} Zaynul Abedin Miah. All rights reserved.</p>
               <p className="text-[9px] text-gray-600 mt-1">Trademarks and logos belong to their respective owners and are used only to identify public community affiliations.</p>
             </div>
-            <div className="flex items-center gap-4">
-              <a href="https://github.com/azaynul10" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="GitHub profile">
-                <Icon name="github" className="text-lg" />
-              </a>
-              <a href="https://www.linkedin.com/in/zaynul-abedin-miah/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="LinkedIn profile">
-                <Icon name="linkedin" className="text-lg" />
-              </a>
-            </div>
+            <SocialLinks mode="footer" />
           </div>
         </div>
       </footer>
+
+      {/* Floating Sticky Left Sidebar Social Links */}
+      <SocialLinks mode="sidebar" />
 
       {/* Scroll to Top Button */}
       <button
