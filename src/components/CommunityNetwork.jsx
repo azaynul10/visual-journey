@@ -148,6 +148,7 @@ function LeaderCard({ stat }) {
     { label: 'AWS', subtitle: 'Community Builder', color: '#FF9900' },
     { label: 'CNCF', subtitle: 'Ambassador', color: '#446CE3' },
     { label: 'ElevenLabs', subtitle: 'Ambassador', color: '#E2E8F0' },
+    { label: 'Cognition', subtitle: 'Devin Ambassador', color: '#06B6D4' },
     { label: 'Azure', subtitle: 'Co-Organizer', color: '#00a4ef' },
   ];
 
