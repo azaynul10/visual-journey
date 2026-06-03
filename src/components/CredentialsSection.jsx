@@ -9,6 +9,7 @@ export default function CredentialsSection() {
     { label: "AWS Cloud Club Captain", subtitle: "Diamond Level", link: "https://www.credly.com/badges/ec2c7d7c-394a-4122-881c-4a160d538b2e" },
     { label: "KCD Organizer", subtitle: "2024", link: "https://www.credly.com/badges/f2ad23d2-401e-481b-99fe-63dbfbee754b" },
     { label: "Microsoft Student Ambassadors", subtitle: "Former Projects Gold Lead", link: "https://www.credly.com/badges/e6c1538b-0b2c-4214-ae68-ea6bc886ee68" },
+    { label: "Microsoft Certified", subtitle: "Azure AI Fundamentals (AI-900)", link: "https://learn.microsoft.com/api/credentials/share/en-us/ZaynulAbedinMiah-6537/5465F864D4930A8?sharingId=68C4BF49E5BB256D" },
   ];
 
   return (

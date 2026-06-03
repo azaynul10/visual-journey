@@ -12,6 +12,11 @@ export default function CredentialsPage() {
           label: "Databricks Academy Knowledge Badge", 
           subtitle: "Data Preparation for Machine Learning",
           link: "https://credentials.databricks.com/d77a930d-b40c-4da2-a9b1-df0340faea6f#acc.3EQOK8jW"
+        },
+        { 
+          label: "Microsoft Certified: Azure AI Fundamentals (AI-900)", 
+          subtitle: "Microsoft Certification",
+          link: "https://learn.microsoft.com/api/credentials/share/en-us/ZaynulAbedinMiah-6537/5465F864D4930A8?sharingId=68C4BF49E5BB256D"
         }
       ]
     },
