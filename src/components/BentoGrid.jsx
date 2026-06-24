@@ -4,7 +4,6 @@ import CardLeadership from './CardLeadership';
 import CardTerminal from './CardTerminal';
 import CardTechStack from './CardTechStack';
 import CardEducation from './CardEducation';
-import OtherRoles from './OtherRoles';
 
 export default function BentoGrid() {
   return (
@@ -63,9 +62,6 @@ export default function BentoGrid() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
          <div className="lg:col-span-1">
             <CardEducation />
-         </div>
-         <div className="lg:col-span-2 flex flex-col justify-center">
-            <OtherRoles />
          </div>
       </div>
     </div>

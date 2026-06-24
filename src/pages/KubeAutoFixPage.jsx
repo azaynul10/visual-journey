@@ -13,30 +13,42 @@ function ArchDiagram() {
   ];
 
   return (
-    <div>
-      <p className="text-xs text-gray-500 mb-4 font-mono uppercase tracking-widest">Autonomous Healing Loop</p>
-      <div className="flex flex-wrap items-center justify-center gap-1">
+    <figure className="glass-card p-6 border border-white/5 bg-white/[0.01]">
+      <figcaption className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6 flex justify-between items-center">
+        <span>Autonomous Healing Loop</span>
+        <div className="flex items-center gap-3 text-xs normal-case font-normal text-gray-500">
+          <div className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#00e5ff]"></span> Observation</div>
+          <div className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#FF9900]"></span> LLM Core</div>
+          <div className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-[#a855f7]"></span> Guardrails</div>
+        </div>
+      </figcaption>
+
+      <div className="flex flex-wrap items-center justify-center gap-2">
         {stages.map((stage, i) => (
           <React.Fragment key={i}>
-            <div className="flex flex-col items-center text-center w-24">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 border"
+            <div 
+              className="flex flex-col items-center text-center w-28 motion-safe:animate-pulse"
+              style={{ animationDelay: `${i * 0.2}s`, animationDuration: '3s' }}
+            >
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-3 border"
                 style={{ backgroundColor: `${stage.color}15`, borderColor: `${stage.color}30` }}>
-                <Icon name={stage.iconName} className="text-lg" style={{ color: stage.color }} />
+                <Icon name={stage.iconName} className="text-2xl" style={{ color: stage.color }} />
               </div>
-              <span className="text-xs font-bold text-white">{stage.label}</span>
-              <span className="text-[10px] text-gray-500 leading-tight mt-0.5">{stage.desc}</span>
+              <span className="text-sm font-bold text-white mb-1">{stage.label}</span>
+              <span className="text-xs text-gray-400 leading-tight">{stage.desc}</span>
             </div>
             {i < stages.length - 1 && (
-              <Icon name="chevron-right" className="text-white/15 text-xs mx-1" />
+              <Icon name="arrow-right" className="text-gray-600 text-lg mx-2 shrink-0" aria-label="flows into" />
             )}
           </React.Fragment>
         ))}
       </div>
-      <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-500">
-        <Icon name="rotate" className="text-[#446CE3]" />
-        <span>Closed-loop: automatically re-enters Monitor after every fix</span>
+      
+      <div className="flex items-center justify-center mt-8 pt-4 border-t border-white/5 gap-3">
+        <Icon name="rotate" className="text-[#446CE3] text-lg motion-safe:animate-spin" style={{ animationDuration: '8s' }} aria-hidden="true" />
+        <span className="text-sm text-gray-300 font-medium">Closed-loop architecture: automatically re-enters <strong className="text-[#00e5ff]">Monitor</strong> state after every fix attempt.</span>
       </div>
-    </div>
+    </figure>
   );
 }
 
@@ -58,7 +70,6 @@ export default function KubeAutoFixPage() {
         'Python',
         'Pydantic',
         'MLflow',
-        'Databricks',
         'YAML',
         'Structured Outputs',
       ]}
@@ -112,6 +123,7 @@ export default function KubeAutoFixPage() {
       ]}
       githubLink="https://github.com/azaynul10/kube-autofix"
       articleLink="https://github.com/openai/openai-cookbook/pull/2659"
+      articleLabel="View Cookbook PR (under review)"
     />
   );
 }

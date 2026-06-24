@@ -6,9 +6,9 @@ import SocialLinks from './SocialLinks';
 
 const navLinks = [
   { to: '/', label: 'Home' },
-  { to: '/projects/kube-autofix-autonomous-kubernetes-sre-agent', label: 'Kube-AutoFix' },
+  { to: '/projects/kube-autofix-autonomous-kubernetes-sre-agent', label: 'Projects' },
   { to: '/community/bangladesh-ai-cloud-native-developer-community', label: 'Community' },
-  { to: '/speaking/ai-cloud-native-workshops', label: 'Sessions' },
+  { to: '/speaking/ai-cloud-native-workshops', label: 'Speaking' },
 ];
 
 export default function Layout({ children }) {

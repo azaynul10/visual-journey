@@ -1,53 +1,39 @@
 import React from 'react';
-import BrandBadge from './BrandBadge';
 
 export default function CardLeadership() {
-  const roles = [
-    { label: 'CNCF',    subtitle: 'Ambassador',       accent: '#446CE3', link: 'https://www.cncf.io/people/ambassadors/?p=zaynul-abedin-miah&_sf_s=zaynul+abedin+miah', ariaLabel: 'View Zaynul Abedin Miah on CNCF Ambassadors directory' },
-    { label: 'PyTorch',  subtitle: 'Ambassador',       accent: '#EE4C2C', link: 'https://pytorch.org/programs/ambassadors/', ariaLabel: 'View PyTorch Ambassador program page' },
-    { label: 'ElevenLabs', subtitle: 'Ambassador',     accent: '#E2E8F0', link: 'https://try.elevenlabs.io/cfmtptx6mpbc', ariaLabel: 'View ElevenLabs Ambassador program' },
-    { label: 'Cognition', subtitle: 'Devin Ambassador', accent: '#06B6D4', link: 'https://www.cognition.ai/', ariaLabel: 'View Cognition Devin Ambassador affiliation' },
-    { label: 'AWS',      subtitle: 'Community Builder', accent: '#FF9900', link: 'https://builder.aws.com/community/community-builders', ariaLabel: 'View AWS Community Builders program page' },
-    { label: 'Google AI', subtitle: 'Community Co-Organizer', accent: '#4285F4', accentGradient: 'linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853)', link: 'https://www.facebook.com/groups/178663161076600', ariaLabel: 'View ML, AI, Deep Learning & NLP Community - Bangladesh on Google AI Community' },
-  ];
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const target = document.getElementById('ambassadorships-heading');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+      target.focus({ preventScroll: true });
+    }
+  };
 
   return (
-    <div className="glass-card glow-blue p-6 lg:p-8">
-      <h2 className="text-xl md:text-2xl font-bold mb-2">Community & Open Source Involvement</h2>
-      <p className="text-xs text-gray-400 mb-8">Helping organize and support student developer communities across Bangladesh</p>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {roles.map((role, i) => {
-          const isClickable = !!role.link;
-          const Wrapper = isClickable ? 'a' : 'div';
-          return (
-            <Wrapper
-              key={i}
-              href={isClickable ? role.link : undefined}
-              target={isClickable ? "_blank" : undefined}
-              rel={isClickable ? "noopener noreferrer" : undefined}
-              className={`block rounded-2xl relative ${
-                isClickable ? 'hover:ring-1 hover:ring-white/10 transition-all group cursor-pointer' : ''
-              }`}
-              aria-label={role.ariaLabel}
-            >
-              <BrandBadge
-                label={role.label}
-                subtitle={role.subtitle}
-                accentColor={role.accent}
-                accentGradient={role.accentGradient}
-                ariaLabel={role.ariaLabel}
-                className="w-full h-full"
-              />
-              {isClickable && (
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                  <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </div>
-              )}
-            </Wrapper>
-          );
-        })}
+    <div className="glass-card glow-blue p-6 lg:p-8 flex flex-col justify-center">
+      <div className="flex gap-2 items-center text-blue-400 mb-4">
+        <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+        <span className="text-[10px] font-mono uppercase tracking-widest">Community Impact</span>
+      </div>
+      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
+        6 Active Ambassadorships
+      </h2>
+      <p className="text-sm text-gray-300 mb-8 leading-relaxed">
+        Representing Bangladesh across the global AI & cloud-native ecosystem, including roles with the Agentic AI Foundation, CNCF, PyTorch, Cognition, and AWS.
+      </p>
+      
+      <div className="mt-auto">
+        <a 
+          href="#ambassadorships-heading"
+          onClick={handleScroll}
+          className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-3 rounded-xl font-semibold transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+        >
+          View Community Roles
+          <svg className="w-4 h-4 text-blue-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
       </div>
     </div>
   );

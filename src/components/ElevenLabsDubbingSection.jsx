@@ -4,7 +4,25 @@ import Icon from './Icon';
 const PARTNERSTACK_LINK =
   'https://try.elevenlabs.io/zayn-dubbing-v2?sid1=dubbingv2&sid2=portfolio&sid3=hero&sharedid=dubbingv2_portfolio';
 
+const ELEVENLABS_PRICING_LINK = 'https://elevenlabs.io/pricing';
+
 const AWIN_LF_LINK = 'https://tidd.ly/4sCNu9U';
+
+// ── Campaign Configuration ──
+// Change ACTIVE_FOCUS to instantly swap the highlighted use-case 
+const FOCUS_CAMPAIGNS = {
+  'voice-cloning': {
+    label: 'Current Focus: Voice Cloning',
+    desc: 'Exploring custom AI voices for consistent branding across multiple languages and formats.'
+  },
+  'dubbing': {
+    label: 'Current Focus: Video Dubbing',
+    desc: 'Testing responsible multilingual video localization with Dubbing v2.'
+  }
+};
+
+const ACTIVE_FOCUS = 'voice-cloning';
+const currentCampaign = FOCUS_CAMPAIGNS[ACTIVE_FOCUS];
 
 const useCases = [
   {
@@ -54,14 +72,14 @@ export default function ElevenLabsDubbingSection() {
   const scrollToUseCases = (e) => {
     e.preventDefault();
     document
-      .getElementById('dubbing-use-cases')
+      .getElementById('voice-use-cases')
       ?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <section
       className="mt-24 mb-16 relative z-10 max-w-5xl mx-auto"
-      aria-labelledby="dubbing-heading"
+      aria-labelledby="voice-heading"
     >
       {/* ── Primary Campaign Card ── */}
       <div className="glass-card p-8 md:p-12 relative overflow-hidden border border-cyan-500/20 shadow-[0_0_50px_rgba(0,229,255,0.1)] group">
@@ -75,36 +93,39 @@ export default function ElevenLabsDubbingSection() {
           aria-hidden="true"
         />
 
-        {/* Eyebrow */}
+        {/* Eyebrow - Fixed contrast and tracking */}
         <div className="flex items-center gap-3 mb-8 relative z-10">
-          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-cyan-400/90">
+          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" aria-hidden="true" />
+          <span className="text-sm font-bold uppercase tracking-wider text-cyan-300">
             Featured Creator Tool
           </span>
-          <div className="h-px bg-gradient-to-r from-cyan-500/30 to-transparent flex-1" />
+          <div className="h-px bg-gradient-to-r from-cyan-500/30 to-transparent flex-1" aria-hidden="true" />
         </div>
 
         {/* Headline */}
         <h2
-          id="dubbing-heading"
-          className="text-3xl md:text-5xl font-bold mb-6 tracking-tight relative z-10 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400"
+          id="voice-heading"
+          className="text-3xl md:text-5xl font-bold mb-6 tracking-tight relative z-10 leading-tight text-white"
         >
-          Dub Your Own Videos in 90+ Languages
+          AI Voice &amp; Localization
         </h2>
 
-        {/* Subheadline */}
-        <div className="space-y-4 mb-10 relative z-10 text-gray-300 max-w-3xl">
-          <p className="text-lg leading-relaxed">
-            Your audience may not speak your language, but they can still
-            understand your message.{' '}
-            <strong className="text-white">ElevenLabs Dubbing v2</strong> helps
-            you repurpose content you already made and make it accessible to
-            more people — without re-recording from scratch.
+        {/* Subheadline & Configurable Focus Callout */}
+        <div className="space-y-6 mb-10 relative z-10 max-w-3xl">
+          <p className="text-lg leading-relaxed text-gray-200">
+            Your audience may not speak your language, but they can still understand your message. Generate expressive speech in 29 languages, clone your own voice securely, and dub entire videos while preserving emotion and pacing.
           </p>
-          <p className="text-base leading-relaxed text-gray-400">
-            I'm testing it on my own creator and developer content to explore
-            how AI dubbing can support responsible multilingual communication.
-          </p>
+          
+          {/* Swappable Current Focus Callout */}
+          <div className="bg-cyan-950/40 border border-cyan-500/30 rounded-xl p-5 flex items-start gap-4 shadow-inner">
+            <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center shrink-0 border border-cyan-500/30">
+              <Icon name="mic" className="text-cyan-300 text-lg" aria-hidden="true" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-cyan-100 mb-1">{currentCampaign.label}</h3>
+              <p className="text-sm text-cyan-200/80 leading-relaxed">{currentCampaign.desc}</p>
+            </div>
+          </div>
         </div>
 
         {/* CTA Row */}
@@ -113,189 +134,120 @@ export default function ElevenLabsDubbingSection() {
             href={PARTNERSTACK_LINK}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:from-cyan-400 hover:to-blue-400 transition-all shadow-[0_0_30px_rgba(0,229,255,0.4)] border border-cyan-400/30 text-base tracking-wide group/cta hover:scale-[1.02] duration-300 w-full sm:w-auto min-h-[56px] focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-[#050510]"
-            aria-label="Check Dubbing v2 access on ElevenLabs"
+            className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:from-cyan-500 hover:to-blue-500 transition-all shadow-[0_0_30px_rgba(0,229,255,0.4)] border border-cyan-400/30 text-base tracking-wide min-h-[56px] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] motion-reduce:transition-none"
+            aria-label="Try ElevenLabs for voice and dubbing"
           >
-            <span>Check Dubbing v2 Access</span>
+            <span>Try ElevenLabs</span>
             <Icon
               name="arrow-right"
-              className="ml-3 group-hover/cta:translate-x-1 transition-transform"
+              className="ml-3 transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+              aria-hidden="true"
             />
           </a>
           <a
-            href="#dubbing-use-cases"
-            onClick={scrollToUseCases}
-            className="inline-flex items-center justify-center bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md w-full sm:w-auto min-h-[56px] focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-[#050510]"
+            href={ELEVENLABS_PRICING_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md min-h-[56px] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] motion-reduce:transition-none"
           >
-            See Use Cases
+            View Pricing
           </a>
         </div>
 
-        {/* CTA support text */}
-        <p className="text-sm text-gray-400 mb-2 relative z-10">
-          For a limited launch period, free dubbing minutes may be available
-          depending on your plan.
-        </p>
-
         {/* Disclosures */}
-        <p className="text-xs text-gray-500 italic relative z-10">
-          Affiliate link. I may earn a commission if you sign up through this
-          link.
+        <p className="text-sm text-gray-400 italic relative z-10 mb-4">
+          Affiliate link. I may earn a commission if you sign up through this link.
         </p>
 
         {/* Responsible-use note */}
-        <div className="mt-6 flex items-start gap-2 relative z-10">
+        <div className="mt-6 flex items-start gap-3 relative z-10 border-t border-white/10 pt-6">
           <Icon
             name="shield"
-            className="text-cyan-400/60 text-sm mt-0.5 shrink-0"
+            className="text-cyan-400 text-lg mt-0.5 shrink-0"
+            aria-hidden="true"
           />
-          <p className="text-xs text-gray-500 leading-relaxed">
-            <strong className="text-gray-400">Responsible use:</strong> Only dub
-            content you own or have permission to use. This campaign focuses on
-            responsible content localization, not impersonation.
+          <p className="text-sm text-gray-300 leading-relaxed">
+            <strong className="text-white font-semibold">Responsible use:</strong> Only clone voices or dub content you own or have explicit permission to use. This campaign focuses on responsible content localization and accessibility, not impersonation.
           </p>
         </div>
       </div>
 
       {/* ── Use-Case Bento Grid ── */}
-      <div id="dubbing-use-cases" className="mt-10 scroll-mt-24">
-        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
-          <span className="w-1.5 h-6 bg-cyan-400 rounded-full" />
+      <div id="voice-use-cases" className="mt-10 scroll-mt-24">
+        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+          <span className="w-1.5 h-6 bg-cyan-400 rounded-full" aria-hidden="true" />
           Who is this for?
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {useCases.map((uc, i) => (
             <div
               key={i}
-              className="glass-card p-5 group/uc hover:border-cyan-500/20 transition-all duration-300"
+              className="glass-card p-5 group/uc hover:border-cyan-500/30 transition-all duration-300 motion-reduce:transition-none"
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center border border-cyan-500/15 shrink-0 group-hover/uc:bg-cyan-500/15 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center border border-cyan-500/20 shrink-0 group-hover/uc:bg-cyan-500/20 transition-colors motion-reduce:transition-none">
                   <Icon
                     name={uc.icon}
-                    className="text-cyan-400 text-sm"
+                    className="text-cyan-300 text-lg"
+                    aria-hidden="true"
                   />
                 </div>
-                <h4 className="text-sm font-bold text-white">{uc.title}</h4>
+                <h4 className="text-base font-bold text-gray-100">{uc.title}</h4>
               </div>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-sm text-gray-300 leading-relaxed">
                 {uc.desc}
               </p>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* ── Demo Placeholder Card ── */}
-      <div className="mt-8">
-        <div className="glass-card p-6 md:p-8 relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Original side */}
-            <div className="bg-white/[0.02] rounded-xl p-5 border border-white/5 flex flex-col items-center justify-center text-center min-h-[160px]">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500 mb-3">
-                Original
-              </span>
-              <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-3">
-                <Icon name="play" className="text-white/40 text-lg ml-0.5" />
-              </div>
-              {/* Waveform motif */}
-              <div className="flex items-end gap-[3px] h-6" aria-hidden="true">
-                {[3, 5, 8, 12, 16, 12, 8, 14, 10, 6, 4, 7, 11, 15, 11, 7, 3].map(
-                  (h, i) => (
-                    <div
-                      key={i}
-                      className="w-[2px] bg-gradient-to-t from-cyan-500/20 to-cyan-400/40 rounded-full"
-                      style={{ height: `${h}px` }}
-                    />
-                  )
-                )}
-              </div>
-            </div>
-
-            {/* Dubbed side */}
-            <div className="bg-cyan-500/[0.03] rounded-xl p-5 border border-cyan-500/10 flex flex-col items-center justify-center text-center min-h-[160px]">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-cyan-400/70 mb-3">
-                Dubbed
-              </span>
-              <div className="w-12 h-12 rounded-full bg-cyan-500/10 border border-cyan-500/15 flex items-center justify-center mb-3">
-                <Icon
-                  name="languages"
-                  className="text-cyan-400/60 text-lg"
-                />
-              </div>
-              {/* Waveform motif — dubbed */}
-              <div className="flex items-end gap-[3px] h-6" aria-hidden="true">
-                {[4, 7, 10, 14, 12, 15, 10, 8, 13, 9, 5, 8, 12, 14, 10, 6, 4].map(
-                  (h, i) => (
-                    <div
-                      key={i}
-                      className="w-[2px] bg-gradient-to-t from-cyan-400/30 to-cyan-300/50 rounded-full"
-                      style={{ height: `${h}px` }}
-                    />
-                  )
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Center text */}
-          <p className="text-center text-sm text-gray-400 mt-6 font-medium">
-            One video. Multiple languages. Same message.
-          </p>
-          <p className="text-center text-xs text-gray-500 mt-2">
-            Demo coming soon: original vs dubbed project walkthrough.
-          </p>
-
-          {/* Language chips */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
-            {languageChips.map((lang) => (
-              <span
-                key={lang}
-                className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-medium bg-white/[0.04] border border-white/[0.08] text-gray-400"
-              >
-                {lang}
-              </span>
-            ))}
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-medium bg-cyan-500/10 border border-cyan-500/15 text-cyan-400">
-              +90 languages
+        
+        {/* Language chips - ensuring touch targets >= 44px */}
+        <div className="flex flex-wrap items-center gap-3 mt-8">
+          <span className="text-sm font-semibold text-gray-300 mr-2">Supported Languages:</span>
+          {languageChips.map((lang) => (
+            <span
+              key={lang}
+              className="inline-flex items-center px-4 py-2 min-h-[44px] rounded-full text-sm font-medium bg-white/[0.04] border border-white/10 text-gray-300"
+            >
+              {lang}
             </span>
-          </div>
+          ))}
+          <span className="inline-flex items-center px-4 py-2 min-h-[44px] rounded-full text-sm font-bold bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
+            +21 more
+          </span>
         </div>
       </div>
 
       {/* ── Secondary Resource Card: Linux Foundation ── */}
-      <div className="mt-6">
-        <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-5 max-w-lg">
-          <div className="flex items-center gap-2 mb-2">
+      <div className="mt-10">
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-6 max-w-lg">
+          <div className="flex items-center gap-3 mb-4">
             <Icon
               name="certificate"
-              className="text-sm text-gray-500"
+              className="text-lg text-gray-400"
+              aria-hidden="true"
             />
-            <h4 className="text-xs font-mono uppercase tracking-widest text-gray-500">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-gray-300">
               Other Partner Resource
             </h4>
           </div>
-          <p className="text-sm text-gray-400 leading-relaxed mb-1">
-            <strong className="text-gray-300">
-              Cloud-Native Certification Discount
-            </strong>
+          <p className="text-base font-semibold text-gray-200 mb-2">
+            Cloud-Native Certification Discount
           </p>
-          <p className="text-xs text-gray-500 leading-relaxed mb-3">
-            Use code{' '}
-            <strong className="text-gray-400">ZAYNUL</strong> for 30% off
+          <p className="text-sm text-gray-400 leading-relaxed mb-5">
+            Use code <strong className="text-gray-200">ZAYNUL</strong> for 30% off
             eligible Linux Foundation catalog items, if still valid at checkout.
           </p>
           <a
             href={AWIN_LF_LINK}
             target="_blank"
             rel="sponsored noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-medium text-gray-400 hover:text-white transition-colors min-h-[44px] focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-[#050510] rounded"
+            className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050510] rounded px-2 -ml-2 motion-reduce:transition-none"
             aria-label="Browse Linux Foundation certifications with discount code ZAYNUL"
           >
-            Browse Certifications{' '}
-            <Icon name="arrow-right" className="text-[10px]" />
+            Browse Certifications <Icon name="arrow-right" className="text-xs" aria-hidden="true" />
           </a>
-          <p className="text-[10px] text-gray-600 italic mt-1">
+          <p className="text-sm text-gray-500 italic mt-3">
             Affiliate link. I may earn a commission if you sign up.
           </p>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import BentoGrid from '../components/BentoGrid';
+import AmbassadorshipsSection from '../components/AmbassadorshipsSection';
 import CommunityNetwork from '../components/CommunityNetwork';
 import TestimonialsSection from '../components/TestimonialsSection';
 import ProjectsGrid from '../components/ProjectsGrid';
@@ -51,6 +52,9 @@ export default function HomePage() {
 
         {/* Bento Box Layout */}
         <BentoGrid />
+
+        {/* Ambassadorships & Recognition */}
+        <AmbassadorshipsSection />
 
         {/* Community Network */}
         <CommunityNetwork />

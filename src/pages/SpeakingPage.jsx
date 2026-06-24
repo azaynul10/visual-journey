@@ -29,18 +29,25 @@ export default function SpeakingPage() {
         canonicalPath="/speaking/ai-cloud-native-workshops"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono" aria-label="Breadcrumb">
+        <nav className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 mb-8" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
           <span aria-hidden="true">/</span>
-          <span className="text-gray-300">Sessions</span>
+          <span className="text-gray-300">Speaking</span>
         </nav>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-          Community Events &amp; Learning Sessions
+          Speaking
         </h1>
-        <p className="text-lg text-gray-400 mb-4 leading-relaxed max-w-2xl">
+        <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
           Selected public community activities, meetups, and learning sessions across cloud-native, AWS, AI, and student developer communities.
         </p>
+
+        {/* Primary CTA */}
+        <div className="mb-10 relative z-10">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=azaynul3@gmail.com&su=Speaking%20invitation&body=Hi%20Zaynul%2C%20I%27d%20like%20to%20invite%20you%20to%20speak%20at..." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#a855f7]/10 border border-[#a855f7]/30 px-6 py-3 rounded-xl text-sm font-bold text-[#a855f7] hover:bg-[#a855f7]/20 transition-all min-h-[44px] motion-reduce:transition-none focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50" aria-label="Send an email to invite me to speak">
+            <Icon name="megaphone" /> Invite Me to Speak
+          </a>
+        </div>
 
         {/* LinkedIn activity proof */}
         <a href="https://www.linkedin.com/feed/update/urn:li:activity:7452028060905680896/"
@@ -51,7 +58,7 @@ export default function SpeakingPage() {
         </a>
 
         {/* Past Events */}
-        <section className="mb-12">
+        <section className="mb-12 motion-safe:animate-fade-in-up">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-[#22c55e] rounded-full"></span>
             Past Public Events
@@ -66,14 +73,14 @@ export default function SpeakingPage() {
                   <h3 className="font-bold text-sm text-white group-hover:text-[#00e5ff] transition-colors">{event.title}</h3>
                   <p className="text-xs text-gray-400">{event.org} · {event.date}</p>
                 </div>
-                <Icon name="external-link" className="text-xs text-gray-500 group-hover:text-white transition-colors shrink-0" />
+                <Icon name="external-link" className="text-xs text-gray-400 group-hover:text-white transition-colors shrink-0 motion-reduce:transition-none" />
               </a>
             ))}
           </div>
         </section>
 
         {/* Topics I'm Exploring */}
-        <section className="mb-12">
+        <section className="mb-12 motion-safe:animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-[#a855f7] rounded-full"></span>
             Topics I'm Exploring

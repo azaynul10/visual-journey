@@ -20,6 +20,7 @@ export default function ProjectPageTemplate({
   whatILearned = [],
   githubLink,
   articleLink,
+  articleLabel,
   demoLink,
   notice,
 }) {
@@ -28,7 +29,7 @@ export default function ProjectPageTemplate({
       <SEOHead {...seo} />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono" aria-label="Breadcrumb">
+        <nav className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 mb-8" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
           <span aria-hidden="true">/</span>
           <span className="text-gray-300 truncate">{title}</span>
@@ -57,7 +58,7 @@ export default function ProjectPageTemplate({
             {techStack.map((tech, i) => (
               <span
                 key={i}
-                className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-gray-300"
+                className="px-4 py-2 min-h-[44px] flex items-center bg-white/5 border border-white/10 rounded-full text-xs font-mono text-gray-300"
               >
                 {tech}
               </span>
@@ -73,8 +74,8 @@ export default function ProjectPageTemplate({
             </a>
           )}
           {articleLink && (
-            <a href={articleLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px]" aria-label={`View article or PR for ${title}`}>
-              <Icon name="external-link" /> View Article / PR
+            <a href={articleLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px] motion-reduce:transition-none" aria-label={`View article or PR for ${title}`}>
+              <Icon name="external-link" /> {articleLabel || 'View Article / PR'}
             </a>
           )}
           {demoLink && (
@@ -86,7 +87,7 @@ export default function ProjectPageTemplate({
 
         {/* Problem Statement */}
         {problemStatement && (
-          <section className="mb-12">
+          <section className="mb-12 motion-safe:animate-fade-in-up">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
               <span className="w-1.5 h-6 bg-[#FF9900] rounded-full"></span>
               Problem Statement
@@ -99,7 +100,7 @@ export default function ProjectPageTemplate({
 
         {/* Architecture Diagram */}
         {architectureDiagram && (
-          <section className="mb-12">
+          <section className="mb-12 motion-safe:animate-fade-in-up">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
               <span className="w-1.5 h-6 bg-[#446CE3] rounded-full"></span>
               Architecture
@@ -112,7 +113,7 @@ export default function ProjectPageTemplate({
 
         {/* Dynamic content sections */}
         {sections.map((section, i) => (
-          <section key={i} className="mb-12">
+          <section key={i} className="mb-12 motion-safe:animate-fade-in-up">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
               <span className="w-1.5 h-6 bg-[#00e5ff] rounded-full"></span>
               {section.title}
@@ -129,7 +130,7 @@ export default function ProjectPageTemplate({
 
         {/* Measurable Results */}
         {results.length > 0 && (
-          <section className="mb-12">
+          <section className="mb-12 motion-safe:animate-fade-in-up">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
               <span className="w-1.5 h-6 bg-green-500 rounded-full"></span>
               Measurable Results
@@ -147,7 +148,7 @@ export default function ProjectPageTemplate({
 
         {/* What I Learned */}
         {whatILearned.length > 0 && (
-          <section className="mb-12">
+          <section className="mb-12 motion-safe:animate-fade-in-up">
             <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
               <span className="w-1.5 h-6 bg-purple-500 rounded-full"></span>
               What I Learned

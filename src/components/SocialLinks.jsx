@@ -55,11 +55,11 @@ export default function SocialLinks({ mode = 'footer' }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.ariaLabel}
-                className={`group relative flex items-center justify-center w-10 h-10 rounded-lg text-gray-400 bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 ${social.hoverClass}`}
+                className={`group relative flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg text-gray-400 bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:border-white/10 motion-reduce:transform-none motion-reduce:transition-none ${social.hoverClass}`}
               >
                 <Icon 
                   name={social.iconName} 
-                  className="text-base transition-transform duration-300 group-hover:scale-110" 
+                  className="text-base transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none motion-reduce:transition-none" 
                 />
                 
                 {/* Tooltip */}
@@ -88,11 +88,11 @@ export default function SocialLinks({ mode = 'footer' }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.ariaLabel}
-            className={`group flex items-center justify-center w-9 h-9 rounded-lg text-gray-400 bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-all duration-300 hover:border-white/10 ${social.hoverClass}`}
+            className={`group flex items-center justify-center min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg text-gray-400 bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.04] transition-all duration-300 hover:border-white/10 motion-reduce:transform-none motion-reduce:transition-none ${social.hoverClass}`}
           >
             <Icon 
               name={social.iconName} 
-              className="text-base transition-transform duration-300 group-hover:scale-110" 
+              className="text-base transition-transform duration-300 group-hover:scale-110 motion-reduce:transform-none motion-reduce:transition-none" 
             />
           </a>
         );

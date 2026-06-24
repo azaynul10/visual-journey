@@ -43,7 +43,7 @@ export default function CommunityPage() {
         canonicalPath="/community/bangladesh-ai-cloud-native-developer-community"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <nav className="flex items-center gap-2 text-xs text-gray-500 mb-8 font-mono" aria-label="Breadcrumb">
+        <nav className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 mb-8" aria-label="Breadcrumb">
           <Link to="/" className="hover:text-white transition-colors">Home</Link>
           <span aria-hidden="true">/</span>
           <span className="text-gray-300">Community</span>
@@ -52,12 +52,19 @@ export default function CommunityPage() {
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
           Bangladesh AI &amp; Cloud Native Developer Community
         </h1>
-        <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl">
+        <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
           Co-organizing and leading tech communities across Bangladesh — bridging AI, cloud native, and emerging platforms into practical student learning ecosystems.
         </p>
 
+        {/* Primary CTA */}
+        <div className="mb-12">
+          <a href="https://www.facebook.com/groups/mlaidlnlpbd" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#00e5ff]/10 border border-[#00e5ff]/30 px-6 py-3 rounded-xl text-sm font-bold text-[#00e5ff] hover:bg-[#00e5ff]/20 transition-all min-h-[44px] motion-reduce:transition-none" aria-label="Join the main Facebook community group">
+            <Icon name="users" /> Join the Community
+          </a>
+        </div>
+
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 motion-safe:animate-fade-in-up">
           {[
             { value: '87K+', label: 'Aggregated Community Reach' },
             { value: '13+', label: 'Community Chapters' },
@@ -72,7 +79,7 @@ export default function CommunityPage() {
         </div>
 
         {/* Roles */}
-        <section className="mb-12">
+        <section className="mb-12 motion-safe:animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-[#446CE3] rounded-full"></span>
             Community & Program Involvement
@@ -89,7 +96,7 @@ export default function CommunityPage() {
                   target={isClickable ? "_blank" : undefined}
                   rel={isClickable ? "noopener noreferrer" : undefined}
                   className={`block rounded-2xl relative ${
-                    isClickable ? 'hover:ring-1 hover:ring-white/10 transition-all group cursor-pointer' : ''
+                    isClickable ? 'hover:ring-1 hover:ring-white/10 transition-all group cursor-pointer motion-reduce:transition-none' : ''
                   }`}
                   aria-label={r.ariaLabel}
                 >
@@ -102,8 +109,8 @@ export default function CommunityPage() {
                     className="w-full h-full"
                   />
                   {isClickable && (
-                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                      <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity motion-reduce:transition-none z-20">
+                      <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </div>
@@ -115,7 +122,7 @@ export default function CommunityPage() {
         </section>
 
         {/* Community Groups */}
-        <section className="mb-12">
+        <section className="mb-12 motion-safe:animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
             <span className="w-1.5 h-6 bg-[#00e5ff] rounded-full"></span>
             Community Chapters &amp; Groups
@@ -124,12 +131,12 @@ export default function CommunityPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {communityGroups.map((g, i) => (
                 <a key={i} href={g.url} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group min-h-[44px]"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group min-h-[44px] motion-reduce:transition-none"
                   aria-label={`${g.name} — ${g.members} members`}>
-                  <Icon name={platformIconMap[g.platform] || 'users'} className="text-gray-500 group-hover:text-white transition-colors" />
+                  <Icon name={platformIconMap[g.platform] || 'users'} className="text-gray-400 group-hover:text-white transition-colors motion-reduce:transition-none" />
                   <div className="min-w-0 flex-1">
                     <p className="text-sm text-white truncate">{g.name}</p>
-                    <p className="text-xs text-gray-500">{g.members} members</p>
+                    <p className="text-xs text-gray-400">{g.members} members</p>
                   </div>
                 </a>
               ))}
