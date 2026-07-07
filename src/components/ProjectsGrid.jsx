@@ -64,7 +64,7 @@ export default function ProjectsGrid() {
               <a
                 href={project.link}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="text-sm font-medium text-white bg-white/5 px-4 py-2 rounded-lg hover:bg-white/10 transition-colors min-h-[44px] flex items-center"
                 aria-label={`View ${project.title} on GitHub`}
               >
@@ -74,7 +74,7 @@ export default function ProjectsGrid() {
                 <a
                   href={project.demo}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-sm font-medium text-white bg-white/5 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-colors flex items-center gap-2 min-h-[44px]"
                   aria-label={`Watch demo video for ${project.title}`}
                 >

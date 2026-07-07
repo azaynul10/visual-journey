@@ -60,7 +60,7 @@ export default function CommunityPage() {
 
         {/* Primary CTA */}
         <div className="mb-12">
-          <a href="https://www.facebook.com/groups/mlaidlnlpbd" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#00e5ff]/10 border border-[#00e5ff]/30 px-6 py-3 rounded-xl text-sm font-bold text-[#00e5ff] hover:bg-[#00e5ff]/20 transition-all min-h-[44px] motion-reduce:transition-none" aria-label="Join the main Facebook community group">
+          <a href="https://www.facebook.com/groups/mlaidlnlpbd" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00e5ff]/10 border border-[#00e5ff]/30 px-6 py-3 rounded-xl text-sm font-bold text-[#00e5ff] hover:bg-[#00e5ff]/20 transition-all min-h-[44px] motion-reduce:transition-none" aria-label="Join the main Facebook community group">
             <Icon name="users" /> Join the Community
           </a>
         </div>
@@ -132,7 +132,7 @@ export default function CommunityPage() {
           <div className="glass-card p-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {communityGroups.map((g, i) => (
-                <a key={i} href={g.url} target="_blank" rel="noreferrer"
+                <a key={i} href={g.url} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group min-h-[44px] motion-reduce:transition-none"
                   aria-label={`${g.name} — ${g.members} members`}>
                   <Icon name={platformIconMap[g.platform] || 'users'} className="text-gray-400 group-hover:text-white transition-colors motion-reduce:transition-none" />

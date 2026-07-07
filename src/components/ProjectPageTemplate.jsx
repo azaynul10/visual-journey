@@ -69,17 +69,17 @@ export default function ProjectPageTemplate({
         {/* Action links */}
         <div className="flex flex-wrap gap-3 mb-12">
           {githubLink && (
-            <a href={githubLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px]" aria-label={`View ${title} repository on GitHub`}>
+            <a href={githubLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px]" aria-label={`View ${title} repository on GitHub`}>
               <Icon name="github" /> View Repository
             </a>
           )}
           {articleLink && (
-            <a href={articleLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px] motion-reduce:transition-none" aria-label={`View article or PR for ${title}`}>
+            <a href={articleLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-medium text-white hover:bg-white/10 hover:border-white/20 transition-all min-h-[44px] motion-reduce:transition-none" aria-label={`View article or PR for ${title}`}>
               <Icon name="external-link" /> {articleLabel || 'View Article / PR'}
             </a>
           )}
           {demoLink && (
-            <a href={demoLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-5 py-2.5 rounded-xl text-sm font-medium text-red-300 hover:bg-red-500/20 transition-all min-h-[44px]" aria-label={`Watch demo video for ${title}`}>
+            <a href={demoLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 px-5 py-2.5 rounded-xl text-sm font-medium text-red-300 hover:bg-red-500/20 transition-all min-h-[44px]" aria-label={`Watch demo video for ${title}`}>
               <Icon name="youtube" /> Watch Demo
             </a>
           )}
