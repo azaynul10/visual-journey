@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import SEOHead from './SEOHead';
 import Icon from './Icon';
+import SectionHeading from './SectionHeading';
+import Breadcrumb from './Breadcrumb';
+import BackToPortfolio from './BackToPortfolio';
 
 /**
  * ProjectPageTemplate — reusable page shell for all project/community/speaking pages.
@@ -28,12 +29,7 @@ export default function ProjectPageTemplate({
     <>
       <SEOHead {...seo} />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 mb-8" aria-label="Breadcrumb">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-gray-300 truncate">{title}</span>
-        </nav>
+        <Breadcrumb current={title} currentClassName="text-gray-300 truncate" />
 
         {/* H1 */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-tight">
@@ -88,10 +84,7 @@ export default function ProjectPageTemplate({
         {/* Problem Statement */}
         {problemStatement && (
           <section className="mb-12 motion-safe:animate-fade-in-up">
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-[#FF9900] rounded-full"></span>
-              Problem Statement
-            </h2>
+            <SectionHeading bar="bg-[#FF9900]">Problem Statement</SectionHeading>
             <div className="glass-card p-6">
               <p className="text-gray-300 leading-relaxed">{problemStatement}</p>
             </div>
@@ -101,10 +94,7 @@ export default function ProjectPageTemplate({
         {/* Architecture Diagram */}
         {architectureDiagram && (
           <section className="mb-12 motion-safe:animate-fade-in-up">
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-[#446CE3] rounded-full"></span>
-              Architecture
-            </h2>
+            <SectionHeading bar="bg-[#446CE3]">Architecture</SectionHeading>
             <div className="glass-card p-6 overflow-x-auto">
               {architectureDiagram}
             </div>
@@ -114,10 +104,7 @@ export default function ProjectPageTemplate({
         {/* Dynamic content sections */}
         {sections.map((section, i) => (
           <section key={i} className="mb-12 motion-safe:animate-fade-in-up">
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-[#00e5ff] rounded-full"></span>
-              {section.title}
-            </h2>
+            <SectionHeading bar="bg-[#00e5ff]">{section.title}</SectionHeading>
             <div className="glass-card p-6">
               {typeof section.content === 'string' ? (
                 <p className="text-gray-300 leading-relaxed">{section.content}</p>
@@ -131,10 +118,7 @@ export default function ProjectPageTemplate({
         {/* Measurable Results */}
         {results.length > 0 && (
           <section className="mb-12 motion-safe:animate-fade-in-up">
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-green-500 rounded-full"></span>
-              Measurable Results
-            </h2>
+            <SectionHeading bar="bg-green-500">Measurable Results</SectionHeading>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {results.map((result, i) => (
                 <div key={i} className="glass-card p-5">
@@ -149,10 +133,7 @@ export default function ProjectPageTemplate({
         {/* What I Learned */}
         {whatILearned.length > 0 && (
           <section className="mb-12 motion-safe:animate-fade-in-up">
-            <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-              <span className="w-1.5 h-6 bg-purple-500 rounded-full"></span>
-              What I Learned
-            </h2>
+            <SectionHeading bar="bg-purple-500">What I Learned</SectionHeading>
             <div className="glass-card p-6">
               <ul className="space-y-3">
                 {whatILearned.map((item, i) => (
@@ -166,12 +147,7 @@ export default function ProjectPageTemplate({
           </section>
         )}
 
-        {/* Back link */}
-        <div className="pt-8 border-t border-white/5">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors min-h-[44px]">
-            <Icon name="arrow-left" className="text-xs" /> Back to Portfolio
-          </Link>
-        </div>
+        <BackToPortfolio />
       </div>
     </>
   );

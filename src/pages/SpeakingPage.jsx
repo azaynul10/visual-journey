@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Icon from '../components/Icon';
 import BrandBadge from '../components/BrandBadge';
+import SectionHeading from '../components/SectionHeading';
+import Breadcrumb from '../components/Breadcrumb';
+import BackToPortfolio from '../components/BackToPortfolio';
 
 const pastEvents = [
   { title: 'Cloud Native Community Day — Chattogram', org: 'CNCF Cloud Native Chattogram', date: '2025', url: 'https://ocgroups.dev/cncf/group/zjrcuw4/event/j3nrmeg', brand: 'cncf', color: '#446CE3' },
@@ -29,11 +30,7 @@ export default function SpeakingPage() {
         canonicalPath="/speaking/ai-cloud-native-workshops"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <nav className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 mb-8" aria-label="Breadcrumb">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-gray-300">Speaking</span>
-        </nav>
+        <Breadcrumb current="Speaking" />
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
           Speaking
@@ -59,10 +56,7 @@ export default function SpeakingPage() {
 
         {/* Past Events */}
         <section className="mb-12 motion-safe:animate-fade-in-up">
-          <h2 className="text-xl font-bold mb-6 flex items-center gap-3">
-            <span className="w-1.5 h-6 bg-[#22c55e] rounded-full"></span>
-            Past Public Events
-          </h2>
+          <SectionHeading bar="bg-[#22c55e]" className="text-xl font-bold mb-6 flex items-center gap-3">Past Public Events</SectionHeading>
           <div className="space-y-4">
             {pastEvents.map((event, i) => (
               <a key={i} href={event.url} target="_blank" rel="noopener noreferrer"
@@ -81,10 +75,7 @@ export default function SpeakingPage() {
 
         {/* Topics I'm Exploring */}
         <section className="mb-12 motion-safe:animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-            <span className="w-1.5 h-6 bg-[#a855f7] rounded-full"></span>
-            Topics I'm Exploring
-          </h2>
+          <SectionHeading bar="bg-[#a855f7]">Topics I'm Exploring</SectionHeading>
           <div className="glass-card p-6">
             <p className="text-sm text-gray-400 mb-4">
               These are topics I am currently learning, building around, or open to presenting in community sessions.
@@ -103,11 +94,7 @@ export default function SpeakingPage() {
           </div>
         </section>
 
-        <div className="pt-8 border-t border-white/5">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors min-h-[44px]">
-            <Icon name="arrow-left" className="text-xs" /> Back to Portfolio
-          </Link>
-        </div>
+        <BackToPortfolio />
       </div>
     </>
   );

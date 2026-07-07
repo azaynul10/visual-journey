@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from './Icon';
+import SectionHeading from './SectionHeading';
 
 const PARTNERSTACK_LINK =
   'https://try.elevenlabs.io/zayn-dubbing-v2?sid1=dubbingv2&sid2=portfolio&sid3=hero&sharedid=dubbingv2_portfolio';
@@ -174,10 +175,7 @@ export default function ElevenLabsDubbingSection() {
 
       {/* ── Use-Case Bento Grid ── */}
       <div id="voice-use-cases" className="mt-10 scroll-mt-24">
-        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-          <span className="w-1.5 h-6 bg-cyan-400 rounded-full" aria-hidden="true" />
-          Who is this for?
-        </h3>
+        <SectionHeading as="h3" bar="bg-cyan-400" className="text-xl font-bold text-white mb-6 flex items-center gap-3">Who is this for?</SectionHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {useCases.map((uc, i) => (
             <div
