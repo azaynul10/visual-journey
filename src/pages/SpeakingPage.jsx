@@ -51,7 +51,7 @@ export default function SpeakingPage() {
 
         {/* LinkedIn activity proof */}
         <a href="https://www.linkedin.com/feed/update/urn:li:activity:7452028060905680896/"
-          target="_blank" rel="noreferrer"
+          target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm text-[#0077b5] hover:text-blue-400 transition-colors mb-10 min-h-[44px]"
           aria-label="View recent community activity on LinkedIn">
           <Icon name="linkedin" /> View recent community activity on LinkedIn
@@ -65,7 +65,7 @@ export default function SpeakingPage() {
           </h2>
           <div className="space-y-4">
             {pastEvents.map((event, i) => (
-              <a key={i} href={event.url} target="_blank" rel="noreferrer"
+              <a key={i} href={event.url} target="_blank" rel="noopener noreferrer"
                 className="glass-card p-5 flex items-center gap-4 hover:bg-white/5 transition-colors group block min-h-[44px]"
                 aria-label={`${event.title} — ${event.org}, ${event.date}`}>
                 <BrandBadge label={event.brand === 'cncf' ? 'CNCF' : 'AWS'} accentColor={event.color} compact className="shrink-0" />

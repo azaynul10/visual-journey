@@ -49,7 +49,7 @@ export default function CardOpenSource() {
         <p className="text-gray-400 text-sm max-w-sm">
           Submitted a structured-output Kubernetes debugging agent example to the OpenAI Cookbook. The PR is under review and has received Codex feedback.
         </p>
-        <a href="https://github.com/openai/openai-cookbook/pull/2659" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white hover:text-brand-orange transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm font-medium border border-white/5 min-h-[44px]" aria-label="View PR #2659 on GitHub" onClick={(e) => e.stopPropagation()}>
+        <a href="https://github.com/openai/openai-cookbook/pull/2659" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-brand-orange transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg text-sm font-medium border border-white/5 min-h-[44px]" aria-label="View PR #2659 on GitHub" onClick={(e) => e.stopPropagation()}>
           <Icon name="github" className="text-lg" />
           View PR
         </a>

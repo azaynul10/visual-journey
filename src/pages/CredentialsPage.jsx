@@ -59,7 +59,7 @@ export default function CredentialsPage() {
              <a 
               href="https://www.credly.com/users/zaynul-abedin-miah.65b5cd8c/badges"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#446CE3]/10 text-[#446CE3] border border-[#446CE3]/30 px-6 py-3 rounded-xl font-bold hover:bg-[#446CE3]/20 transition-all"
             >
               <span>View full verified Credly profile</span>
@@ -86,7 +86,7 @@ export default function CredentialsPage() {
                       key={i} 
                       href={cred.link}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="glass-card p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all group block"
                     >
                       <div className="flex justify-between items-start">
