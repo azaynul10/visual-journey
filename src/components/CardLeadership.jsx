@@ -17,10 +17,10 @@ export default function CardLeadership() {
         <span className="text-[10px] font-mono uppercase tracking-widest">Community Impact</span>
       </div>
       <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">
-        6 Active Ambassadorships
+        7 Active Ambassadorships
       </h2>
       <p className="text-sm text-gray-300 mb-8 leading-relaxed">
-        Representing Bangladesh across the global AI & cloud-native ecosystem, including roles with the Agentic AI Foundation, CNCF, PyTorch, Cognition, and AWS.
+        Representing Bangladesh across the global AI & cloud-native ecosystem, including roles with the Agentic AI Foundation, CNCF, PyTorch, Grafana, and AWS.
       </p>
       
       <div className="mt-auto">

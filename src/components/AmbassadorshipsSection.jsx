@@ -62,6 +62,22 @@ export default function AmbassadorshipsSection() {
       link: 'https://elevenlabs.io/',
       logo: '/logos/elevenlabs.svg',
       logoAlt: 'ElevenLabs Logo'
+    },
+    {
+      id: 'grafana',
+      organization: 'Grafana and Friends Dhaka',
+      title: 'Founding Organizer',
+      year: '2026–Present',
+      description: "Launched and lead the first official Grafana community in Bangladesh, bringing observability (Grafana, Prometheus, Loki, k6) meetups and hands-on workshops to Dhaka's developer community.",
+      highlights: [
+        "First Grafana and Friends chapter in Bangladesh",
+        "Organizing quarterly meetups + hands-on workshops (SQL expressions, k6 load testing, Infinity)",
+        "Growing local observability skills across students and professionals"
+      ],
+      link: 'https://www.meetup.com/grafana-friends-dhaka/',
+      logo: '/logos/grafana.svg',
+      logoAlt: 'Grafana Logo',
+      disclaimer: "Grafana and Friends is a community program; this is a volunteer organizer role and is not an official Grafana Labs page."
     }
   ];
 
@@ -121,14 +137,20 @@ export default function AmbassadorshipsSection() {
           <div key={role.id} className="glass-card p-6 flex flex-col group relative transition-transform duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 h-full">
             {/* Logo Container */}
             <div className="h-14 w-14 mb-5 rounded-xl bg-white/90 p-2 flex items-center justify-center shadow-inner border border-white/20 shrink-0">
-              <img
-                src={role.logo}
-                alt={role.logoAlt}
-                width={40}
-                height={40}
-                loading="lazy"
-                className="w-full h-full object-contain"
-              />
+              {role.logo ? (
+                <img
+                  src={role.logo}
+                  alt={role.logoAlt}
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <span className="font-extrabold text-2xl" style={{ color: role.logoColor }}>
+                  {role.logoText}
+                </span>
+              )}
             </div>
 
             <div className="flex-1 flex flex-col h-full">
@@ -155,6 +177,23 @@ export default function AmbassadorshipsSection() {
               <p className="text-sm text-gray-300 leading-relaxed mt-auto">
                 {role.description}
               </p>
+              
+              {role.highlights && (
+                <ul className="mt-4 space-y-2">
+                  {role.highlights.map((hl, i) => (
+                    <li key={i} className="text-xs text-gray-400 flex items-start gap-2">
+                      <span className="text-[#F47A20] mt-0.5 shrink-0">•</span>
+                      <span>{hl}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              
+              {role.disclaimer && (
+                <div className="mt-5 pt-3 border-t border-white/10 text-[10px] text-gray-500 italic leading-snug">
+                  {role.disclaimer}
+                </div>
+              )}
             </div>
           </div>
         ))}

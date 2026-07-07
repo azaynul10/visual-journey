@@ -18,6 +18,7 @@ const communityGroups = [
   { name: "Cloud Native Bangladesh", members: "CNCF", url: "https://ocgroups.dev/cncf/group/w9fz6fg", platform: "cncf" },
   { name: "Azure Tech Group Bangladesh", members: "2.6K", url: "https://www.facebook.com/groups/1770787936632620", platform: "facebook" },
   { name: "Fabric User Community BD", members: "38", url: "https://www.facebook.com/groups/816320010678987", platform: "facebook" },
+  { name: "Grafana and Friends Dhaka", members: "New", url: "https://www.meetup.com/grafana-friends-dhaka/", platform: "meetup" },
 ];
 
 const platformIconMap = { facebook: 'facebook', meetup: 'meetup', cncf: 'dharmachakra', linkedin: 'linkedin' };
@@ -28,6 +29,7 @@ const roles = [
   { label: 'AWS',             subtitle: 'Community Builder',      accent: '#FF9900', link: 'https://builder.aws.com/community/community-builders', ariaLabel: 'View AWS Community Builders program page' },
   { label: 'AWS SBG',         subtitle: 'Outgoing Group Leader',  accent: '#FF9900', link: 'https://www.credly.com/badges/ec2c7d7c-394a-4122-881c-4a160d538b2e', ariaLabel: 'View AWS Cloud Club Captain credential' },
   { label: 'ElevenLabs',      subtitle: 'Ambassador',             accent: '#E2E8F0', link: 'https://elevenlabs.io/', ariaLabel: 'View ElevenLabs Ambassador affiliation' },
+  { label: 'Grafana and Friends', subtitle: 'Founding Organizer',     accent: '#F47A20', link: 'https://www.meetup.com/grafana-friends-dhaka/', ariaLabel: 'View Grafana and Friends Dhaka Meetup' },
   { label: 'Cognition',       subtitle: 'Devin Ambassador',       accent: '#06B6D4', link: 'https://www.cognition.ai/', ariaLabel: 'View Cognition Devin Ambassador affiliation' },
   { label: 'Google AI',       subtitle: 'Community Co-Organizer', accent: '#4285F4', accentGradient: 'linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853)', link: 'https://www.youtube.com/watch?v=7wNhy2i9X10&list=PLHGDyeOCXVQfDHoouVp7YF_LEbdjh8JGz&pp=sAgC', ariaLabel: 'View Google AI Community activity' },
   { label: 'Azure Tech Group BD', subtitle: 'Co-Organizer',       accent: '#0078D4', accentGradient: 'linear-gradient(135deg, #005A9E, #0078D4, #008AD7, #008C45)', link: 'https://www.facebook.com/groups/1770787936632620', ariaLabel: 'View Azure Tech Group Bangladesh profile' },
@@ -39,7 +41,7 @@ export default function CommunityPage() {
     <>
       <SEOHead
         title="Bangladesh AI & Cloud Native Developer Community | Zaynul Abedin Miah"
-        description="Co-organizing and leading 87K+ tech community members across AI, ML, Cloud Native, AWS, Azure, and CNCF chapters in Bangladesh."
+        description="Co-organizing and leading tech community members across AI, ML, Cloud Native, Grafana, AWS, Azure, and CNCF chapters in Bangladesh."
         canonicalPath="/community/bangladesh-ai-cloud-native-developer-community"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
@@ -67,7 +69,7 @@ export default function CommunityPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 motion-safe:animate-fade-in-up">
           {[
             { value: '87K+', label: 'Aggregated Community Reach' },
-            { value: '13+', label: 'Community Chapters' },
+            { value: '14+', label: 'Community Chapters' },
             { value: '3', label: 'Cloud Platforms (AWS, Azure, GCP)' },
             { value: 'CNCF', label: 'Ambassador Status' },
           ].map((s, i) => (
