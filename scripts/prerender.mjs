@@ -48,7 +48,7 @@ function escapeJsonLd(jsonString) {
  * @param {string} replacement - The full replacement tag string
  * @param {string} insertAnchor - String to insert before if pattern not found
  * @param {string} label - Human-readable label for error messages
- * @returns {string} Modified HTML
+ * @returns {{ html: string, ok: boolean }} Modified HTML and success flag
  */
 function replaceOrInsert(html, pattern, replacement, insertAnchor, label) {
   const regex = new RegExp(pattern, 'i');
@@ -57,15 +57,15 @@ function replaceOrInsert(html, pattern, replacement, insertAnchor, label) {
     if (result === html) {
       console.warn(`  ⚠ ${label}: regex matched but replacement was identical`);
     }
-    return result;
+    return { html: result, ok: true };
   }
   // Tag doesn't exist — insert before anchor
   if (html.includes(insertAnchor)) {
     console.log(`  + ${label}: inserting (not found in template)`);
-    return html.replace(insertAnchor, `${replacement}\n  ${insertAnchor}`);
+    return { html: html.replace(insertAnchor, `${replacement}\n  ${insertAnchor}`), ok: true };
   }
   console.error(`  ✗ ${label}: could not find pattern or anchor!`);
-  return html;
+  return { html, ok: false };
 }
 
 // ─── Main ───────────────────────────────────────────────────────────
@@ -81,6 +81,7 @@ function main() {
   console.log(`\n🔍 Pre-rendering ${routes.length} routes...\n`);
 
   let successCount = 0;
+  let failCount = 0;
 
   for (const route of routes) {
     const canonicalUrl = `${BASE_URL}${route.path}`;
@@ -89,10 +90,16 @@ function main() {
     const safeDesc = escapeHtmlAttr(route.description);
 
     let html = template;
+    let routeOk = true;
+
+    const apply = (pattern, replacement, anchor, label) => {
+      const result = replaceOrInsert(html, pattern, replacement, anchor, label);
+      html = result.html;
+      if (!result.ok) routeOk = false;
+    };
 
     // 1. <title>
-    html = replaceOrInsert(
-      html,
+    apply(
       '<title>[^<]*</title>',
       `<title>${safeTitle}</title>`,
       '</head>',
@@ -100,8 +107,7 @@ function main() {
     );
 
     // 2. <meta name="description">
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+name="description"[^>]*>',
       `<meta name="description" content="${safeDesc}">`,
       '</head>',
@@ -109,8 +115,7 @@ function main() {
     );
 
     // 3. <link rel="canonical">
-    html = replaceOrInsert(
-      html,
+    apply(
       '<link\\s+rel="canonical"[^>]*>',
       `<link rel="canonical" href="${canonicalUrl}">`,
       '</head>',
@@ -118,29 +123,25 @@ function main() {
     );
 
     // 4. Open Graph tags
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+property="og:title"[^>]*>',
       `<meta property="og:title" content="${safeTitle}">`,
       '</head>',
       'og:title'
     );
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+property="og:description"[^>]*>',
       `<meta property="og:description" content="${safeDesc}">`,
       '</head>',
       'og:description'
     );
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+property="og:url"[^>]*>',
       `<meta property="og:url" content="${canonicalUrl}">`,
       '</head>',
       'og:url'
     );
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+property="og:image"[^>]*>',
       `<meta property="og:image" content="${ogImageUrl}">`,
       '</head>',
@@ -148,22 +149,19 @@ function main() {
     );
 
     // 5. Twitter card tags
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+name="twitter:title"[^>]*>',
       `<meta name="twitter:title" content="${safeTitle}">`,
       '</head>',
       'twitter:title'
     );
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+name="twitter:description"[^>]*>',
       `<meta name="twitter:description" content="${safeDesc}">`,
       '</head>',
       'twitter:description'
     );
-    html = replaceOrInsert(
-      html,
+    apply(
       '<meta\\s+name="twitter:image"[^>]*>',
       `<meta name="twitter:image" content="${ogImageUrl}">`,
       '</head>',
@@ -174,13 +172,18 @@ function main() {
     if (route.jsonLd) {
       const jsonLdString = escapeJsonLd(JSON.stringify(route.jsonLd, null, 2));
       const jsonLdBlock = `<script type="application/ld+json">\n  ${jsonLdString}\n  </script>`;
-      html = replaceOrInsert(
-        html,
+      apply(
         '<script\\s+type="application/ld\\+json">[\\s\\S]*?</script>',
         jsonLdBlock,
         '</head>',
         'JSON-LD'
       );
+    }
+
+    if (!routeOk) {
+      console.error(`  ✗ ${route.path}: one or more tags could not be injected`);
+      failCount++;
+      continue;
     }
 
     // Write to correct file path
@@ -192,11 +195,16 @@ function main() {
       // Subpages — write to dist/{path}/index.html
       outDir = join(DIST, route.path);
     }
-    mkdirSync(outDir, { recursive: true });
-    const outPath = join(outDir, 'index.html');
-    writeFileSync(outPath, html, 'utf-8');
-    console.log(`  ✓ ${route.path} → ${outPath.replace(DIST, 'dist')}`);
-    successCount++;
+    try {
+      mkdirSync(outDir, { recursive: true });
+      const outPath = join(outDir, 'index.html');
+      writeFileSync(outPath, html, 'utf-8');
+      console.log(`  ✓ ${route.path} → ${outPath.replace(DIST, 'dist')}`);
+      successCount++;
+    } catch (err) {
+      console.error(`  ✗ ${route.path}: failed to write — ${err.message}`);
+      failCount++;
+    }
   }
 
   // ─── Generate sitemap.xml ───────────────────────────────────────
@@ -227,6 +235,16 @@ Sitemap: ${BASE_URL}/sitemap.xml
   console.log(`  ✓ robots.txt`);
 
   console.log(`\n✅ Pre-rendered ${successCount}/${routes.length} routes successfully.\n`);
+
+  if (failCount > 0) {
+    console.error(`\n✗ ${failCount} route(s) failed to pre-render.`);
+    process.exit(1);
+  }
 }
 
-main();
+try {
+  main();
+} catch (err) {
+  console.error(`\n✗ Pre-render failed: ${err.message}`);
+  process.exit(1);
+}

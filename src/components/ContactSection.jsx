@@ -21,6 +21,12 @@ export default function ContactSection() {
             <p className="text-sm opacity-80">I'll get back to you shortly.</p>
           </div>
         ) : (
+          <>
+            {state.errors && state.errors.length > 0 && !state.submitting && (
+              <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl relative z-10 mb-4">
+                <p className="font-bold text-sm">Submission failed. Please check your connection and try again.</p>
+              </div>
+            )}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left relative z-10">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1 ml-1">
@@ -76,6 +82,7 @@ export default function ContactSection() {
               </a>
             </div>
           </form>
+          </>
         )}
       </div>
     </section>

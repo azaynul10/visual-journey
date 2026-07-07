@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import ErrorBoundary from './components/ErrorBoundary'
 import HomePage from './pages/HomePage'
 
 // Lazy-load non-home pages
@@ -23,20 +24,21 @@ function PageLoader() {
 function App() {
   return (
     <Layout>
-      <Suspense fallback={<PageLoader />}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/projects/kube-autofix-autonomous-kubernetes-sre-agent" element={<KubeAutoFixPage />} />
-          <Route path="/projects/mlflow-agent-observability-databricks" element={<MLflowObservabilityPage />} />
-          <Route path="/projects/transnational-air-quality-ai-agent" element={<AirQualityPage />} />
-          <Route path="/projects/intelligent-accessibility-navigator" element={<IANPage />} />
-          <Route path="/community/bangladesh-ai-cloud-native-developer-community" element={<CommunityPage />} />
-          <Route path="/speaking/ai-cloud-native-workshops" element={<SpeakingPage />} />
-          <Route path="/credentials" element={<CredentialsPage />} />
-          {/* Fallback to home */}
-          <Route path="*" element={<HomePage />} />
-        </Routes>
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects/kube-autofix-autonomous-kubernetes-sre-agent" element={<KubeAutoFixPage />} />
+            <Route path="/projects/mlflow-agent-observability-databricks" element={<MLflowObservabilityPage />} />
+            <Route path="/projects/transnational-air-quality-ai-agent" element={<AirQualityPage />} />
+            <Route path="/projects/intelligent-accessibility-navigator" element={<IANPage />} />
+            <Route path="/community/bangladesh-ai-cloud-native-developer-community" element={<CommunityPage />} />
+            <Route path="/speaking/ai-cloud-native-workshops" element={<SpeakingPage />} />
+            <Route path="/credentials" element={<CredentialsPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </Suspense>
+      </ErrorBoundary>
     </Layout>
   )
 }
