@@ -1,35 +1,13 @@
-import React from 'react';
 import ProjectPageTemplate from '../components/ProjectPageTemplate';
+import PipelineDiagram from '../components/PipelineDiagram';
 import Icon from '../components/Icon';
 
-function IANDiagram() {
-  const nodes = [
-    { iconName: 'camera', label: 'Camera Input', desc: 'Real-time video', color: '#446CE3' },
-    { iconName: 'eye', label: 'Gemini Vision', desc: '2.5 Flash analysis', color: '#FF9900' },
-    { iconName: 'comment-dots', label: 'Scene Description', desc: 'Natural language', color: '#a855f7' },
-    { iconName: 'volume-up', label: 'TTS Output', desc: 'Spoken guidance', color: '#22c55e' },
-  ];
-  return (
-    <div>
-      <p className="text-xs text-gray-500 mb-4 font-mono uppercase tracking-widest">Processing Pipeline</p>
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        {nodes.map((n, i) => (
-          <div key={i} className="flex items-center gap-2">
-            <div className="flex flex-col items-center text-center w-28">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 border"
-                style={{ backgroundColor: `${n.color}15`, borderColor: `${n.color}30` }}>
-                <Icon name={n.iconName} className="text-lg" style={{ color: n.color }} />
-              </div>
-              <span className="text-xs font-bold text-white">{n.label}</span>
-              <span className="text-[10px] text-gray-500 mt-0.5">{n.desc}</span>
-            </div>
-            {i < nodes.length - 1 && <Icon name="chevron-right" className="text-white/15 text-xs" />}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const ianNodes = [
+  { iconName: 'camera', label: 'Camera Input', desc: 'Real-time video', color: '#446CE3' },
+  { iconName: 'eye', label: 'Gemini Vision', desc: '2.5 Flash analysis', color: '#FF9900' },
+  { iconName: 'comment-dots', label: 'Scene Description', desc: 'Natural language', color: '#a855f7' },
+  { iconName: 'volume-up', label: 'TTS Output', desc: 'Spoken guidance', color: '#22c55e' },
+];
 
 export default function IANPage() {
   return (
@@ -42,7 +20,7 @@ export default function IANPage() {
       title="IAN: Intelligent Accessibility Navigator"
       subtitle="A real-time visual-assistance system for the visually impaired utilizing Gemini Vision capabilities, deployed on Google Cloud Run."
       problemStatement="Visually impaired individuals face daily challenges navigating physical environments without real-time contextual information. Existing assistive tools often provide limited scene understanding. IAN leverages multimodal AI to provide natural language descriptions of visual scenes in real-time."
-      architectureDiagram={<IANDiagram />}
+      architectureDiagram={<PipelineDiagram label="Processing Pipeline" nodes={ianNodes} />}
       techStack={['Gemini 2.5 Vision', 'Google Cloud Run', 'Text-to-Speech', 'Python', 'REST API']}
       sections={[
         {

@@ -1,40 +1,13 @@
-import React from 'react';
 import ProjectPageTemplate from '../components/ProjectPageTemplate';
+import PipelineDiagram from '../components/PipelineDiagram';
 import Icon from '../components/Icon';
 
-function MLflowDiagram() {
-  const steps = [
-    { iconName: 'robot', label: 'Agent Action', desc: 'K8s fix attempt', color: '#446CE3' },
-    { iconName: 'database', label: 'MLflow Log', desc: 'Params, metrics, artifacts', color: '#FF9900' },
-    { iconName: 'chart-bar', label: 'Dashboard', desc: 'Compare runs & drift', color: '#a855f7' },
-    { iconName: 'search', label: 'Analysis', desc: 'Success rate, latency', color: '#22c55e' },
-  ];
-
-  return (
-    <div>
-      <p className="text-xs text-gray-500 mb-4 font-mono uppercase tracking-widest">Observability Pipeline</p>
-      <div className="flex flex-wrap items-center justify-center gap-1">
-        {steps.map((step, i) => (
-          <React.Fragment key={i}>
-            <div className="flex flex-col items-center text-center w-28">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-2 border"
-                style={{ backgroundColor: `${step.color}15`, borderColor: `${step.color}30` }}
-              >
-                <Icon name={step.iconName} className="text-lg" style={{ color: step.color }} />
-              </div>
-              <span className="text-xs font-bold text-white">{step.label}</span>
-              <span className="text-[10px] text-gray-500 leading-tight mt-0.5">{step.desc}</span>
-            </div>
-            {i < steps.length - 1 && (
-              <Icon name="chevron-right" className="text-white/15 text-xs mx-1" />
-            )}
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
-  );
-}
+const mlflowNodes = [
+  { iconName: 'robot', label: 'Agent Action', desc: 'K8s fix attempt', color: '#446CE3' },
+  { iconName: 'database', label: 'MLflow Log', desc: 'Params, metrics, artifacts', color: '#FF9900' },
+  { iconName: 'chart-bar', label: 'Dashboard', desc: 'Compare runs & drift', color: '#a855f7' },
+  { iconName: 'search', label: 'Analysis', desc: 'Success rate, latency', color: '#22c55e' },
+];
 
 export default function MLflowObservabilityPage() {
   return (
@@ -48,7 +21,15 @@ export default function MLflowObservabilityPage() {
       subtitle="A focused observability extension of Kube-AutoFix — tracking AI agent decisions, remediation outcomes, and drift analysis with MLflow on Databricks."
       notice="This is a focused observability extension of Kube-AutoFix, not a separate standalone repository. All code lives in the Kube-AutoFix repo."
       problemStatement="When an AI agent autonomously modifies infrastructure, you need to observe and audit every decision it makes. Without structured experiment tracking, it's impossible to evaluate whether the agent is improving, drifting, or causing regressions. MLflow provides the observability layer that makes autonomous agent behavior auditable."
-      architectureDiagram={<MLflowDiagram />}
+      architectureDiagram={
+        <PipelineDiagram
+          label="Observability Pipeline"
+          nodes={mlflowNodes}
+          gap="gap-1"
+          chevronClassName="text-white/15 text-xs mx-1"
+          descClassName="text-[10px] text-gray-500 leading-tight mt-0.5"
+        />
+      }
       techStack={[
         'MLflow',
         'Databricks',

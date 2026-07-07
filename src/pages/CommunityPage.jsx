@@ -1,8 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Icon from '../components/Icon';
 import BrandBadge from '../components/BrandBadge';
+import SectionHeading from '../components/SectionHeading';
+import Breadcrumb from '../components/Breadcrumb';
+import BackToPortfolio from '../components/BackToPortfolio';
 
 const communityGroups = [
   { name: "The AI, ML & Agentic Community - Bangladesh", members: "21.4K", url: "https://www.facebook.com/groups/mlaidlnlpbd", platform: "facebook" },
@@ -45,11 +46,7 @@ export default function CommunityPage() {
         canonicalPath="/community/bangladesh-ai-cloud-native-developer-community"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
-        <nav className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-gray-400 mb-8" aria-label="Breadcrumb">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-gray-300">Community</span>
-        </nav>
+        <Breadcrumb current="Community" />
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
           Bangladesh AI &amp; Cloud Native Developer Community
@@ -82,10 +79,7 @@ export default function CommunityPage() {
 
         {/* Roles */}
         <section className="mb-12 motion-safe:animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-            <span className="w-1.5 h-6 bg-[#446CE3] rounded-full"></span>
-            Community & Program Involvement
-          </h2>
+          <SectionHeading bar="bg-[#446CE3]">Community & Program Involvement</SectionHeading>
           <p className="text-sm text-gray-400 mb-6">Formerly AWS Cloud Club Captain; completed Platinum and Diamond milestones.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {roles.map((r, i) => {
@@ -125,10 +119,7 @@ export default function CommunityPage() {
 
         {/* Community Groups */}
         <section className="mb-12 motion-safe:animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-          <h2 className="text-xl font-bold mb-4 flex items-center gap-3">
-            <span className="w-1.5 h-6 bg-[#00e5ff] rounded-full"></span>
-            Community Chapters &amp; Groups
-          </h2>
+          <SectionHeading bar="bg-[#00e5ff]">Community Chapters &amp; Groups</SectionHeading>
           <div className="glass-card p-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {communityGroups.map((g, i) => (
@@ -146,11 +137,7 @@ export default function CommunityPage() {
           </div>
         </section>
 
-        <div className="pt-8 border-t border-white/5">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors min-h-[44px]">
-            <Icon name="arrow-left" className="text-xs" /> Back to Portfolio
-          </Link>
-        </div>
+        <BackToPortfolio />
       </div>
     </>
   );
