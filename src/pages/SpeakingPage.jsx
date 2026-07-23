@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import Icon from '../components/Icon';
 import BrandBadge from '../components/BrandBadge';
+import LiteYouTube from '../components/LiteYouTube';
 
 const pastEvents = [
   { title: 'Cloud Native Community Day — Chattogram', org: 'CNCF Cloud Native Chattogram', date: '2025', url: 'https://ocgroups.dev/cncf/group/zjrcuw4/event/j3nrmeg', brand: 'cncf', color: '#446CE3' },
@@ -10,6 +11,15 @@ const pastEvents = [
   { title: 'Cloud Native Bangladesh — Community Event', org: 'CNCF Cloud Native Bangladesh', date: '2025', url: 'https://ocgroups.dev/cncf/group/w9fz6fg/event/9ghz5ad', brand: 'cncf', color: '#446CE3' },
   { title: 'AWS Student Builder Group — BRAC University Meetup', org: 'AWS SBG BRACU', date: '2025', url: 'https://www.meetup.com/aws-sbg-brac-university/events/311703434/', brand: 'aws', color: '#FF9900' },
   { title: 'AWS Student Builder Group — Cloud Workshop', org: 'AWS SBG BRACU', date: '2024', url: 'https://www.meetup.com/aws-sbg-brac-university/events/303548382/', brand: 'aws', color: '#FF9900' },
+];
+
+// Talks & Videos — YouTube video IDs from youtube.com/@zaynulabedinmiah.
+// To add a video: grab the ID from the URL (youtube.com/watch?v=<ID>) and append here.
+const talks = [
+  { id: 'syLzvMYkfBc', title: 'How We Built the Future of Environmental Protection | Google Maps + AI' },
+  { id: 'dLxiK394WOc', title: 'The Hidden Blueprint to AGI: A Multimodal Gemini Agent' },
+  { id: '-7WkS0ogs-k', title: 'LIVE: Build Your Own Video Streaming Platform (Like Netflix/YouTube) | AWS Cloud Workshop' },
+  { id: '1peij6j4t1g', title: 'AlexNet Explained: How the 2012 Paper That Changed AI Forever Still Matters Today' },
 ];
 
 const speakingTopics = [
@@ -77,6 +87,35 @@ export default function SpeakingPage() {
               </a>
             ))}
           </div>
+        </section>
+
+        {/* Talks & Videos */}
+        <section className="mb-12 motion-safe:animate-fade-in-up" aria-labelledby="talks-videos-heading">
+          <h2 id="talks-videos-heading" className="text-xl font-bold mb-4 flex items-center gap-3">
+            <span className="w-1.5 h-6 bg-red-500 rounded-full"></span>
+            Talks &amp; Videos
+          </h2>
+          <p className="text-sm text-gray-400 mb-6">
+            Session recordings and demos. Click a thumbnail to load and play the video.
+          </p>
+
+          {/* Facade-pattern video grid — no iframe loads until clicked */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {talks.map((video) => (
+              <LiteYouTube key={video.id} id={video.id} title={video.title} />
+            ))}
+          </div>
+
+          <a
+            href="https://www.youtube.com/@zaynulabedinmiah"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 mt-6 text-sm text-gray-400 hover:text-white transition-colors min-h-[44px] motion-reduce:transition-none"
+            aria-label="View all videos on YouTube channel"
+          >
+            <Icon name="youtube" className="text-red-500" /> View all videos on YouTube
+            <Icon name="external-link" className="text-xs" />
+          </a>
         </section>
 
         {/* Topics I'm Exploring */}
