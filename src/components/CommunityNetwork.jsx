@@ -119,7 +119,7 @@ function StatCard({ number, suffix, label, sublabel, iconName, accentColor, glow
             <div className="flex flex-wrap gap-2">
               {groups.map((group, i) => (
                 <a
-                  key={i} href={group.url} target="_blank" rel="noreferrer"
+                  key={i} href={group.url} target="_blank" rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   className="community-chip min-h-[32px]"
                   style={{ '--accent': accentColor }}
@@ -202,7 +202,7 @@ function LeaderCard({ stat }) {
             <div className="flex flex-wrap gap-2">
               {stat.groups.map((group, i) => (
                 <a
-                  key={i} href={group.url} target="_blank" rel="noreferrer"
+                  key={i} href={group.url} target="_blank" rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
                   className="community-chip min-h-[32px]"
                   style={{ '--accent': stat.accentColor }}

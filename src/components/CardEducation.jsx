@@ -6,7 +6,7 @@ export default function CardEducation() {
     <a 
       href="https://www.bracu.ac.bd/"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       className="glass-card p-6 h-full block hover:border-white/30 transition-all group"
       aria-label="BRAC University — B.Sc in Computer Science"
     >

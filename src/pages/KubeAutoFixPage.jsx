@@ -89,7 +89,7 @@ export default function KubeAutoFixPage() {
           content: (
             <div className="space-y-3 text-gray-300 text-sm leading-relaxed">
               <p>
-                <a href="https://github.com/azaynul10/kube-autofix/releases/tag/v0.1.0" target="_blank" rel="noreferrer" className="text-[#00e5ff] hover:underline font-medium inline-flex items-center gap-2">
+                <a href="https://github.com/azaynul10/kube-autofix/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer" className="text-[#00e5ff] hover:underline font-medium inline-flex items-center gap-2">
                   <Icon name="github" className="text-sm" /> Kube-AutoFix v0.1.0 release: MLflow observability for autonomous Kubernetes SRE agent runs.
                 </a>
               </p>

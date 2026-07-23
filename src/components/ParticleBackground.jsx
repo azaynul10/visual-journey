@@ -12,7 +12,9 @@ export default function ParticleBackground() {
     const isMobile = window.innerWidth < 768;
 
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
     let animationId;
     let time = 0;
 

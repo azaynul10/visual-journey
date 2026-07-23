@@ -35,7 +35,7 @@ export default function CredentialsSection() {
             key={i} 
             href={cred.link}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="glass-card p-6 rounded-2xl border border-white/5 hover:border-white/20 transition-all group block"
           >
             <div className="flex justify-between items-start">
@@ -52,7 +52,7 @@ export default function CredentialsSection() {
         <a 
           href="https://www.credly.com/users/zaynul-abedin-miah.65b5cd8c/badges"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="glass-card p-6 rounded-2xl border border-[#446CE3]/30 hover:border-[#446CE3] transition-all bg-[#446CE3]/5 group flex flex-col justify-center min-h-[96px]"
         >
           <div className="flex items-center justify-between">
