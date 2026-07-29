@@ -4,6 +4,17 @@ import { Users, Award, Cloud, Monitor } from 'lucide-react';
 export default function AmbassadorshipsSection() {
   const flagshipRoles = [
     {
+      id: 'notion',
+      organization: 'Notion',
+      title: 'Notion Campus Leader',
+      year: '2026–2027 Cohort',
+      description: "Selected for Notion's global Campus Leaders program to grow the student developer community — hosting workshops, building and sharing Notion templates, and helping students turn academic and community work into structured systems.",
+      link: 'https://www.notion.so/',
+      logo: '/logos/notion.webp',
+      logoAlt: 'Notion Logo',
+      logoBg: 'bg-[#191919]'
+    },
+    {
       id: 'aaif',
       organization: 'Agentic AI Foundation (Linux Foundation)',
       title: 'AAIF Ambassador',
@@ -11,7 +22,8 @@ export default function AmbassadorshipsSection() {
       description: "Only Ambassador from Bangladesh in AAIF's first global cohort (138 selected from 1,000+ applicants across 41 countries). Advancing open agentic-AI standards — MCP, AGENTS.md, agentgateway.",
       link: 'https://aaif.io/ambassadors',
       logo: '/logos/aaif.svg',
-      logoAlt: 'AAIF Logo'
+      logoAlt: 'AAIF Logo',
+      logoScale: 'scale-150'
     },
     {
       id: 'cognition',
@@ -21,7 +33,8 @@ export default function AmbassadorshipsSection() {
       description: "Ambassador for Cognition's Devin (autonomous AI software engineer); community building and developer advocacy.",
       link: 'https://cognition.ai',
       logo: '/logos/cognition.svg',
-      logoAlt: 'Cognition Logo'
+      logoAlt: 'Cognition Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'cncf',
@@ -31,7 +44,8 @@ export default function AmbassadorshipsSection() {
       description: "Helping make cloud native ubiquitous.",
       link: 'https://www.cncf.io/',
       logo: '/logos/cncf.svg',
-      logoAlt: 'CNCF Logo'
+      logoAlt: 'CNCF Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'pytorch',
@@ -41,7 +55,8 @@ export default function AmbassadorshipsSection() {
       description: "Advocating and building with PyTorch in the local AI community.",
       link: 'https://pytorch.org/',
       logo: '/logos/pytorch.svg',
-      logoAlt: 'PyTorch Logo'
+      logoAlt: 'PyTorch Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'aws',
@@ -61,7 +76,8 @@ export default function AmbassadorshipsSection() {
       description: "Evangelizing AI dubbing and voice generation technologies.",
       link: 'https://elevenlabs.io/',
       logo: '/logos/elevenlabs.svg',
-      logoAlt: 'ElevenLabs Logo'
+      logoAlt: 'ElevenLabs Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'grafana',
@@ -77,6 +93,7 @@ export default function AmbassadorshipsSection() {
       link: 'https://www.meetup.com/grafana-friends-dhaka/',
       logo: '/logos/grafana.svg',
       logoAlt: 'Grafana Logo',
+      logoBg: 'bg-[#191919]',
       disclaimer: "Grafana and Friends is a community program; this is a volunteer organizer role and is not an official Grafana Labs page."
     }
   ];
@@ -136,7 +153,7 @@ export default function AmbassadorshipsSection() {
         {flagshipRoles.map((role) => (
           <div key={role.id} className="glass-card p-6 flex flex-col group relative transition-transform duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 h-full">
             {/* Logo Container */}
-            <div className="h-14 w-14 mb-5 rounded-xl bg-white/90 p-2 flex items-center justify-center shadow-inner border border-white/20 shrink-0">
+            <div className={`h-14 w-14 mb-5 rounded-xl ${role.logoBg || 'bg-white/90'} p-2 flex items-center justify-center shadow-inner border border-white/20 shrink-0`}>
               {role.logo ? (
                 <img
                   src={role.logo}
@@ -144,7 +161,7 @@ export default function AmbassadorshipsSection() {
                   width={40}
                   height={40}
                   loading="lazy"
-                  className="w-full h-full object-contain"
+                  className={`w-full h-full object-contain ${role.logoScale || ''}`}
                 />
               ) : (
                 <span className="font-extrabold text-2xl" style={{ color: role.logoColor }}>
