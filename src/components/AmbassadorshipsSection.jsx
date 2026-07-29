@@ -4,6 +4,16 @@ import { Users, Award, Cloud, Monitor } from 'lucide-react';
 export default function AmbassadorshipsSection() {
   const flagshipRoles = [
     {
+      id: 'notion',
+      organization: 'Notion',
+      title: 'Notion Campus Leader',
+      year: '2026–2027 Cohort',
+      description: "Selected for Notion's global Campus Leaders program to grow the student developer community — hosting workshops, building and sharing Notion templates, and helping students turn academic and community work into structured systems.",
+      link: 'https://www.notion.so/',
+      logo: '/logos/notion.webp',
+      logoAlt: 'Notion Logo'
+    },
+    {
       id: 'aaif',
       organization: 'Agentic AI Foundation (Linux Foundation)',
       title: 'AAIF Ambassador',
