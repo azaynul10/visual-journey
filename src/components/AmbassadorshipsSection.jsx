@@ -11,7 +11,8 @@ export default function AmbassadorshipsSection() {
       description: "Selected for Notion's global Campus Leaders program to grow the student developer community — hosting workshops, building and sharing Notion templates, and helping students turn academic and community work into structured systems.",
       link: 'https://www.notion.so/',
       logo: '/logos/notion.webp',
-      logoAlt: 'Notion Logo'
+      logoAlt: 'Notion Logo',
+      logoBg: 'bg-[#191919]'
     },
     {
       id: 'aaif',
@@ -146,7 +147,7 @@ export default function AmbassadorshipsSection() {
         {flagshipRoles.map((role) => (
           <div key={role.id} className="glass-card p-6 flex flex-col group relative transition-transform duration-300 hover:-translate-y-1 motion-reduce:hover:translate-y-0 h-full">
             {/* Logo Container */}
-            <div className="h-14 w-14 mb-5 rounded-xl bg-white/90 p-2 flex items-center justify-center shadow-inner border border-white/20 shrink-0">
+            <div className={`h-14 w-14 mb-5 rounded-xl ${role.logoBg || 'bg-white/90'} p-2 flex items-center justify-center shadow-inner border border-white/20 shrink-0`}>
               {role.logo ? (
                 <img
                   src={role.logo}
