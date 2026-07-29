@@ -22,7 +22,8 @@ export default function AmbassadorshipsSection() {
       description: "Only Ambassador from Bangladesh in AAIF's first global cohort (138 selected from 1,000+ applicants across 41 countries). Advancing open agentic-AI standards — MCP, AGENTS.md, agentgateway.",
       link: 'https://aaif.io/ambassadors',
       logo: '/logos/aaif.svg',
-      logoAlt: 'AAIF Logo'
+      logoAlt: 'AAIF Logo',
+      logoScale: 'scale-150'
     },
     {
       id: 'cognition',
@@ -32,7 +33,8 @@ export default function AmbassadorshipsSection() {
       description: "Ambassador for Cognition's Devin (autonomous AI software engineer); community building and developer advocacy.",
       link: 'https://cognition.ai',
       logo: '/logos/cognition.svg',
-      logoAlt: 'Cognition Logo'
+      logoAlt: 'Cognition Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'cncf',
@@ -42,7 +44,8 @@ export default function AmbassadorshipsSection() {
       description: "Helping make cloud native ubiquitous.",
       link: 'https://www.cncf.io/',
       logo: '/logos/cncf.svg',
-      logoAlt: 'CNCF Logo'
+      logoAlt: 'CNCF Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'pytorch',
@@ -52,7 +55,8 @@ export default function AmbassadorshipsSection() {
       description: "Advocating and building with PyTorch in the local AI community.",
       link: 'https://pytorch.org/',
       logo: '/logos/pytorch.svg',
-      logoAlt: 'PyTorch Logo'
+      logoAlt: 'PyTorch Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'aws',
@@ -72,7 +76,8 @@ export default function AmbassadorshipsSection() {
       description: "Evangelizing AI dubbing and voice generation technologies.",
       link: 'https://elevenlabs.io/',
       logo: '/logos/elevenlabs.svg',
-      logoAlt: 'ElevenLabs Logo'
+      logoAlt: 'ElevenLabs Logo',
+      logoScale: 'scale-125'
     },
     {
       id: 'grafana',
@@ -88,6 +93,7 @@ export default function AmbassadorshipsSection() {
       link: 'https://www.meetup.com/grafana-friends-dhaka/',
       logo: '/logos/grafana.svg',
       logoAlt: 'Grafana Logo',
+      logoBg: 'bg-[#191919]',
       disclaimer: "Grafana and Friends is a community program; this is a volunteer organizer role and is not an official Grafana Labs page."
     }
   ];
@@ -155,7 +161,7 @@ export default function AmbassadorshipsSection() {
                   width={40}
                   height={40}
                   loading="lazy"
-                  className="w-full h-full object-contain"
+                  className={`w-full h-full object-contain ${role.logoScale || ''}`}
                 />
               ) : (
                 <span className="font-extrabold text-2xl" style={{ color: role.logoColor }}>
