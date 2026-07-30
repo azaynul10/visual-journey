@@ -23,7 +23,7 @@ export default function ProjectsGrid() {
       title: "Multimodal Fall Detection",
       tech: "PyTorch, Computer Vision",
       link: "https://github.com/azaynul10/Privacy-Fall-Detector",
-      desc: "Developed a Fall Detection mechanism integrating Vision-Language Models for elderly care, achieving a 99% accuracy on Fall-dataset utilizing Multi-Modal learning architectures."
+      desc: "Developed a Fall Detection mechanism integrating Vision-Language Models for elderly care, achieving 98.57% (audio) / 97.06% (multimodal) accuracy on Fall-dataset utilizing Multi-Modal learning architectures."
     },
     {
       title: "IAN: Intelligent Accessibility Navigator",
