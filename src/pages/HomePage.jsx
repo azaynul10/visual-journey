@@ -9,6 +9,7 @@ import ProjectsGrid from '../components/ProjectsGrid';
 import ElevenLabsDubbingSection from '../components/ElevenLabsDubbingSection';
 import ContactSection from '../components/ContactSection';
 import CredentialsSection from '../components/CredentialsSection';
+import RecognitionSection from '../components/RecognitionSection';
 import Icon from '../components/Icon';
 
 export default function HomePage() {
@@ -61,6 +62,9 @@ export default function HomePage() {
         
         {/* Industry Recognition & Testimonials */}
         <TestimonialsSection />
+
+        {/* Recognition & Community Impact */}
+        <RecognitionSection />
         
         {/* Featured Projects with internal links */}
         <ProjectsGrid />
