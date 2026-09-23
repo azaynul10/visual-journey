@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/
 
-Sitemap: https://zaynul-abedin-miah.vercel.app/sitemap.xml
+Sitemap: https://zaynulabedinmiah.com/sitemap.xml
