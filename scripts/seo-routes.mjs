@@ -5,7 +5,7 @@
  * IMPORTANT: When adding a new page, add its entry here AND in src/App.jsx.
  */
 
-export const BASE_URL = 'https://zaynul-abedin-miah.vercel.app';
+export const BASE_URL = 'https://zaynulabedinmiah.com';
 export const OG_IMAGE = '/images/og-image.png';
 export const SITE_NAME = 'Zaynul Abedin Miah';
 
@@ -52,6 +52,33 @@ export const routes = [
           'Video Localization',
         ],
       },
+    },
+  },
+  {
+    path: '/projects/splitshare-backend-observability',
+    title: 'SplitShare — Backend and Observability Engineering | Zaynul Abedin Miah',
+    description:
+      'Collaborative CSE370 marketplace with independent Django/Flask reliability extensions: OpenTelemetry tracing, controlled fault experiments and database-outage HTTP handling.',
+    lastmod: '2026-09-23',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: 'SplitShare — Backend and Observability Engineering',
+      url: `${BASE_URL}/projects/splitshare-backend-observability`,
+      description:
+        'Academic project with independent reliability extensions. A collaborative marketplace and self-reported controlled observability evaluation, not a production or customer benchmark.',
+      author: { '@type': 'Person', name: 'Zaynul Abedin Miah' },
+      about: {
+        '@type': 'SoftwareSourceCode',
+        name: 'SplitShare',
+        codeRepository: 'https://github.com/azaynul10/split-share',
+        description: 'Collaborative academic marketplace with independently scoped reliability extensions.',
+      },
+      citation: [
+        'https://github.com/azaynul10/split-share/blob/main/docs/bluebox-eval.md',
+        'https://github.com/azaynul10/split-share/issues/4',
+        'https://github.com/azaynul10/split-share/pull/5',
+      ],
     },
   },
   {
