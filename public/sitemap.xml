@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/</loc>
+    <loc>https://zaynulabedinmiah.com/</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/projects/kube-autofix-autonomous-kubernetes-sre-agent</loc>
+    <loc>https://zaynulabedinmiah.com/projects/splitshare-backend-observability</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://zaynulabedinmiah.com/projects/kube-autofix-autonomous-kubernetes-sre-agent</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/projects/mlflow-agent-observability-databricks</loc>
+    <loc>https://zaynulabedinmiah.com/projects/mlflow-agent-observability-databricks</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/projects/transnational-air-quality-ai-agent</loc>
+    <loc>https://zaynulabedinmiah.com/projects/transnational-air-quality-ai-agent</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/projects/intelligent-accessibility-navigator</loc>
+    <loc>https://zaynulabedinmiah.com/projects/intelligent-accessibility-navigator</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/community/bangladesh-ai-cloud-native-developer-community</loc>
+    <loc>https://zaynulabedinmiah.com/community/bangladesh-ai-cloud-native-developer-community</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://zaynul-abedin-miah.vercel.app/speaking/ai-cloud-native-workshops</loc>
+    <loc>https://zaynulabedinmiah.com/speaking/ai-cloud-native-workshops</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
