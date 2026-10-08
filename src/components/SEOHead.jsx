@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const BASE_URL = 'https://zaynul-abedin-miah.vercel.app';
+const BASE_URL = 'https://zaynulabedinmiah.com';
 
 /**
  * SEOHead — dynamically sets document title and meta tags per route.

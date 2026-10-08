@@ -33,7 +33,7 @@ describe('SEOHead', () => {
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute(
       'href',
-      'https://zaynul-abedin-miah.vercel.app/about'
+      'https://zaynulabedinmiah.com/about'
     );
   });
 
@@ -56,13 +56,13 @@ describe('SEOHead', () => {
       document.querySelector('meta[property="og:url"]')
     ).toHaveAttribute(
       'content',
-      'https://zaynul-abedin-miah.vercel.app/page'
+      'https://zaynulabedinmiah.com/page'
     );
     expect(
       document.querySelector('meta[property="og:image"]')
     ).toHaveAttribute(
       'content',
-      'https://zaynul-abedin-miah.vercel.app/img.png'
+      'https://zaynulabedinmiah.com/img.png'
     );
     expect(
       document.querySelector('meta[property="og:type"]')
