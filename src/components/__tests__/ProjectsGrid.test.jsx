@@ -15,16 +15,35 @@ describe('ProjectsGrid', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders all 4 project cards', () => {
+  it('renders all 5 project cards while preserving the existing projects', () => {
     renderWithRouter(<ProjectsGrid />);
+    expect(screen.getAllByRole('heading', { level: 3 })).toHaveLength(5);
+    expect(screen.getByText('SplitShare — Backend and Observability Engineering')).toBeInTheDocument();
     expect(screen.getByText('Kube-AutoFix: Autonomous K8s Debugging Agent')).toBeInTheDocument();
     expect(screen.getByText('Transnational AQMS via IoT')).toBeInTheDocument();
     expect(screen.getByText('Multimodal Fall Detection')).toBeInTheDocument();
     expect(screen.getByText('IAN: Intelligent Accessibility Navigator')).toBeInTheDocument();
   });
 
+  it('features SplitShare once as an academic project with one case-study link', () => {
+    renderWithRouter(<ProjectsGrid />);
+    const title = 'SplitShare — Backend and Observability Engineering';
+    expect(screen.getAllByRole('heading', { name: title, level: 3 })).toHaveLength(1);
+    expect(screen.getAllByRole('heading', { level: 3 })[0]).toHaveTextContent(title);
+    expect(screen.getByText('Academic project with independent reliability extensions')).toBeInTheDocument();
+
+    const caseStudyLinks = screen.getAllByRole('link', { name: `Read more about ${title}` });
+    expect(caseStudyLinks).toHaveLength(1);
+    expect(caseStudyLinks[0]).toHaveAttribute('href', '/projects/splitshare-backend-observability');
+
+    const repositoryLinks = screen.getAllByRole('link', { name: `View ${title} on GitHub` });
+    expect(repositoryLinks).toHaveLength(1);
+    expect(repositoryLinks[0]).toHaveAttribute('href', 'https://github.com/azaynul10/split-share');
+  });
+
   it('renders tech stack info for each project', () => {
     renderWithRouter(<ProjectsGrid />);
+    expect(screen.getByText('Python, Django, Flask, MariaDB/MySQL, OpenTelemetry')).toBeInTheDocument();
     expect(screen.getByText('OpenAI Codex, Kubernetes, Databricks, MLflow')).toBeInTheDocument();
     expect(screen.getByText('Google ADK, PyTorch, C++')).toBeInTheDocument();
     expect(screen.getByText('PyTorch, Computer Vision')).toBeInTheDocument();
@@ -35,13 +54,13 @@ describe('ProjectsGrid', () => {
     renderWithRouter(<ProjectsGrid />);
     const readMoreLinks = screen.getAllByText('Read More');
     // Kube-AutoFix, Transnational AQMS, and IAN have internalPath
-    expect(readMoreLinks).toHaveLength(3);
+    expect(readMoreLinks).toHaveLength(4);
   });
 
   it('renders GitHub links for all projects', () => {
     renderWithRouter(<ProjectsGrid />);
     const githubLinks = screen.getAllByText('GitHub');
-    expect(githubLinks).toHaveLength(4);
+    expect(githubLinks).toHaveLength(5);
   });
 
   it('renders Demo button only for projects with a demo link', () => {
@@ -56,7 +75,7 @@ describe('ProjectsGrid', () => {
     const githubLinks = screen.getAllByText('GitHub');
     githubLinks.forEach((link) => {
       expect(link.closest('a')).toHaveAttribute('target', '_blank');
-      expect(link.closest('a')).toHaveAttribute('rel', 'noreferrer');
+      expect(link.closest('a')).toHaveAttribute('rel', 'noopener noreferrer');
     });
   });
 

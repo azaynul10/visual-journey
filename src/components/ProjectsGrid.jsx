@@ -5,6 +5,14 @@ import Icon from './Icon';
 export default function ProjectsGrid() {
   const projects = [
     {
+      title: "SplitShare — Backend and Observability Engineering",
+      subtitle: "Academic project with independent reliability extensions",
+      tech: "Python, Django, Flask, MariaDB/MySQL, OpenTelemetry",
+      link: "https://github.com/azaynul10/split-share",
+      internalPath: "/projects/splitshare-backend-observability",
+      desc: "A collaborative CSE370 marketplace extended with a Flask coupon service, OpenTelemetry tracing and controlled fault experiments, with a documented database-outage fix."
+    },
+    {
       title: "Kube-AutoFix: Autonomous K8s Debugging Agent",
       tech: "OpenAI Codex, Kubernetes, Databricks, MLflow",
       link: "https://github.com/azaynul10/kube-autofix",
@@ -47,6 +55,9 @@ export default function ProjectsGrid() {
             className="glass-card p-6 flex flex-col group"
           >
             <h3 className="text-xl font-bold mb-2 group-hover:text-brand-blue transition-colors">{project.title}</h3>
+            {project.subtitle && (
+              <p className="text-sm text-gray-300 mb-3">{project.subtitle}</p>
+            )}
             <p className="text-brand-orange text-xs font-mono mb-4">{project.tech}</p>
             <p className="text-gray-400 text-sm flex-1 mb-6 leading-relaxed">
               {project.desc}

@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import HomePage from './pages/HomePage'
 
 // Lazy-load non-home pages
+const SplitSharePage = lazy(() => import('./pages/SplitSharePage'))
 const KubeAutoFixPage = lazy(() => import('./pages/KubeAutoFixPage'))
 const MLflowObservabilityPage = lazy(() => import('./pages/MLflowObservabilityPage'))
 const AirQualityPage = lazy(() => import('./pages/AirQualityPage'))
@@ -28,6 +29,7 @@ function App() {
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/projects/splitshare-backend-observability" element={<SplitSharePage />} />
             <Route path="/projects/kube-autofix-autonomous-kubernetes-sre-agent" element={<KubeAutoFixPage />} />
             <Route path="/projects/mlflow-agent-observability-databricks" element={<MLflowObservabilityPage />} />
             <Route path="/projects/transnational-air-quality-ai-agent" element={<AirQualityPage />} />

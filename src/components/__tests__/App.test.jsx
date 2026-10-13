@@ -40,6 +40,19 @@ describe('App', () => {
     expect(screen.getAllByText('Zaynul Abedin Miah').length).toBeGreaterThan(0);
   });
 
+  it('renders the lazy-loaded SplitShare case study at its project route', async () => {
+    render(
+      <MemoryRouter initialEntries={['/projects/splitshare-backend-observability']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(await screen.findByRole('heading', {
+      level: 1,
+      name: 'SplitShare — Backend and Observability Engineering',
+    })).toBeInTheDocument();
+    expect(screen.getByText('Academic project with independent reliability extensions')).toBeInTheDocument();
+  });
+
   it('renders fallback to home for unknown routes', () => {
     render(
       <MemoryRouter initialEntries={['/nonexistent-page']}>
