@@ -46,6 +46,7 @@ export default function CredentialsPage() {
       <SEOHead 
         title="Credentials & Certifications | Zaynul Abedin Miah"
         description="Verified learning and program milestones supporting my work in AI, cloud-native, open-source, and student developer communities."
+        canonicalPath="/credentials"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         <header className="mb-16">
