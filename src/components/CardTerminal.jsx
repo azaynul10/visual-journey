@@ -1,4 +1,3 @@
-import React from 'react';
 import Icon from './Icon';
 
 export default function CardTerminal() {
@@ -43,8 +42,8 @@ export default function CardTerminal() {
             key={i} 
             className="aspect-square rounded-[2px]"
             style={{
-              backgroundColor: Math.random() > 0.7 
-                ? `rgba(74, 222, 128, ${Math.random() * 0.8 + 0.2})` 
+              backgroundColor: (i * 37) % 11 > 7
+                ? `rgba(74, 222, 128, ${0.2 + (i % 5) * 0.16})`
                 : 'rgba(255,255,255,0.05)'
             }}
           ></div>

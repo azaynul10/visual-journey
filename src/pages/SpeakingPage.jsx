@@ -5,6 +5,7 @@ import LiteYouTube from '../components/LiteYouTube';
 import SectionHeading from '../components/SectionHeading';
 import Breadcrumb from '../components/Breadcrumb';
 import BackToPortfolio from '../components/BackToPortfolio';
+import RecentTalks from '../components/RecentTalks';
 
 const pastEvents = [
   { title: 'Cloud Native Community Day — Chattogram', org: 'CNCF Cloud Native Chattogram', date: '2025', url: 'https://ocgroups.dev/cncf/group/zjrcuw4/event/j3nrmeg', brand: 'cncf', color: '#446CE3' },
@@ -35,8 +36,8 @@ export default function SpeakingPage() {
   return (
     <>
       <SEOHead
-        title="Community Events & Learning Sessions | Zaynul Abedin Miah"
-        description="Selected public community activities and learning sessions across cloud-native, AWS, AI, open source, and student developer communities."
+        title="Talks & Workshops: GitHub, Notion & TorchTPU | Zaynul Abedin Miah"
+        description="Talks by Zaynul Abedin Miah at GitHub Dev Days Dhaka and Notion Café Dhaka, with real session photos, teaching slides, a TorchTPU notebook and student resources."
         canonicalPath="/speaking/ai-cloud-native-workshops"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
@@ -46,7 +47,7 @@ export default function SpeakingPage() {
           Speaking
         </h1>
         <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
-          Selected public community activities, meetups, and learning sessions across cloud-native, AWS, AI, and student developer communities.
+          Beginner-friendly talks and demos on developer tools, student workflows and cloud-native engineering, with materials you can keep using after the session.
         </p>
 
         {/* Primary CTA */}
@@ -63,6 +64,8 @@ export default function SpeakingPage() {
           aria-label="View recent community activity on LinkedIn">
           <Icon name="linkedin" /> View recent community activity on LinkedIn
         </a>
+
+        <RecentTalks />
 
         {/* Past Events */}
         <section className="mb-12 motion-safe:animate-fade-in-up">

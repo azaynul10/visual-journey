@@ -53,15 +53,15 @@ describe('App', () => {
     expect(screen.getByText('Academic project with independent reliability extensions')).toBeInTheDocument();
   });
 
-  it('renders fallback to home for unknown routes', () => {
+  it('renders a noindex not-found page for unknown routes', () => {
     render(
       <MemoryRouter initialEntries={['/nonexistent-page']}>
         <App />
       </MemoryRouter>
     );
-    // Should still render layout with nav links
-    const homeLinks = screen.getAllByText('Home');
-    expect(homeLinks.length).toBeGreaterThan(0);
+    expect(screen.getByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+    expect(screen.queryByRole('heading', { name: /CS Student Building/ })).not.toBeInTheDocument();
   });
 
   it('renders brand logo link in nav', () => {

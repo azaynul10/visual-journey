@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Icon from './Icon';
 import BrandBadge from './BrandBadge';
 
@@ -271,9 +271,9 @@ export default function CommunityNetwork() {
             key={i}
             className="ambient-orb"
             style={{
-              '--orb-x': `${15 + Math.random() * 70}%`,
-              '--orb-y': `${10 + Math.random() * 80}%`,
-              '--orb-size': `${80 + Math.random() * 200}px`,
+              '--orb-x': `${[22, 68, 45][i]}%`,
+              '--orb-y': `${[18, 64, 82][i]}%`,
+              '--orb-size': `${[140, 220, 170][i]}px`,
               '--orb-hue': [190, 270, 30][i],
               '--orb-delay': `${i * 1.5}s`,
             }}

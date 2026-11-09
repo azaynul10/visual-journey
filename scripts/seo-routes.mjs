@@ -163,16 +163,16 @@ export const routes = [
   },
   {
     path: '/speaking/ai-cloud-native-workshops',
-    title: 'Community Events & Learning Sessions | Zaynul Abedin Miah',
+    title: 'Talks & Workshops: GitHub, Notion & TorchTPU | Zaynul Abedin Miah',
     description:
-      'Selected public community activities and learning sessions across cloud-native, AWS, AI, open source, and student developer communities.',
-    lastmod: '2026-05-01',
+      'Talks by Zaynul Abedin Miah at GitHub Dev Days Dhaka and Notion Café Dhaka, with real session photos, teaching slides, a TorchTPU notebook and student resources.',
+    lastmod: '2026-11-09',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Community Events & Learning Sessions',
+      name: 'Talks & Workshops: GitHub, Notion & TorchTPU',
       description:
-        'Selected public community activities and learning sessions across cloud-native, AWS, AI, open source, and student developer communities.',
+        'Talks and presenter-led demos with session photos, teaching materials and reusable student resources.',
       author: { '@type': 'Person', name: 'Zaynul Abedin Miah' },
     },
   },

@@ -1,19 +1,20 @@
 /**
  * prerender.mjs — Post-build script that generates per-route HTML files
- * with correct meta tags, OG tags, Twitter cards, canonical URLs, and JSON-LD.
+ * with complete rendered page content, metadata, canonical URLs, and JSON-LD.
  *
  * Also generates sitemap.xml and robots.txt.
  *
  * Run: node scripts/prerender.mjs
  * Called automatically by: npm run build
  *
- * Zero external dependencies — uses only Node.js built-ins.
+ * Uses the existing Vite/React toolchain to render the same routes as the browser.
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { routes, BASE_URL, OG_IMAGE, SITE_NAME } from './seo-routes.mjs';
+import { createServer } from 'vite';
+import { routes, BASE_URL, OG_IMAGE } from './seo-routes.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '..', 'dist');
@@ -70,7 +71,7 @@ function replaceOrInsert(html, pattern, replacement, insertAnchor, label) {
 
 // ─── Main ───────────────────────────────────────────────────────────
 
-function main() {
+async function main(render) {
   const templatePath = join(DIST, 'index.html');
   if (!existsSync(templatePath)) {
     console.error('✗ dist/index.html not found. Run "vite build" first.');
@@ -83,13 +84,24 @@ function main() {
   let successCount = 0;
   let failCount = 0;
 
-  for (const route of routes) {
+  const notFound = {
+    path: '/404',
+    title: 'Page not found | Zaynul Abedin Miah',
+    description: "This page could not be found. Explore Zaynul's projects and community talks.",
+    noindex: true,
+  };
+  for (const route of [...routes, notFound]) {
     const canonicalUrl = `${BASE_URL}${route.path}`;
     const ogImageUrl = `${BASE_URL}${OG_IMAGE}`;
     const safeTitle = escapeHtmlAttr(route.title);
     const safeDesc = escapeHtmlAttr(route.description);
 
     let html = template;
+    const content = await render(route.path);
+    if (!content.includes('<h1') || !template.includes('<div id="root"></div>')) {
+      throw new Error(`Missing page content or root placeholder for ${route.path}`);
+    }
+    html = html.replace('<div id="root"></div>', () => `<div id="root">${content}</div>`);
     let routeOk = true;
 
     const apply = (pattern, replacement, anchor, label) => {
@@ -120,6 +132,13 @@ function main() {
       `<link rel="canonical" href="${canonicalUrl}">`,
       '</head>',
       'canonical'
+    );
+
+    apply(
+      '<meta\\s+name="robots"[^>]*>',
+      `<meta name="robots" content="${route.noindex ? 'noindex, follow' : 'index, follow'}">`,
+      '</head>',
+      'robots'
     );
 
     // 4. Open Graph tags
@@ -178,6 +197,8 @@ function main() {
         '</head>',
         'JSON-LD'
       );
+    } else if (route.noindex) {
+      html = html.replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/i, '');
     }
 
     if (!routeOk) {
@@ -187,17 +208,13 @@ function main() {
     }
 
     // Write to correct file path
-    let outDir;
-    if (route.path === '/') {
-      // Homepage — overwrite the root index.html
-      outDir = DIST;
-    } else {
-      // Subpages — write to dist/{path}/index.html
-      outDir = join(DIST, route.path);
-    }
+    // Vercel cleanUrls serves these files without .html. Unknown paths remain
+    // genuine HTTP 404s and use 404.html, rather than rewriting to the homepage.
+    const outPath = route.path === '/'
+      ? join(DIST, 'index.html')
+      : join(DIST, `${route.path.slice(1)}.html`);
     try {
-      mkdirSync(outDir, { recursive: true });
-      const outPath = join(outDir, 'index.html');
+      mkdirSync(dirname(outPath), { recursive: true });
       writeFileSync(outPath, html, 'utf-8');
       console.log(`  ✓ ${route.path} → ${outPath.replace(DIST, 'dist')}`);
       successCount++;
@@ -234,7 +251,7 @@ Sitemap: ${BASE_URL}/sitemap.xml
   writeFileSync(join(DIST, 'robots.txt'), robots, 'utf-8');
   console.log(`  ✓ robots.txt`);
 
-  console.log(`\n✅ Pre-rendered ${successCount}/${routes.length} routes successfully.\n`);
+  console.log(`\n✅ Pre-rendered ${successCount}/${routes.length + 1} routes (including 404).\n`);
 
   if (failCount > 0) {
     console.error(`\n✗ ${failCount} route(s) failed to pre-render.`);
@@ -242,9 +259,18 @@ Sitemap: ${BASE_URL}/sitemap.xml
   }
 }
 
+let vite;
 try {
-  main();
+  vite = await createServer({
+    root: join(__dirname, '..'),
+    appType: 'custom',
+    server: { middlewareMode: true, watch: null },
+  });
+  const { render } = await vite.ssrLoadModule('/src/entry-server.jsx');
+  await main(render);
 } catch (err) {
   console.error(`\n✗ Pre-render failed: ${err.message}`);
-  process.exit(1);
+  process.exitCode = 1;
+} finally {
+  await vite?.close();
 }

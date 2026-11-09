@@ -37,6 +37,13 @@ describe('SEOHead', () => {
     );
   });
 
+  it('restores indexing when navigating away from a missing page', () => {
+    const { rerender } = render(<SEOHead canonicalPath="/404" noindex />);
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'noindex, follow');
+    rerender(<SEOHead canonicalPath="/projects/splitshare-backend-observability" />);
+    expect(document.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'index, follow');
+  });
+
   it('sets Open Graph meta tags', () => {
     render(
       <SEOHead

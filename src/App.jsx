@@ -1,18 +1,13 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import ErrorBoundary from './components/ErrorBoundary'
 import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
+import { pageRoutes } from './pageRoutes'
 
 // Lazy-load non-home pages
-const SplitSharePage = lazy(() => import('./pages/SplitSharePage'))
-const KubeAutoFixPage = lazy(() => import('./pages/KubeAutoFixPage'))
-const MLflowObservabilityPage = lazy(() => import('./pages/MLflowObservabilityPage'))
-const AirQualityPage = lazy(() => import('./pages/AirQualityPage'))
-const IANPage = lazy(() => import('./pages/IANPage'))
-const CommunityPage = lazy(() => import('./pages/CommunityPage'))
-const SpeakingPage = lazy(() => import('./pages/SpeakingPage'))
-const CredentialsPage = lazy(() => import('./pages/CredentialsPage'))
+const lazyPages = pageRoutes.map(({ path, load }) => ({ path, Component: lazy(load) }))
 
 function PageLoader() {
   return (
@@ -22,22 +17,17 @@ function PageLoader() {
   )
 }
 
-function App() {
+function App({ pages = lazyPages }) {
   return (
     <Layout>
       <ErrorBoundary>
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/projects/splitshare-backend-observability" element={<SplitSharePage />} />
-            <Route path="/projects/kube-autofix-autonomous-kubernetes-sre-agent" element={<KubeAutoFixPage />} />
-            <Route path="/projects/mlflow-agent-observability-databricks" element={<MLflowObservabilityPage />} />
-            <Route path="/projects/transnational-air-quality-ai-agent" element={<AirQualityPage />} />
-            <Route path="/projects/intelligent-accessibility-navigator" element={<IANPage />} />
-            <Route path="/community/bangladesh-ai-cloud-native-developer-community" element={<CommunityPage />} />
-            <Route path="/speaking/ai-cloud-native-workshops" element={<SpeakingPage />} />
-            <Route path="/credentials" element={<CredentialsPage />} />
-            <Route path="*" element={<HomePage />} />
+            {pages.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>

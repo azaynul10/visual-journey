@@ -13,6 +13,7 @@ export default function SEOHead({
   description = 'BRAC University CS student building agentic AI infrastructure, Kubernetes SRE agents, MLflow-observed AI workflows, and large-scale developer communities across Bangladesh.',
   canonicalPath = '/',
   ogImage = '/images/og-image.png',
+  noindex = false,
 }) {
   useEffect(() => {
     document.title = title;
@@ -31,6 +32,7 @@ export default function SEOHead({
     const fullImage = `${BASE_URL}${ogImage}`;
 
     setMeta('name', 'description', description);
+    setMeta('name', 'robots', noindex ? 'noindex, follow' : 'index, follow');
 
     // Canonical
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -54,7 +56,7 @@ export default function SEOHead({
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
     setMeta('name', 'twitter:image', fullImage);
-  }, [title, description, canonicalPath, ogImage]);
+  }, [title, description, canonicalPath, ogImage, noindex]);
 
   return null;
 }

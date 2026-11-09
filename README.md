@@ -21,10 +21,12 @@ A high-performance, SEO-optimized personal portfolio showcasing cloud-native eng
 
 - **Structured Data**: JSON-LD `ProfilePage` + `Person` schema for Google rich results
 - **Meta Tags**: Open Graph (Facebook/LinkedIn), Twitter/X card metadata
-- **Sitemap**: Static `sitemap.xml` with all 7 pages
+- **Sitemap**: Generated from `scripts/seo-routes.mjs`
 - **Robots**: `robots.txt` with sitemap reference
 - **Canonical URLs**: Per-page canonical tags via `SEOHead` component
 - **Multi-Page Architecture**: Dedicated SEO-optimized pages for each project, community chapter, and workshop
+- **Rendered HTML**: The production build renders each React route, including lazy pages, so page content and internal links are available before JavaScript runs.
+- **Missing pages**: Unknown URLs use a noindex 404 page rather than returning the homepage.
 
 ## Featured Projects
 
@@ -54,7 +56,18 @@ npm run build
 
 ## Deployment
 
-This site deploys automatically to **Vercel** on push to `main`. The `vercel.json` includes SPA rewrite rules for client-side routing.
+This site deploys automatically to **Vercel** on push to `main`. The build writes
+`index.html`, route-specific `.html` files, and `404.html`. Vercel's `cleanUrls`
+serves the route files without extensions; there is no catch-all homepage rewrite.
+In-app navigation still uses React Router, and the browser hydrates the rendered HTML.
+
+Recent speaking entries live in `src/components/RecentTalks.jsx`. The optimized
+photos in `public/images/talks/` come from the organizer's real event files:
+`RBB00050.JPG` (GitHub Dev Days, EXIF date 1 October 2026),
+`1793545991393.jpeg` (Notion teaching slide/signage), and
+`presenting_torchtpu-slide.jpg` (TorchTPU presentation). Originals remain outside
+the repo; the web copies are resized/compressed, with the Notion photo's side
+borders cropped. No audience gallery or generated event photo is added.
 
 **Recommended GitHub Topics:**
 `portfolio` `developer-portfolio` `react` `vite` `tailwindcss` `cloud-native` `agentic-ai` `personal-branding`
