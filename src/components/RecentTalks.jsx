@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import SectionHeading from './SectionHeading';
 
 const sessions = [
@@ -83,18 +84,113 @@ const sessions = [
   },
 ];
 
+function scrollToTalk(viewport, index, behavior = 'auto') {
+  const slides = viewport?.querySelectorAll('[data-talk-slide]');
+  const slide = slides?.[index];
+  if (!slide) return;
+  viewport.scrollTo({
+    left: slide.offsetLeft - slides[0].offsetLeft,
+    behavior,
+  });
+}
+
 export default function RecentTalks() {
+  const viewportRef = useRef(null);
+  const activeRef = useRef(0);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    const slides = [...viewport.querySelectorAll('[data-talk-slide]')];
+    const updateActive = () => {
+      const start = slides[0].offsetLeft;
+      let closest = 0;
+      for (let i = 1; i < slides.length; i++) {
+        if (Math.abs(slides[i].offsetLeft - start - viewport.scrollLeft)
+          < Math.abs(slides[closest].offsetLeft - start - viewport.scrollLeft)) closest = i;
+      }
+      activeRef.current = closest;
+      setActive(closest);
+    };
+    const openHash = () => {
+      const index = sessions.findIndex(({ id }) => `#${id}` === window.location.hash);
+      if (index >= 0) scrollToTalk(viewport, index);
+    };
+    const preserveSlide = () => scrollToTalk(viewport, activeRef.current);
+    viewport.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('hashchange', openHash);
+    window.addEventListener('resize', preserveSlide);
+    openHash();
+    return () => {
+      viewport.removeEventListener('scroll', updateActive);
+      window.removeEventListener('hashchange', openHash);
+      window.removeEventListener('resize', preserveSlide);
+    };
+  }, []);
+
+  const goTo = (index) => {
+    const target = Math.max(0, Math.min(sessions.length - 1, index));
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollToTalk(viewportRef.current, target, reduceMotion ? 'auto' : 'smooth');
+  };
+  const handleKeys = (event) => {
+    if (event.target !== event.currentTarget) return;
+    const targets = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: sessions.length - 1 };
+    if (!(event.key in targets)) return;
+    event.preventDefault();
+    goTo(targets[event.key]);
+  };
+
   return (
-    <section className="mb-14" aria-labelledby="recent-talks-heading">
-      <SectionHeading id="recent-talks-heading" bar="bg-[#00e5ff]">
-        Recent talks &amp; workshops
-      </SectionHeading>
-      <p className="text-gray-400 text-sm leading-relaxed mb-6">
+    <section className="mb-14" aria-labelledby="recent-talks-heading" aria-roledescription="carousel">
+      <div className="flex items-center justify-between gap-4 mb-3">
+        <SectionHeading id="recent-talks-heading" bar="bg-[#00e5ff]" className="text-xl font-bold flex items-center gap-3">
+          Recent talks &amp; workshops
+        </SectionHeading>
+        <div className="flex gap-2 shrink-0">
+          <button
+            type="button"
+            aria-label="Previous talk"
+            aria-controls="talks-carousel"
+            onClick={() => goTo(active - 1)}
+            disabled={active === 0}
+            className="w-11 h-11 rounded-full border border-white/20 text-xl hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+          >←</button>
+          <button
+            type="button"
+            aria-label="Next talk"
+            aria-controls="talks-carousel"
+            onClick={() => goTo(active + 1)}
+            disabled={active === sessions.length - 1}
+            className="w-11 h-11 rounded-full border border-white/20 text-xl hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+          >→</button>
+        </div>
+      </div>
+      <p className="text-gray-400 text-sm leading-relaxed mb-2">
         Sessions I presented, with the teaching materials and real event photos.
       </p>
-      <div className="space-y-7">
-        {sessions.map((session) => (
-          <article id={session.id} key={session.id} className="glass-card overflow-hidden scroll-mt-20">
+      <p id="recent-talks-help" className="text-xs text-gray-400 mb-5">
+        Swipe or use the arrows to explore. Keyboard: Left / Right, Home / End.
+      </p>
+      <div
+        id="talks-carousel"
+        ref={viewportRef}
+        role="group"
+        aria-label="Talk slides"
+        aria-describedby="recent-talks-help"
+        tabIndex={0}
+        onKeyDown={handleKeys}
+        className="relative flex items-start gap-6 overflow-x-auto overscroll-x-contain snap-x snap-mandatory rounded-2xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+      >
+        {sessions.map((session, index) => (
+          <article
+            id={session.id}
+            key={session.id}
+            data-talk-slide
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${sessions.length}: ${session.title}`}
+            className="w-full min-w-0 shrink-0 basis-full snap-start rounded-2xl border border-white/10 bg-[#0f0f23]/60 overflow-hidden scroll-mt-20"
+          >
             <div className="grid md:grid-cols-[0.85fr_1.15fr]">
               <figure className="m-0 bg-black/20">
                 <img
@@ -134,6 +230,26 @@ export default function RecentTalks() {
             </div>
           </article>
         ))}
+      </div>
+      <div className="flex flex-wrap items-center justify-between gap-x-4 mt-3">
+        <div className="flex items-center" aria-label="Choose a talk">
+          {sessions.map((session, index) => (
+            <button
+              key={session.id}
+              type="button"
+              aria-label={`Show talk ${index + 1}: ${session.title}`}
+              aria-current={active === index ? 'true' : undefined}
+              aria-controls={session.id}
+              onClick={() => goTo(index)}
+              className="w-11 h-11 flex items-center justify-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+            >
+              <span className={`h-1 rounded-full transition-[width,background-color] motion-reduce:transition-none ${active === index ? 'w-7 bg-cyan-300' : 'w-4 bg-white/25'}`} />
+            </button>
+          ))}
+        </div>
+        <p className="text-xs text-gray-400" role="status" aria-live="polite" aria-atomic="true">
+          {active + 1} / {sessions.length} · {sessions[active].displayDate}
+        </p>
       </div>
     </section>
   );

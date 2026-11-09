@@ -73,6 +73,12 @@ The AIUB Computer Club recap verifies the event date as 13 April 2026:
 https://aiubcc.org/gitai-campusverse/. No audience gallery or generated event
 photo is added.
 
+The recent-talks section uses a horizontal scroll-snap carousel. It supports
+swipe/trackpad scrolling, previous/next buttons, slide selectors, Left/Right and
+Home/End keys when the viewport is focused, and direct talk hash links. There is
+no autoplay or vertical-scroll takeover; reduced-motion preferences disable
+smooth programmatic scrolling. All four talk entries remain in the rendered HTML.
+
 **Recommended GitHub Topics:**
 `portfolio` `developer-portfolio` `react` `vite` `tailwindcss` `cloud-native` `agentic-ai` `personal-branding`
 
