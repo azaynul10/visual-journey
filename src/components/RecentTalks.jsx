@@ -61,6 +61,26 @@ const sessions = [
       ['Event page', 'https://luma.com/p64hf211'],
     ],
   },
+  {
+    id: 'aiub-gitai-campusverse-2026',
+    title: 'Demystifying the CNCF Landscape',
+    event: 'GITAI Campusverse · AIUB Computer Club',
+    date: '2026-04-13',
+    displayDate: '13 April 2026',
+    venue: 'AIUB, D Building Multipurpose Hall',
+    role: 'Speaker',
+    image: '/images/talks/aiub-gitai-campusverse-2026.webp',
+    width: 1600,
+    height: 1067,
+    preserveFrame: true,
+    alt: 'Zaynul presenting Demystifying the CNCF Landscape at GITAI Campusverse, AIUB.',
+    description: 'A beginner-focused introduction to cloud-native architecture: provisioning, runtimes, orchestration, application deployment and observability. I used Kubernetes and Prometheus as starting points for understanding how the landscape fits together.',
+    takeaway: 'My first in-person talk, hosted by AIUB Computer Club. I spoke alongside Md. Al-Amin Talukdar in the opening cloud-architecture session.',
+    resources: [
+      ['Session slides (Canva)', 'https://canva.link/y8hth6e4j4fg697'],
+      ['Organizer recap', 'https://aiubcc.org/gitai-campusverse/'],
+    ],
+  },
 ];
 
 export default function RecentTalks() {
@@ -84,7 +104,7 @@ export default function RecentTalks() {
                   height={session.height}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-auto aspect-[4/3] object-cover"
+                  className={`w-full h-auto aspect-[4/3] ${session.preserveFrame ? 'object-contain' : 'object-cover'}`}
                 />
                 <figcaption className="px-5 py-3 text-xs leading-relaxed text-gray-400">
                   {session.venue} · <time dateTime={session.date}>{session.displayDate}</time>

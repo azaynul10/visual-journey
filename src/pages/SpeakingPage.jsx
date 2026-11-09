@@ -36,8 +36,8 @@ export default function SpeakingPage() {
   return (
     <>
       <SEOHead
-        title="Talks & Workshops: GitHub, Notion & TorchTPU | Zaynul Abedin Miah"
-        description="Talks by Zaynul Abedin Miah at GitHub Dev Days Dhaka and Notion Café Dhaka, with real session photos, teaching slides, a TorchTPU notebook and student resources."
+        title="Talks & Workshops: Cloud Native, AI & Notion | Zaynul Abedin Miah"
+        description="Talks at AIUB GITAI Campusverse, GitHub Dev Days Dhaka and Notion Café Dhaka, with CNCF, Git, Notion and TorchTPU slides, photos and practical resources."
         canonicalPath="/speaking/ai-cloud-native-workshops"
       />
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">

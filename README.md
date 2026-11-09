@@ -67,7 +67,11 @@ photos in `public/images/talks/` come from the organizer's real event files:
 `1793545991393.jpeg` (Notion teaching slide/signage), and
 `presenting_torchtpu-slide.jpg` (TorchTPU presentation). Originals remain outside
 the repo; the web copies are resized/compressed, with the Notion photo's side
-borders cropped. No audience gallery or generated event photo is added.
+borders cropped. The AIUB GITAI Campusverse image comes from `DSC00357 (1).jpg`;
+its full frame, including the organizer's existing photo marks, is retained.
+The AIUB Computer Club recap verifies the event date as 13 April 2026:
+https://aiubcc.org/gitai-campusverse/. No audience gallery or generated event
+photo is added.
 
 **Recommended GitHub Topics:**
 `portfolio` `developer-portfolio` `react` `vite` `tailwindcss` `cloud-native` `agentic-ai` `personal-branding`
