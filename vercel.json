@@ -12,6 +12,9 @@
       ]
     }
   ],
+  "redirects": [
+    { "source": "/speaking", "destination": "/speaking/ai-cloud-native-workshops", "permanent": true }
+  ],
   "cleanUrls": true,
   "trailingSlash": false
 }
