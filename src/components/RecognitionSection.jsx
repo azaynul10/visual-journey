@@ -3,6 +3,16 @@ import Icon from './Icon';
 export default function RecognitionSection() {
   const recognitions = [
     {
+      title: 'PyTorch Foundation Blog — Ambassador Community Highlights',
+      description: 'The October 30 "PyTorch on TPU with TorchTPU" session in Dhaka was featured in the PyTorch Foundation\'s November 2026 Ambassador Community Highlights.',
+      link: 'https://pytorch.org/blog/pytorch-ambassador-community-highlights-november-2026/',
+    },
+    {
+      title: 'Google Developer Experts — AI Community Highlights',
+      description: 'Projects and AI Paper Reading Club Bangladesh sessions featured in the monthly AI Community activity highlights published on the Google Developer Experts blog.',
+      link: 'https://medium.com/google-developer-experts/jun-2025-ai-community-activity-highlights-and-achievements-19298eab8b4d',
+    },
+    {
       title: 'National Press — Cloud Native Days Bangladesh 2026',
       description: 'Featured in New Age national newspaper coverage of Cloud Native Days Bangladesh 2026.',
       link: 'https://epaper.newagebd.net/25-01-2026/16',
